@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bp0rotvupydh6"
+path="res://.godot/imported/Minecraft Slime Sound Effects! - All Slime SFX For Editing! - MaxGamer7.wav-6525878052a8c3ff819f124bb0075f76.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Slime/Idle, loncat, dan terkena hit/Minecraft Slime Sound Effects! - All Slime SFX For Editing! - MaxGamer7.wav"
+dest_files=["res://.godot/imported/Minecraft Slime Sound Effects! - All Slime SFX For Editing! - MaxGamer7.wav-6525878052a8c3ff819f124bb0075f76.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

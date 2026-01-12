@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsccmuoguxl2l"
+path="res://.godot/imported/8-Bit Explosion Sound Effects (Copyright Free) - Creator Assets.mp3-da153f1de0c80acf4c176bb199e6db3b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Slime/Attacked by char/8-Bit Explosion Sound Effects (Copyright Free) - Creator Assets.mp3"
+dest_files=["res://.godot/imported/8-Bit Explosion Sound Effects (Copyright Free) - Creator Assets.mp3-da153f1de0c80acf4c176bb199e6db3b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

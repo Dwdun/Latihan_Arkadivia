@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dkf2cgfxc2quh"
+path="res://.godot/imported/Axe Hit Sound Effect Commercial - Aleksandr Sablin.wav-0280c395066cede0b819b2427b454726.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Executor/Axe/Axe Hit Sound Effect Commercial - Aleksandr Sablin.wav"
+dest_files=["res://.godot/imported/Axe Hit Sound Effect Commercial - Aleksandr Sablin.wav-0280c395066cede0b819b2427b454726.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

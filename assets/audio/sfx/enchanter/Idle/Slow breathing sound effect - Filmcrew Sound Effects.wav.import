@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bduk7e1ws7hsd"
+path="res://.godot/imported/Slow breathing sound effect - Filmcrew Sound Effects.wav-1b808911b3c9226f4d4ab24a92cd09ab.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/enchanter/Idle/Slow breathing sound effect - Filmcrew Sound Effects.wav"
+dest_files=["res://.godot/imported/Slow breathing sound effect - Filmcrew Sound Effects.wav-1b808911b3c9226f4d4ab24a92cd09ab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
