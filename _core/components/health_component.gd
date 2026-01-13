@@ -27,6 +27,8 @@ func damage(amount: int, source_pos: Vector2 = Vector2.ZERO, knockback_force: fl
 	current_health -= amount
 	current_health = clampi(current_health, 0, max_health)
 
+	health_changed.emit(current_health, max_health)
+
 	damaged.emit(amount, source_pos, knockback_force)
 	
 	if current_health <= 0:

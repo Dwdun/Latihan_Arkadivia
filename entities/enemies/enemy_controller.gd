@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var vision_component: VisionComponent = $VisionComponent
+var pickup_scene = preload("res://entities/player/pickup_item.tscn") # Ganti path sesuai simpanan Anda
 
 # Kita cari node BodyHitbox secara aman
 @onready var body_hitbox: HitboxComponent = $Visuals/BodyHitbox
@@ -133,9 +134,35 @@ func _on_damaged(amount: int, source_pos: Vector2, knockback_force: float):
 
 func _on_died():
 	is_dead = true
-	# SAFE PHYSICS REMOVAL (Mencegah Error C++ saat mati)
 	$CollisionShape2D.set_deferred("disabled", true)
 	animation_player.play("Die")
+
+	# --- DROP ITEM LOGIC ---
+	if stats and stats.loot_table.size() > 0:
+		drop_loot()
+
+func drop_loot():
+	for loot in stats.loot_table:
+		var chance = loot.get("chance", 1.0) # Default 100%
+		var roll = randf() # Angka acak 0.0 - 1.0
+
+		if roll <= chance:
+			var item = loot.get("item")
+			var qty = loot.get("amount", 1)
+
+			if item:
+				spawn_pickup(item, qty)
+
+func spawn_pickup(item: ItemData, qty: int):
+	var pickup = pickup_scene.instantiate()
+	# Taruh di posisi musuh
+	pickup.global_position = global_position
+	# Setup data
+	pickup.setup(item, qty)
+
+	# Masukkan ke scene tree (PENTING: Jangan jadi anak musuh, nanti ikut kehapus)
+	# Kita masukkan ke level root (atau parent musuh)
+	get_parent().call_deferred("add_child", pickup)
 
 func _on_animation_finished(anim_name: String):
 	if anim_name == "Die":

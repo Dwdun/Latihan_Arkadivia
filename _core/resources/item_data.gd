@@ -24,6 +24,10 @@ enum Type {
 # Sesuai request 'tidak ada fitur buang', kita anggap ini untuk Loot Table nanti.
 @export var is_droppable: bool = true 
 
+# --- TAMBAHAN BARU ---
+@export_group("Effect")
+@export var effect_amount: int = 0 # Misal: 50 untuk Potion HP, 0 untuk Kunci
+
 # Fungsi helper untuk mengecek tipe
 func is_consumable() -> bool: return type == Type.CONSUMABLE
 func is_key_item() -> bool: return type == Type.KEY_ITEM

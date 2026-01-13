@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://61sv7ybdu8p"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://61sv7ybdu8p"]
 
 [ext_resource type="Script" uid="uid://bniobw5uyc22y" path="res://entities/enemies/resources/enemy_stats.gd" id="1_kq8i8"]
 [ext_resource type="Resource" uid="uid://dvibbpps6n6nv" path="res://entities/enemies/resources/Atk_SlimeLunge.tres" id="1_tyav2"]
+[ext_resource type="Resource" uid="uid://d2f0a4tce0r0q" path="res://items/resources/potion_item.tres" id="2_ag1l7"]
 
 [resource]
 script = ExtResource("1_kq8i8")
-max_health = 1000
+max_health = 10
 attacks = Array[Resource]([ExtResource("1_tyav2")])
+loot_table = Array[Dictionary]([{
+"amount": 1,
+"chance": 1.0,
+"item": ExtResource("2_ag1l7")
+}])
 metadata/_custom_type_script = "uid://bniobw5uyc22y"

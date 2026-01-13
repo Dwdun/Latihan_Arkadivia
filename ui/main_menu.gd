@@ -4,6 +4,8 @@ extends Control
 @export_file("*.tscn") var level_1_path: String
 
 func _ready() -> void:
+	if GlobalUI:
+		GlobalUI.hide_ui()
 	# Sambungkan sinyal tombol secara kode (atau via editor)
 	$CenterContainer/VBoxContainer/BEnchanter.pressed.connect(_on_a_pressed)
 	$CenterContainer/VBoxContainer/BExecutor.pressed.connect(_on_b_pressed)

@@ -67,12 +67,22 @@ func _ready() -> void:
 		# --- BARIS YANG HILANG (FIX) ---
 		# Baris ini mengisi airnya sampai penuh sesuai kapasitas baru!
 		health_component.current_health = stats.max_health 
-		
+	
+	if GlobalUI:
+		GlobalUI.show_ui()
 		# (Opsional) Update UI bar darah jika ada
 		# health_component.health_changed.emit(stats.max_health, stats.max_health)
 	
 	health_component.died.connect(_on_died)
 	health_component.damaged.connect(_on_damaged)
+	
+	# 1. Sambungkan sinyal perubahan darah
+	health_component.health_changed.connect(_on_health_changed)
+	
+	# 2. Update UI pertama kali saat game mulai (agar tidak kosong)
+	# Kita panggil manual sekali biar angkanya muncul
+	_on_health_changed(health_component.current_health, health_component.max_health)
+	
 	_initialize_hsm()
 
 func _physics_process(delta: float) -> void:
@@ -412,3 +422,9 @@ func trigger_skill_cooldown():
 	if temp_active_skill and temp_active_skill.has_method("start_cooldown"):
 		temp_active_skill.start_cooldown()
 		temp_active_skill = null # Reset setelah dipakai
+
+# Callback saat darah berubah (Heal atau Kena Damage)
+func _on_health_changed(current_val: int, max_val: int):
+	# Panggil fungsi di GlobalUI (karena Autoload, bisa langsung dipanggil namanya)
+	if GlobalUI.has_method("update_hp_ui"):
+		GlobalUI.update_hp_ui(current_val, max_val)

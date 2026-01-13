@@ -13,3 +13,8 @@ extends Resource
 @export_group("Arsenal")
 # PENTING: Gunakan Array[Resource] untuk menghindari error validasi Godot
 @export var attacks: Array[Resource] = []
+
+@export_group("Loot Table")
+# Array Dictionary agar bisa set peluang per item
+# Contoh: [{"item": PotionResource, "chance": 0.5, "min": 1, "max": 2}]
+@export var loot_table: Array[Dictionary] = []

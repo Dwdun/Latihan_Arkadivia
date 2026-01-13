@@ -1,10 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkmi1ro8cmdfk"]
+[gd_scene load_steps=3 format=3 uid="uid://bkmi1ro8cmdfk"]
 
 [ext_resource type="PackedScene" uid="uid://ilebuxobul7e" path="res://_core/inventory/inventory_ui.tscn" id="1_a31wk"]
+[ext_resource type="Script" uid="uid://bu5l8uivi1cq7" path="res://ui/global_ui.gd" id="1_d8w1j"]
 
 [node name="GlobalUI" type="CanvasLayer"]
 process_mode = 3
 layer = 10
+script = ExtResource("1_d8w1j")
 
 [node name="InventoryUI" parent="." instance=ExtResource("1_a31wk")]
 focus_mode = 2
+
+[node name="HPLabel" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 70.0
+offset_bottom = 31.0
+text = "100/100"

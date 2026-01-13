@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://47pf3u75h2b2"]
+[gd_scene load_steps=11 format=4 uid="uid://47pf3u75h2b2"]
 
 [ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="1_3dpru"]
 [ext_resource type="Texture2D" uid="uid://ckuga6gmgbos3" path="res://assets/art/ASSETS.png" id="4_wdp1c"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bucmo40l26mit" path="res://entities/interactables/level_door.tscn" id="5_bgktc"]
 [ext_resource type="PackedScene" uid="uid://blk6msajmxq57" path="res://entities/hazards/spikes.tscn" id="5_h3wk1"]
 [ext_resource type="PackedScene" uid="uid://dasb6d1pcjxn7" path="res://dummy/samsak.tscn" id="6_h3wk1"]
+[ext_resource type="PackedScene" uid="uid://d3unbvo0fi14s" path="res://entities/enemies/enemy_slime.tscn" id="7_akjhl"]
 [ext_resource type="PackedScene" uid="uid://1naqlr4rc03u" path="res://entities/hazards/abyss.tscn" id="8_akjhl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4d8a"]
@@ -93,6 +94,9 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Samsak" parent="Chunk1" instance=ExtResource("6_h3wk1")]
 position = Vector2(320, 128)
+
+[node name="EnemySlime" parent="Chunk1" instance=ExtResource("7_akjhl")]
+position = Vector2(152, 152)
 
 [node name="Chunk2" type="Node2D" parent="."]
 position = Vector2(640, 0)
