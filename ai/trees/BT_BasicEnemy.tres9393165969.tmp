@@ -1,0 +1,47 @@
+[gd_resource type="BehaviorTree" load_steps=16 format=3 uid="uid://7twotd2k5ec2"]
+
+[ext_resource type="Script" uid="uid://b8s237twlipwd" path="res://ai/tasks/condition_in_range.gd" id="1_0y7ej"]
+[ext_resource type="Script" uid="uid://b85b8oaxeimmr" path="res://ai/tasks/action_perform_attack.gd" id="2_rptrs"]
+[ext_resource type="Script" uid="uid://4lamsy8os67y" path="res://ai/tasks/action_chase.gd" id="3_rayhd"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_7qhvu"]
+
+[sub_resource type="BTCondition" id="BTCondition_bl8in"]
+script = ExtResource("1_0y7ej")
+
+[sub_resource type="BTAction" id="BTAction_8abte"]
+script = ExtResource("2_rptrs")
+
+[sub_resource type="BTWait" id="BTWait_ylgb7"]
+duration = 0.5
+
+[sub_resource type="BBVariant" id="BBVariant_h5cmd"]
+saved_value = null
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_x4i6u"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_h5cmd")
+
+[sub_resource type="BTAction" id="BTAction_ai54u"]
+script = ExtResource("3_rayhd")
+
+[sub_resource type="BTSequence" id="BTSequence_ox87u"]
+custom_name = "Chase"
+children = [SubResource("BTCheckVar_x4i6u"), SubResource("BTAction_ai54u")]
+
+[sub_resource type="BTSequence" id="BTSequence_junfq"]
+custom_name = "Attack Melee"
+children = [SubResource("BTCondition_bl8in"), SubResource("BTAction_8abte"), SubResource("BTWait_ylgb7"), SubResource("BTSequence_ox87u")]
+
+[sub_resource type="BTWait" id="BTWait_glji7"]
+
+[sub_resource type="BTSequence" id="BTSequence_bobmp"]
+children = [SubResource("BTWait_glji7")]
+
+[sub_resource type="BTSelector" id="BTSelector_4h3cl"]
+children = [SubResource("BTSequence_junfq"), SubResource("BTSequence_bobmp")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_7qhvu")
+root_task = SubResource("BTSelector_4h3cl")

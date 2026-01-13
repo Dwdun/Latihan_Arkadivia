@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb6jthlqrc21s"]
+
+[ext_resource type="PackedScene" uid="uid://hrvvw02q5uq7" path="res://entities/player/enchanter.tscn" id="1_piha8"]
+[ext_resource type="Script" uid="uid://djnmmhs2mo4nn" path="res://_core/components/hurtbox_component.gd" id="2_kbvng"]
+[ext_resource type="Script" uid="uid://cvih4h1ey3wvq" path="res://dummy/dummy_enemy.gd" id="2_lqt7o"]
+[ext_resource type="Script" uid="uid://d0w2qqms5v0id" path="res://_core/components/health_component.gd" id="3_c576j"]
+[ext_resource type="PackedScene" uid="uid://d3unbvo0fi14s" path="res://entities/enemies/enemy_slime.tscn" id="5_vytw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbvng"]
+size = Vector2(411, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c576j"]
+size = Vector2(20, 29)
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(195.5, -4.5)
+shape = SubResource("RectangleShape2D_kbvng")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 400.0
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_lqt7o")
+
+[node name="Hurtbox" type="Area2D" parent="Node2D" node_paths=PackedStringArray("health_component")]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("2_kbvng")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hurtbox"]
+position = Vector2(222, -25)
+shape = SubResource("RectangleShape2D_c576j")
+
+[node name="HealthComponent" type="Node" parent="Node2D"]
+script = ExtResource("3_c576j")
+metadata/_custom_type_script = "uid://d0w2qqms5v0id"
+
+[node name="Player" parent="." instance=ExtResource("1_piha8")]
+position = Vector2(38, -28)
+
+[node name="EnemySlime" parent="." instance=ExtResource("5_vytw3")]
+position = Vector2(339, -19)
+scale = Vector2(0.5, 0.5)

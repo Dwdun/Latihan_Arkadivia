@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://61sv7ybdu8p"]
+
+[ext_resource type="Script" uid="uid://bniobw5uyc22y" path="res://entities/enemies/resources/enemy_stats.gd" id="1_kq8i8"]
+[ext_resource type="Resource" uid="uid://dvibbpps6n6nv" path="res://entities/enemies/resources/Atk_SlimeLunge.tres" id="1_tyav2"]
+
+[resource]
+script = ExtResource("1_kq8i8")
+max_health = 1000
+attacks = Array[Resource]([ExtResource("1_tyav2")])
+metadata/_custom_type_script = "uid://bniobw5uyc22y"

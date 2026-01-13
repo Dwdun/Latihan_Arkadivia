@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=4 uid="uid://47pf3u75h2b2"]
+
+[ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="1_3dpru"]
+[ext_resource type="Texture2D" uid="uid://ckuga6gmgbos3" path="res://assets/art/ASSETS.png" id="4_wdp1c"]
+[ext_resource type="PackedScene" uid="uid://b0h4g1iu3c0tj" path="res://entities/interactables/level_hallway.tscn" id="5_1i6p3"]
+[ext_resource type="PackedScene" uid="uid://bucmo40l26mit" path="res://entities/interactables/level_door.tscn" id="5_bgktc"]
+[ext_resource type="PackedScene" uid="uid://blk6msajmxq57" path="res://entities/hazards/spikes.tscn" id="5_h3wk1"]
+[ext_resource type="PackedScene" uid="uid://dasb6d1pcjxn7" path="res://dummy/samsak.tscn" id="6_h3wk1"]
+[ext_resource type="PackedScene" uid="uid://1naqlr4rc03u" path="res://entities/hazards/abyss.tscn" id="8_akjhl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4d8a"]
+texture = ExtResource("4_wdp1c")
+1:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+1:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+7:7/0 = 0
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:7/0 = 0
+8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:8/0 = 0
+7:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:8/0 = 0
+8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+3:9/0 = 0
+5:9/0 = 0
+7:9/0 = 0
+7:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:9/0 = 0
+8:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:9/0 = 0
+9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:11/0 = 0
+3:11/0 = 0
+5:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rvcct"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_g4d8a")
+
+[node name="LevelCoba" type="Node2D"]
+
+[node name="Chunk1" type="Node2D" parent="."]
+script = ExtResource("1_3dpru")
+size = Vector2(640, 360)
+activation_margin = 249.59
+start_active = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Chunk1"]
+tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAABAAsAAAAHAAcAAAACAAsAAAAHAAcAAAADAAsAAAAHAAcAAAAEAAsAAAAHAAcAAAAFAAsAAAAHAAcAAAAGAAsAAAAHAAcAAAAHAAsAAAAHAAcAAAAIAAsAAAAHAAcAAAAJAAsAAAAHAAcAAAAKAAsAAAAHAAcAAAALAAsAAAAHAAcAAAAMAAsAAAAHAAcAAAANAAsAAAAHAAcAAAAOAAsAAAAHAAcAAAAPAAsAAAAHAAcAAAAQAAsAAAAHAAcAAAARAAsAAAAHAAcAAAARAAoAAAAHAAcAAAASAAoAAAAHAAcAAAATAAoAAAAHAAcAAAAUAAoAAAAHAAcAAAAVAAoAAAAHAAcAAAAWAAoAAAAHAAcAAAAZAAoAAAAHAAcAAAAaAAoAAAAHAAcAAAAbAAoAAAAHAAcAAAAcAAoAAAAHAAcAAAAdAAoAAAAHAAcAAAAeAAoAAAAHAAcAAAAfAAoAAAAHAAcAAAAgAAoAAAAHAAcAAAAhAAoAAAAHAAcAAAAiAAoAAAAHAAcAAAAjAAoAAAAHAAcAAAAkAAoAAAAHAAcAAAAlAAoAAAAHAAcAAAAmAAoAAAAHAAcAAAAnAAoAAAAHAAcAAAAAAAAAAAAIAAgAAAAAAAEAAAAIAAgAAAAAAAIAAAAIAAgAAAAAAAMAAAAIAAgAAAAAAAQAAAAIAAgAAAAAAAUAAAAIAAgAAAAAAAYAAAAIAAgAAAAAAAcAAAAIAAgAAAAAAAgAAAAIAAgAAAAAAAkAAAAIAAgAAAAAAAoAAAAIAAgAAAA=")
+tile_set = SubResource("TileSet_rvcct")
+
+[node name="Abyss" parent="Chunk1" instance=ExtResource("8_akjhl")]
+position = Vector2(368, 184)
+
+[node name="LevelDoor" parent="Chunk1" instance=ExtResource("5_bgktc")]
+position = Vector2(184, 136)
+target_level_path = "uid://bpcwn34ynec7u"
+
+[node name="Spikes" parent="Chunk1" instance=ExtResource("5_h3wk1")]
+position = Vector2(456, 152)
+scale = Vector2(0.2, 0.2)
+
+[node name="Samsak" parent="Chunk1" instance=ExtResource("6_h3wk1")]
+position = Vector2(320, 128)
+
+[node name="Chunk2" type="Node2D" parent="."]
+position = Vector2(640, 0)
+script = ExtResource("1_3dpru")
+size = Vector2(640, 360)
+activation_margin = 250.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Chunk2"]
+tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAABAAsAAAAHAAcAAAACAAsAAAAHAAcAAAADAAsAAAAHAAcAAAAEAAsAAAAHAAcAAAAFAAsAAAAHAAcAAAAGAAsAAAAHAAcAAAAHAAsAAAAHAAcAAAAIAAsAAAAHAAcAAAAJAAsAAAAHAAcAAAAKAAsAAAAHAAcAAAALAAsAAAAHAAcAAAAMAAsAAAAHAAcAAAANAAsAAAAHAAcAAAAOAAsAAAAHAAcAAAAPAAsAAAAHAAcAAAAQAAsAAAAHAAcAAAARAAsAAAAHAAcAAAARAAoAAAAHAAcAAAASAAoAAAAHAAcAAAATAAoAAAAHAAcAAAAUAAoAAAAHAAcAAAAVAAoAAAAHAAcAAAAWAAoAAAAHAAcAAAAZAAoAAAAHAAcAAAAaAAoAAAAHAAcAAAAbAAoAAAAHAAcAAAAcAAoAAAAHAAcAAAAdAAoAAAAHAAcAAAAeAAoAAAAHAAcAAAAfAAoAAAAHAAcAAAAgAAoAAAAHAAcAAAAhAAoAAAAHAAcAAAAiAAoAAAAHAAcAAAAjAAoAAAAHAAcAAAAkAAoAAAAHAAcAAAAlAAoAAAAHAAcAAAAmAAoAAAAHAAcAAAAnAAoAAAAHAAcAAAA=")
+tile_set = SubResource("TileSet_rvcct")
+
+[node name="LevelHallway" parent="." instance=ExtResource("5_1i6p3")]
+position = Vector2(512, 160)
+target_level_path = "uid://bpcwn34ynec7u"
+
+[node name="CollisionShape2D" parent="LevelHallway" index="0"]
+position = Vector2(120, -8)
+
+[node name="SpawnPoint" parent="LevelHallway" index="1"]
+position = Vector2(-16, 0)
+
+[node name="DoorStart" parent="." instance=ExtResource("5_bgktc")]
+position = Vector2(32, 136)
+my_id = "start"
+target_door_id = ""
+
+[node name="Label" type="Label" parent="."]
+offset_left = 88.0
+offset_top = 56.0
+offset_right = 142.0
+offset_bottom = 79.0
+text = "Level 1"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[editable path="LevelHallway"]

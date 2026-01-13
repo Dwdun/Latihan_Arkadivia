@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillDash" load_steps=2 format=3 uid="uid://doj6htuur0nna"]
+
+[ext_resource type="Script" uid="uid://d23lt4pl3oy8l" path="res://entities/player/skills/dash_skill.gd" id="1_0kbau"]
+
+[resource]
+script = ExtResource("1_0kbau")
+dash_speed = 400.0
+cooldown_time = 0.5
+metadata/_custom_type_script = "uid://d23lt4pl3oy8l"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://d2f0a4tce0r0q"]
+
+[ext_resource type="Script" uid="uid://b4vbu6mjcqovh" path="res://_core/resources/item_data.gd" id="1_ajrlb"]
+[ext_resource type="Texture2D" uid="uid://du6guix7fgwf2" path="res://icon.svg" id="1_l7dov"]
+
+[resource]
+script = ExtResource("1_ajrlb")
+name = "Potion HP"
+description = "Dihskripsi"
+icon = ExtResource("1_l7dov")
+type = 0
+metadata/_custom_type_script = "uid://b4vbu6mjcqovh"

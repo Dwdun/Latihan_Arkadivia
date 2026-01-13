@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyAttackMelee" load_steps=2 format=3 uid="uid://dvibbpps6n6nv"]
+
+[ext_resource type="Script" uid="uid://djq05n4y44bpx" path="res://entities/enemies/resources/attacks/enemy_attack_melee.gd" id="1_qemo5"]
+
+[resource]
+script = ExtResource("1_qemo5")
+attack_name = "Lunge"
+cooldown = 1.0
+max_range = 70.0
+metadata/_custom_type_script = "uid://djq05n4y44bpx"

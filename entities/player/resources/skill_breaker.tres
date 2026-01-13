@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BaseSkill" load_steps=2 format=3 uid="uid://cf0g433kwoxg4"]
+
+[ext_resource type="Script" uid="uid://diuomc6oap7nf" path="res://entities/player/skills/base_skill.gd" id="1_yhkoc"]
+
+[resource]
+script = ExtResource("1_yhkoc")
+metadata/_custom_type_script = "uid://diuomc6oap7nf"

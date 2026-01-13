@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillShockwave" load_steps=2 format=3 uid="uid://chx0x8ci54wjy"]
+
+[ext_resource type="Script" uid="uid://d13at6s1lb1qm" path="res://entities/player/skills/skill_shockwave.gd" id="1_t42sr"]
+
+[resource]
+script = ExtResource("1_t42sr")
+animation_name = "Skill1"
+can_charge = true
+metadata/_custom_type_script = "uid://d13at6s1lb1qm"

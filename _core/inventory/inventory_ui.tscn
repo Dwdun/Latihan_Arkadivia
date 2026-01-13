@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ilebuxobul7e"]
+
+[ext_resource type="Script" uid="uid://cyiy7arx4qqg8" path="res://_core/inventory/inventory_ui.gd" id="1_pqha8"]
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pqha8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="ItemGrid" type="GridContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+columns = 3

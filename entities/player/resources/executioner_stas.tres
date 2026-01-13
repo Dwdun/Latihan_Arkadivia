@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://c166n27o7i0fj"]
+
+[ext_resource type="Script" uid="uid://blnibljyye7vk" path="res://entities/player/resources/player_stats.gd" id="1_dsdfm"]
+
+[resource]
+script = ExtResource("1_dsdfm")
+max_health = 200
+wall_jump_force = Vector2(100, -500)
+metadata/_custom_type_script = "uid://blnibljyye7vk"

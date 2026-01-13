@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://pdkj07gm8wb0"]
+
+[ext_resource type="Script" uid="uid://yw1jqhxtn8qg" path="res://_core/singletons/scene_manager.gd" id="1_hrijr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m16rm"]
+font_size = 118
+
+[node name="SceneManager" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_hrijr")
+
+[node name="Fader" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 352.0
+offset_right = 890.0
+offset_bottom = 514.0
+text = "TRANSISI"
+label_settings = SubResource("LabelSettings_m16rm")
