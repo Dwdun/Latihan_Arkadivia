@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da7m40hje6nlq"
-path="res://.godot/imported/bg_layer2_castle.png-ef661ec65aa8ea3ce829585dc031342c.ctex"
+uid="uid://bss6fisf126l7"
+path="res://.godot/imported/bg_layer3_cloud.png-3caf56960343ce839df2fb98717c4dc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/environment/background/meadow/bg_layer2_castle.png"
-dest_files=["res://.godot/imported/bg_layer2_castle.png-ef661ec65aa8ea3ce829585dc031342c.ctex"]
+source_file="res://assets/art/environment/background/meadow/bg_layer3_cloud.png"
+dest_files=["res://.godot/imported/bg_layer3_cloud.png-3caf56960343ce839df2fb98717c4dc9.ctex"]
 
 [params]
 
