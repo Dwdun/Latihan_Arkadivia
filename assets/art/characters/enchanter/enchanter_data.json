@@ -15,7 +15,7 @@
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
     "sourceSize": { "w": 64, "h": 64 },
-    "duration": 100
+    "duration": 200
    },
    {
     "filename": "animate #Idle 2.aseprite",
@@ -24,7 +24,7 @@
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
     "sourceSize": { "w": 64, "h": 64 },
-    "duration": 100
+    "duration": 200
    },
    {
     "filename": "animate #walk 0.aseprite",
@@ -90,7 +90,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 0.aseprite",
+    "filename": "animate #Basic Atk 3.aseprite",
     "frame": { "x": 640, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -99,7 +99,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 1.aseprite",
+    "filename": "animate #Skill atk 0.aseprite",
     "frame": { "x": 704, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -108,7 +108,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 2.aseprite",
+    "filename": "animate #Skill atk 1.aseprite",
     "frame": { "x": 768, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -117,7 +117,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 3.aseprite",
+    "filename": "animate #Skill atk 2.aseprite",
     "frame": { "x": 832, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -126,7 +126,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 4.aseprite",
+    "filename": "animate #Skill atk 3.aseprite",
     "frame": { "x": 896, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -135,7 +135,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 5.aseprite",
+    "filename": "animate #Skill atk 4.aseprite",
     "frame": { "x": 960, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -144,7 +144,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 6.aseprite",
+    "filename": "animate #Skill atk 5.aseprite",
     "frame": { "x": 1024, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -153,7 +153,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Skill atk 7.aseprite",
+    "filename": "animate #Skill atk 6.aseprite",
     "frame": { "x": 1088, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -162,7 +162,7 @@
     "duration": 200
    },
    {
-    "filename": "animate #Jump up.aseprite",
+    "filename": "animate #Skill atk 7.aseprite",
     "frame": { "x": 1152, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -171,13 +171,103 @@
     "duration": 200
    },
    {
-    "filename": "animate #Jump down.aseprite",
+    "filename": "animate #Jump up.aseprite",
     "frame": { "x": 1216, "y": 0, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
     "sourceSize": { "w": 64, "h": 64 },
     "duration": 200
+   },
+   {
+    "filename": "animate #Jump down.aseprite",
+    "frame": { "x": 1280, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 200
+   },
+   {
+    "filename": "animate #kena hit/sekarat 0.aseprite",
+    "frame": { "x": 1344, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "animate #kena hit/sekarat 1.aseprite",
+    "frame": { "x": 1408, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "animate #die 0.aseprite",
+    "frame": { "x": 1472, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 250
+   },
+   {
+    "filename": "animate #die 1.aseprite",
+    "frame": { "x": 1536, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 250
+   },
+   {
+    "filename": "animate #die 2.aseprite",
+    "frame": { "x": 1600, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 250
+   },
+   {
+    "filename": "animate #die 3.aseprite",
+    "frame": { "x": 1664, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 250
+   },
+   {
+    "filename": "animate #die 4.aseprite",
+    "frame": { "x": 1728, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 250
+   },
+   {
+    "filename": "animate #die 5.aseprite",
+    "frame": { "x": 1792, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 250
+   },
+   {
+    "filename": "animate #die 6.aseprite",
+    "frame": { "x": 1856, "y": 0, "w": 64, "h": 64 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 250
    }
  ],
  "meta": {
@@ -185,16 +275,18 @@
   "version": "1.x-dev",
   "image": "enchanter_sheet.png",
   "format": "RGBA8888",
-  "size": { "w": 1280, "h": 64 },
+  "size": { "w": 1920, "h": 64 },
   "scale": "1",
   "frameTags": [
    { "name": "Idle", "from": 0, "to": 2, "direction": "forward", "repeat": "5", "color": "#fe5b59ff" },
    { "name": "walk", "from": 3, "to": 6, "direction": "forward", "repeat": "5", "color": "#f3ce52ff" },
-   { "name": "Basic Atk", "from": 7, "to": 9, "direction": "forward", "repeat": "5", "color": "#6acd5bff" },
+   { "name": "Basic Atk", "from": 7, "to": 10, "direction": "forward", "repeat": "5", "color": "#6acd5bff" },
    { "name": "Skill atk", "from": 11, "to": 18, "direction": "forward", "repeat": "5", "color": "#57b9f2ff" },
    { "name": "set jump", "from": 19, "to": 20, "direction": "forward", "repeat": "5", "color": "#910000ff" },
    { "name": "Jump up", "from": 19, "to": 19, "direction": "forward", "color": "#d186dfff" },
-   { "name": "Jump down", "from": 20, "to": 20, "direction": "forward", "color": "#a5a5a7ff" }
+   { "name": "Jump down", "from": 20, "to": 20, "direction": "forward", "color": "#a5a5a7ff" },
+   { "name": "kena hit/sekarat", "from": 21, "to": 22, "direction": "forward", "repeat": "5", "color": "#000000ff" },
+   { "name": "die", "from": 23, "to": 29, "direction": "forward", "repeat": "5", "color": "#9f0000ff" }
   ],
   "layers": [
    { "name": "Layer 1", "opacity": 255, "blendMode": "normal" },
@@ -207,3 +299,4 @@
   ]
  }
 }
+ 
