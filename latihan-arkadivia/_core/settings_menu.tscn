@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh1fydc6wgc7h"]
+
+[ext_resource type="Script" uid="uid://twhjtkbajy35" path="res://_core/settings_menu.gd" id="1_4pboh"]
+[ext_resource type="Texture2D" uid="uid://rl5ocb048vpy" path="res://assets/art/ui/settings.png" id="2_rc1gh"]
+[ext_resource type="Theme" uid="uid://d283xrenunqfi" path="res://styles/default.tres" id="3_rk63n"]
+[ext_resource type="Script" uid="uid://ba8ouo4g7m55y" path="res://_core/volume_master_slider.gd" id="4_gq544"]
+[ext_resource type="Script" uid="uid://bgqldu7cul2pg" path="res://_core/volume_music_slider.gd" id="5_8nfon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dd8lr"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4pboh")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dd8lr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_rc1gh")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.5
+offset_top = 40.0
+offset_right = 360.5
+offset_bottom = 70.0
+grow_horizontal = 2
+theme = ExtResource("3_rk63n")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 0
+offset_left = 165.09485
+offset_top = 105.0
+offset_right = 886.90515
+offset_bottom = 481.0
+
+[node name="VolumeMasterLabel" type="Label" parent="MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_rk63n")
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="VolumeMasterSlider" type="HSlider" parent="MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+ticks_position = 2
+script = ExtResource("4_gq544")
+
+[node name="VolumeMusicLabel" type="Label" parent="MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_rk63n")
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="VolumeMusicSlider" type="HSlider" parent="MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("5_8nfon")
+
+[node name="LanguageLabel" type="Label" parent="MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_rk63n")
+text = "Language"
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+selected = 0
+item_count = 3
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Bahasa Indonesia"
+popup/item_1/id = 1
+popup/item_2/text = "Melayu"
+popup/item_2/id = 2
+
+[node name="TextureButton" type="Button" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 132.0
+offset_right = 66.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "back"
+
+[connection signal="pressed" from="MarginContainer/Control/TextureButton" to="." method="_on_texture_button_pressed"]

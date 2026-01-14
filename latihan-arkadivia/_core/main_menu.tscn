@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=3 uid="uid://5er1catr3my6"]
+
+[ext_resource type="Script" uid="uid://ciofgqiedk875" path="res://_core/main_menu.gd" id="1_ngqpp"]
+[ext_resource type="Theme" uid="uid://d283xrenunqfi" path="res://styles/default.tres" id="2_pjt2p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ykhv"]
+bg_color = Color(0.31623676, 0.28726143, 0.2549789, 1)
+
+[sub_resource type="GDScript" id="GDScript_m72vp"]
+script/source = "extends Button
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ngqpp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ykhv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Container" type="Control" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -80.5
+offset_right = 194.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="NewGameButton" type="Button" parent="Panel/MarginContainer/Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_pjt2p")
+theme_type_variation = &"FlatButton"
+text = "New Game"
+
+[node name="ResumeButton" type="Button" parent="Panel/MarginContainer/Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_pjt2p")
+theme_type_variation = &"FlatButton"
+text = "Resume
+"
+
+[node name="SettingsButton" type="Button" parent="Panel/MarginContainer/Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_pjt2p")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Panel/MarginContainer/Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_pjt2p")
+text = "Quit"
+
+[node name="CreditButton" type="Button" parent="Panel/MarginContainer/Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 145.0
+grow_vertical = 0
+theme = ExtResource("2_pjt2p")
+text = "Credit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Container"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MuteMasterButton" type="Button" parent="Panel/MarginContainer/Container/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "mute"
+script = SubResource("GDScript_m72vp")
+
+[node name="MuteMusicButton" type="Button" parent="Panel/MarginContainer/Container/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "mute
+"
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/Container"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -233.0
+offset_top = 82.0
+offset_right = 233.0
+offset_bottom = 151.0
+grow_horizontal = 2
+text = "I Release It 5 Times a Day"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/ResumeButton" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Container/CreditButton" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Container/HBoxContainer/MuteMasterButton" to="." method="_on_mute_master_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Container/HBoxContainer/MuteMasterButton" to="." method="_on_mute_master_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Container/HBoxContainer/MuteMusicButton" to="." method="_on_mute_music_pressed"]
