@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgho6ek7wfwk1"
+path="res://.godot/imported/Man Hit Or Drowning With Pain Sound Effect - Free Download & No Copyright - Sound Effects - No Copyright & Free Download.wav-911f3f539482422d7e777caa1d993b9b.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Executor/Hit and Die/Man Hit Or Drowning With Pain Sound Effect - Free Download & No Copyright - Sound Effects - No Copyright & Free Download.wav"
+dest_files=["res://.godot/imported/Man Hit Or Drowning With Pain Sound Effect - Free Download & No Copyright - Sound Effects - No Copyright & Free Download.wav-911f3f539482422d7e777caa1d993b9b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

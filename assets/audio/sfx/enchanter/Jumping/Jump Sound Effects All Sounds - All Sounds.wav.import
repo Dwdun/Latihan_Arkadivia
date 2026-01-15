@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbvvwo0dmghkl"
+path="res://.godot/imported/Jump Sound Effects All Sounds - All Sounds.wav-c04216f68b3dcebe734f4335c468432c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/enchanter/Jumping/Jump Sound Effects All Sounds - All Sounds.wav"
+dest_files=["res://.godot/imported/Jump Sound Effects All Sounds - All Sounds.wav-c04216f68b3dcebe734f4335c468432c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

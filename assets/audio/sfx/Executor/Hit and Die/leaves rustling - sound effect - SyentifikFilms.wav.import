@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btahg5s5klbn5"
+path="res://.godot/imported/leaves rustling - sound effect - SyentifikFilms.wav-ba3865dab10e884de055a5e224fbd8e4.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Executor/Hit and Die/leaves rustling - sound effect - SyentifikFilms.wav"
+dest_files=["res://.godot/imported/leaves rustling - sound effect - SyentifikFilms.wav-ba3865dab10e884de055a5e224fbd8e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
