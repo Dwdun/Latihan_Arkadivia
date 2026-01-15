@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lkgckm575cqh"
+path="res://.godot/imported/Laser Cannon Sound - Lux Aeterna Audio.wav-b3a9dc7cb4ded574024149275d432afd.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Attack Meele/Laser Cannon Sound - Lux Aeterna Audio.wav"
+dest_files=["res://.godot/imported/Laser Cannon Sound - Lux Aeterna Audio.wav-b3a9dc7cb4ded574024149275d432afd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

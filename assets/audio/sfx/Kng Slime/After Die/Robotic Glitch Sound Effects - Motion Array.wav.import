@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dr3my2hacovl0"
+path="res://.godot/imported/Robotic Glitch Sound Effects - Motion Array.wav-af2909e9bf11d5a453b87da1763e66d9.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/After Die/Robotic Glitch Sound Effects - Motion Array.wav"
+dest_files=["res://.godot/imported/Robotic Glitch Sound Effects - Motion Array.wav-af2909e9bf11d5a453b87da1763e66d9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1mbyfqtmwwhg"
+path="res://.godot/imported/Robot Walking Sound Effect - SoundEffectsArchive.wav-ad46b8011ba7158d230b84cf9d42ffab.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Attack Range/Robot Walking Sound Effect - SoundEffectsArchive.wav"
+dest_files=["res://.godot/imported/Robot Walking Sound Effect - SoundEffectsArchive.wav-ad46b8011ba7158d230b84cf9d42ffab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

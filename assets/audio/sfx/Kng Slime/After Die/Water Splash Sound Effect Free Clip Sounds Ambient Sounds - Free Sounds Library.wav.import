@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rulrlu2rba80"
+path="res://.godot/imported/Water Splash Sound Effect Free Clip Sounds Ambient Sounds - Free Sounds Library.wav-b8df642dc9085e031cd271da03cf66aa.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/After Die/Water Splash Sound Effect Free Clip Sounds Ambient Sounds - Free Sounds Library.wav"
+dest_files=["res://.godot/imported/Water Splash Sound Effect Free Clip Sounds Ambient Sounds - Free Sounds Library.wav-b8df642dc9085e031cd271da03cf66aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
