@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnwriqwko6dej"
+path="res://.godot/imported/20 FREE CINEMATIC WHOOSH Sound Effects (No Copyright) - The Bhavya Shah.wav-85854f1ec8f5f429e471e7a177d62e7d.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Attack Range/20 FREE CINEMATIC WHOOSH Sound Effects (No Copyright) - The Bhavya Shah.wav"
+dest_files=["res://.godot/imported/20 FREE CINEMATIC WHOOSH Sound Effects (No Copyright) - The Bhavya Shah.wav-85854f1ec8f5f429e471e7a177d62e7d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
