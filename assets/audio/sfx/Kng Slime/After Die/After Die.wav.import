@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwo712kv5gkt7"
+path="res://.godot/imported/After Die.wav-0c025601cfe358ecf802c0057bd2949d.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/After Die/After Die.wav"
+dest_files=["res://.godot/imported/After Die.wav-0c025601cfe358ecf802c0057bd2949d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

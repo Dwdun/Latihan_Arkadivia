@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgq861rn517i5"
+path="res://.godot/imported/Water Splash Sound Effects - Sound Effect Showcase.wav-9edf1866080a0964797957a4f325b09a.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Attack Range/Water Splash Sound Effects - Sound Effect Showcase.wav"
+dest_files=["res://.godot/imported/Water Splash Sound Effects - Sound Effect Showcase.wav-9edf1866080a0964797957a4f325b09a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

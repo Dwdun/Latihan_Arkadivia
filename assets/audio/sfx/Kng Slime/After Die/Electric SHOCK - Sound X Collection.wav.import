@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://sk7pqxenlqwd"
+path="res://.godot/imported/Electric SHOCK - Sound X Collection.wav-a0e0e18b7b771671a0031dbe4df8a374.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/After Die/Electric SHOCK - Sound X Collection.wav"
+dest_files=["res://.godot/imported/Electric SHOCK - Sound X Collection.wav-a0e0e18b7b771671a0031dbe4df8a374.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

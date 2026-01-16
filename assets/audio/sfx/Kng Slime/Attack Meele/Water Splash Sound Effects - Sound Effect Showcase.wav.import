@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdqfmxgtqfj2u"
+path="res://.godot/imported/Water Splash Sound Effects - Sound Effect Showcase.wav-8fa3af7de33ecbef9a7480281616d002.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Attack Meele/Water Splash Sound Effects - Sound Effect Showcase.wav"
+dest_files=["res://.godot/imported/Water Splash Sound Effects - Sound Effect Showcase.wav-8fa3af7de33ecbef9a7480281616d002.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

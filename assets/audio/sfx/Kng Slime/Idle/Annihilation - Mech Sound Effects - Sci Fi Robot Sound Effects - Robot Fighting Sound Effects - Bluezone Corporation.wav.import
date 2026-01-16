@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf4gvolrar75m"
+path="res://.godot/imported/Annihilation - Mech Sound Effects - Sci Fi Robot Sound Effects - Robot Fighting Sound Effects - Bluezone Corporation.wav-8d39a5cdde6a48f4187d2a66b17b7162.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Idle/Annihilation - Mech Sound Effects - Sci Fi Robot Sound Effects - Robot Fighting Sound Effects - Bluezone Corporation.wav"
+dest_files=["res://.godot/imported/Annihilation - Mech Sound Effects - Sci Fi Robot Sound Effects - Robot Fighting Sound Effects - Bluezone Corporation.wav-8d39a5cdde6a48f4187d2a66b17b7162.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
