@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d13uqvhw4ajbt"
+path="res://.godot/imported/Laser Cannon Sound - Lux Aeterna Audio.wav.wav-edc81473bb5f9acba543c2a4e118433d.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Before set Henshin/Laser Cannon Sound - Lux Aeterna Audio.wav.wav"
+dest_files=["res://.godot/imported/Laser Cannon Sound - Lux Aeterna Audio.wav.wav-edc81473bb5f9acba543c2a4e118433d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

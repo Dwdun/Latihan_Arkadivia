@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhd46tfrtdijo"
+path="res://.godot/imported/Ripping Paper HQ Sound Effects - Everyday Cinematic Sounds.wav.wav-cdaad607a64213deb6866d4031168383.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Before set Henshin/Ripping Paper HQ Sound Effects - Everyday Cinematic Sounds.wav.wav"
+dest_files=["res://.godot/imported/Ripping Paper HQ Sound Effects - Everyday Cinematic Sounds.wav.wav-cdaad607a64213deb6866d4031168383.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
