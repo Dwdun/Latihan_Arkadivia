@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bejuyan8clg4j"]
+[gd_scene load_steps=32 format=3 uid="uid://bejuyan8clg4j"]
 
 [ext_resource type="Script" uid="uid://cqvdx4apx3cy4" path="res://entities/player/player_controller.gd" id="1_84q31"]
 [ext_resource type="Resource" uid="uid://c166n27o7i0fj" path="res://entities/player/resources/executioner_stas.tres" id="2_84q31"]
@@ -6,10 +6,14 @@
 [ext_resource type="Script" uid="uid://diuomc6oap7nf" path="res://entities/player/skills/base_skill.gd" id="3_01eya"]
 [ext_resource type="Resource" uid="uid://doj6htuur0nna" path="res://entities/player/resources/dash_normal.tres" id="4_hfn82"]
 [ext_resource type="Resource" uid="uid://chx0x8ci54wjy" path="res://entities/player/resources/skill_shockwave.tres" id="5_rbetp"]
+[ext_resource type="AudioStream" uid="uid://vytc0jow5gx0" path="res://assets/audio/sfx/Executor/Axe/Axe Swing Sound Effect - Sound Effects LK.wav" id="6_hfn82"]
 [ext_resource type="Script" uid="uid://br45cvuoo0pct" path="res://entities/player/camera_shaker.gd" id="6_pcn5s"]
 [ext_resource type="Script" uid="uid://ckrpe3l817hqa" path="res://_core/components/hitbox_component.gd" id="7_h8ywq"]
+[ext_resource type="AudioStream" uid="uid://cf1osv0f7saln" path="res://assets/audio/sfx/Executor/Axe/Top 5 Sword Sound effects Copyright free - Foley Sound Effects.wav" id="7_rbetp"]
+[ext_resource type="AudioStream" uid="uid://cn484ado7q7p4" path="res://assets/audio/sfx/Executor/Axe/Warframe - Kullervo Abilities - Visuals & Sounds - Ultraclocked.wav" id="8_pcn5s"]
 [ext_resource type="Texture2D" uid="uid://dye2kh1ewbp4c" path="res://assets/art/vfx executor basic.png" id="9_84q31"]
 [ext_resource type="Texture2D" uid="uid://bmfpmpalwjj0x" path="res://assets/art/vfx executor skill.png" id="9_k3l4k"]
+[ext_resource type="AudioStream" uid="uid://dsjk354jrhumr" path="res://assets/audio/sfx/Executor/Axe/Warframe - Oraxia Abilities - Visuals & Sounds - Ultraclocked.wav" id="9_rbetp"]
 [ext_resource type="Script" uid="uid://djnmmhs2mo4nn" path="res://_core/components/hurtbox_component.gd" id="11_mbpys"]
 [ext_resource type="Script" uid="uid://d0w2qqms5v0id" path="res://_core/components/health_component.gd" id="12_sa72v"]
 
@@ -68,6 +72,36 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("SFXPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 2.1606,
+"start_offset": 1.9764,
+"stream": ExtResource("6_hfn82")
+}],
+"times": PackedFloat32Array(0.13333334)
+}
+tracks/4/use_blend = true
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFXPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 3.5084,
+"start_offset": 2.3716,
+"stream": ExtResource("7_rbetp")
+}],
+"times": PackedFloat32Array(0.13333334)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_qiwj3"]
 resource_name = "Dash"
@@ -107,7 +141,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_sglur"]
 resource_name = "Idle"
-length = 0.4
+length = 0.8
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -117,7 +151,7 @@ tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -298,6 +332,51 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFXPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 7.3,
+"stream": ExtResource("8_pcn5s")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/4/use_blend = true
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("SFXPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 37.0,
+"stream": ExtResource("9_rbetp")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/5/use_blend = true
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFXPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 2.37,
+"stream": ExtResource("7_rbetp")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a1qjk"]
 _data = {
@@ -320,6 +399,17 @@ size = Vector2(80, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
 size = Vector2(12, 29.5)
 
+[sub_resource type="Gradient" id="Gradient_rbetp"]
+colors = PackedColorArray(0.9884133, 0.69657815, 0.49945742, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pcn5s"]
+gradient = SubResource("Gradient_rbetp")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.50934577, 0.4813084)
+fill_to = Vector2(0.50934577, 0)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, 1)
 collision_layer = 2
@@ -341,7 +431,10 @@ libraries = {
 speed_scale = 0.7
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(2.5, 2.5)
+limit_left = 16
+limit_top = 0
+limit_bottom = 256
 position_smoothing_enabled = true
 script = ExtResource("6_pcn5s")
 
@@ -403,3 +496,8 @@ script = ExtResource("12_sa72v")
 max_health = 5
 has_iframes = true
 iframe_duration = 1.0
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_pcn5s")

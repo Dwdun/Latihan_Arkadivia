@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcdeiw6keotyd"]
+
+[ext_resource type="Script" uid="uid://dj0ghjcbecsix" path="res://entities/enemies/bosses/boss_gate.gd" id="1_r2vxc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ga6at"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2vxc"]
+size = Vector2(65, 175)
+
+[sub_resource type="Animation" id="Animation_r2vxc"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, -256), Vector2(8, -128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5lwwy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-64, -256)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5lwwy"]
+_data = {
+&"Close": SubResource("Animation_r2vxc"),
+&"RESET": SubResource("Animation_5lwwy")
+}
+
+[node name="BossGate" type="StaticBody2D"]
+position = Vector2(-64, -256)
+script = ExtResource("1_r2vxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(280, 216)
+scale = Vector2(64.000015, 176.5)
+texture = SubResource("PlaceholderTexture2D_ga6at")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(279.5, 216)
+shape = SubResource("RectangleShape2D_r2vxc")
+disabled = true
+debug_color = Color(0.82843304, 0.3329407, 0.022032911, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5lwwy")
+}

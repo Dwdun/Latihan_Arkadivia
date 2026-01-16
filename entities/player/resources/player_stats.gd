@@ -15,6 +15,7 @@ extends Resource
 
 @export_group("Combat")
 @export var max_health: int = 100
+@export var max_mana: int = 12
 @export var base_damage: int = 10
 
 # ... variabel combat lama ...

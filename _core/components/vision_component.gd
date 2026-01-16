@@ -37,7 +37,7 @@ func _draw():
 				color = Color.GREEN
 			
 			draw_circle(Vector2.ZERO, 5.0, color) 
-			draw_line(Vector2.ZERO, to_local(player.global_position), color, 1.0)
+			draw_line(Vector2.ZERO, to_local(player.global_position + Vector2(0, -30.0)), color, 1.0)
 			
 func can_see_player() -> bool:
 	if not is_instance_valid(player):
@@ -51,9 +51,11 @@ func can_see_player() -> bool:
 	# 2. CEK LINE OF SIGHT
 	var space_state = get_world_2d().direct_space_state
 	
+	var target_pos = player.global_position + Vector2(0, -30.0)
+	
 	var query = PhysicsRayQueryParameters2D.create(
 		global_position, 
-		player.global_position, 
+		target_pos, 
 		vision_mask
 	)
 	

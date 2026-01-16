@@ -9,6 +9,8 @@ var item_test2 = load("res://items/resources/key.tres") #
 
 var current_character_scene: PackedScene
 
+var is_cutscene: bool = false
+
 func _ready() -> void:
 	# Cheat isi tasPastikan path benar
 	if item_test:
@@ -53,3 +55,24 @@ func respawn_player():
 	# Kita minta SceneManager memuat ulang level ini DAN menaruh player di titik "start"
 	# Parameter: (Path Level, ID Pintu Default)
 	SceneManager.change_scene(current_level_path, "start")
+
+# Di game_manager.gd
+
+func set_cutscene_mode(active: bool):
+	is_cutscene = active
+	
+	if active:
+		if GlobalUI: GlobalUI.hide_ui()
+		# Matikan kontrol player (Opsional: Bisa lewat Group)
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			player.set_physics_process(false) # Bekukan gerakan
+			player.velocity = Vector2.ZERO # Stop momentum
+			if player.has_node("AnimationPlayer"):
+				player.get_node("AnimationPlayer").play("Idle") # Paksa Idle
+	else:
+		if GlobalUI: GlobalUI.show_ui()
+		# Nyalakan kontrol player lagi
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			player.set_physics_process(true)

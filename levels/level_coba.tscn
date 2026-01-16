@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://47pf3u75h2b2"]
+[gd_scene load_steps=19 format=4 uid="uid://47pf3u75h2b2"]
 
 [ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="1_3dpru"]
+[ext_resource type="Script" uid="uid://he32cs2w6eij" path="res://ui/parallax_2d_3.gd" id="3_pdqpv"]
 [ext_resource type="Texture2D" uid="uid://ckuga6gmgbos3" path="res://assets/art/ASSETS.png" id="4_wdp1c"]
 [ext_resource type="PackedScene" uid="uid://b0h4g1iu3c0tj" path="res://entities/interactables/level_hallway.tscn" id="5_1i6p3"]
 [ext_resource type="PackedScene" uid="uid://bucmo40l26mit" path="res://entities/interactables/level_door.tscn" id="5_bgktc"]
@@ -8,6 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dasb6d1pcjxn7" path="res://dummy/samsak.tscn" id="6_h3wk1"]
 [ext_resource type="PackedScene" uid="uid://d3unbvo0fi14s" path="res://entities/enemies/enemy_slime.tscn" id="7_akjhl"]
 [ext_resource type="PackedScene" uid="uid://1naqlr4rc03u" path="res://entities/hazards/abyss.tscn" id="8_akjhl"]
+[ext_resource type="PackedScene" uid="uid://6s2lvoo4twy3" path="res://items/GoldCoin.tscn" id="8_ey2k3"]
+[ext_resource type="PackedScene" uid="uid://deh6p1b8d7g2v" path="res://entities/NPCs/supa.tscn" id="9_gu4v5"]
+[ext_resource type="Resource" uid="uid://cwn6cigtfyyq1" path="res://systems/shop/resources/shop_place_1.tres" id="10_rxgb1"]
+[ext_resource type="Texture2D" uid="uid://jw8ndpl1n1uo" path="res://assets/art/environment/background/meadow/bg_layer1_skyes.png" id="11_rxgb1"]
+[ext_resource type="Texture2D" uid="uid://cg01qeiurfna1" path="res://assets/art/environment/background/meadow/bg_layer2_mountain.png" id="13_i7fb7"]
+[ext_resource type="Texture2D" uid="uid://bss6fisf126l7" path="res://assets/art/environment/background/meadow/bg_layer3_cloud.png" id="14_pdqpv"]
+[ext_resource type="Texture2D" uid="uid://3bu7ksgkagky" path="res://assets/art/environment/background/meadow/bg_layer4_castle.png" id="15_mrkr4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4d8a"]
 texture = ExtResource("4_wdp1c")
@@ -71,6 +79,50 @@ sources/0 = SubResource("TileSetAtlasSource_g4d8a")
 
 [node name="LevelCoba" type="Node2D"]
 
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -10
+position = Vector2(176, 155)
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D"]
+scroll_scale = Vector2(0.1, 1)
+scroll_offset = Vector2(0, -64)
+repeat_size = Vector2(320, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D"]
+position = Vector2(320, -2)
+texture = ExtResource("11_rxgb1")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Node2D"]
+scroll_scale = Vector2(0.3, 1)
+scroll_offset = Vector2(0, -64)
+repeat_size = Vector2(320, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2"]
+position = Vector2(320, -2)
+texture = ExtResource("13_i7fb7")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Node2D"]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, -64)
+repeat_size = Vector2(320, 0)
+repeat_times = 3
+script = ExtResource("3_pdqpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3"]
+position = Vector2(320, -2)
+texture = ExtResource("14_pdqpv")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Node2D"]
+scroll_offset = Vector2(0, -64)
+repeat_size = Vector2(320, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4"]
+position = Vector2(320, -2)
+texture = ExtResource("15_mrkr4")
+
 [node name="Chunk1" type="Node2D" parent="."]
 script = ExtResource("1_3dpru")
 size = Vector2(640, 360)
@@ -78,25 +130,34 @@ activation_margin = 249.59
 start_active = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Chunk1"]
-tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAABAAsAAAAHAAcAAAACAAsAAAAHAAcAAAADAAsAAAAHAAcAAAAEAAsAAAAHAAcAAAAFAAsAAAAHAAcAAAAGAAsAAAAHAAcAAAAHAAsAAAAHAAcAAAAIAAsAAAAHAAcAAAAJAAsAAAAHAAcAAAAKAAsAAAAHAAcAAAALAAsAAAAHAAcAAAAMAAsAAAAHAAcAAAANAAsAAAAHAAcAAAAOAAsAAAAHAAcAAAAPAAsAAAAHAAcAAAAQAAsAAAAHAAcAAAARAAsAAAAHAAcAAAARAAoAAAAHAAcAAAASAAoAAAAHAAcAAAATAAoAAAAHAAcAAAAUAAoAAAAHAAcAAAAVAAoAAAAHAAcAAAAWAAoAAAAHAAcAAAAZAAoAAAAHAAcAAAAaAAoAAAAHAAcAAAAbAAoAAAAHAAcAAAAcAAoAAAAHAAcAAAAdAAoAAAAHAAcAAAAeAAoAAAAHAAcAAAAfAAoAAAAHAAcAAAAgAAoAAAAHAAcAAAAhAAoAAAAHAAcAAAAiAAoAAAAHAAcAAAAjAAoAAAAHAAcAAAAkAAoAAAAHAAcAAAAlAAoAAAAHAAcAAAAmAAoAAAAHAAcAAAAnAAoAAAAHAAcAAAAAAAAAAAAIAAgAAAAAAAEAAAAIAAgAAAAAAAIAAAAIAAgAAAAAAAMAAAAIAAgAAAAAAAQAAAAIAAgAAAAAAAUAAAAIAAgAAAAAAAYAAAAIAAgAAAAAAAcAAAAIAAgAAAAAAAgAAAAIAAgAAAAAAAkAAAAIAAgAAAAAAAoAAAAIAAgAAAA=")
+tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAAGAAsAAAAIAAcAAAAHAAsAAAAIAAcAAAAIAAsAAAAIAAcAAAAJAAsAAAAIAAcAAAAKAAsAAAAIAAcAAAALAAsAAAAIAAcAAAAMAAsAAAAIAAcAAAANAAsAAAAIAAcAAAAOAAsAAAAIAAcAAAAPAAsAAAAIAAcAAAAQAAsAAAAIAAcAAAARAAsAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAEAAAAIAAgAAAAAAAIAAAAIAAgAAAAAAAMAAAAIAAgAAAAAAAQAAAAIAAgAAAAAAAUAAAAIAAgAAAAAAAYAAAAIAAgAAAAAAAcAAAAIAAgAAAAAAAgAAAAIAAgAAAAAAAkAAAAIAAgAAAAAAAoAAAAIAAgAAAABAAsAAAAIAAcAAAACAAsAAAAIAAcAAAADAAsAAAAIAAcAAAAEAAsAAAAIAAcAAAAFAAsAAAAIAAcAAAASAAsAAAAIAAcAAAATAAsAAAAIAAcAAAAUAAsAAAAIAAcAAAAVAAsAAAAIAAcAAAAWAAsAAAAIAAcAAAAXAAsAAAAIAAcAAAAYAAsAAAAIAAcAAAAZAAsAAAAIAAcAAAAaAAsAAAAIAAcAAAAbAAsAAAAIAAcAAAAcAAsAAAAIAAcAAAAdAAsAAAAJAAcAAAAdAAwAAAAJAAgAAAAdAA0AAAAJAAgAAAAgAAkAAAAIAAcAAAAgAAoAAAAIAAgAAAAgAAsAAAAIAAgAAAAgAAwAAAAIAAgAAAAjAAsAAAAHAAcAAAAjAAwAAAAHAAgAAAAjAA0AAAAHAAgAAAAkAAsAAAAIAAcAAAAlAAsAAAAIAAcAAAAmAAsAAAAIAAcAAAAnAAsAAAAIAAcAAAA=")
 tile_set = SubResource("TileSet_rvcct")
 
 [node name="Abyss" parent="Chunk1" instance=ExtResource("8_akjhl")]
-position = Vector2(368, 184)
+position = Vector2(488, 224)
+scale = Vector2(2, 2)
 
 [node name="LevelDoor" parent="Chunk1" instance=ExtResource("5_bgktc")]
-position = Vector2(184, 136)
+position = Vector2(-288, 224)
 target_level_path = "uid://bpcwn34ynec7u"
 
 [node name="Spikes" parent="Chunk1" instance=ExtResource("5_h3wk1")]
-position = Vector2(456, 152)
+position = Vector2(496, -71.999985)
 scale = Vector2(0.2, 0.2)
 
 [node name="Samsak" parent="Chunk1" instance=ExtResource("6_h3wk1")]
-position = Vector2(320, 128)
+position = Vector2(-80, -144)
 
 [node name="EnemySlime" parent="Chunk1" instance=ExtResource("7_akjhl")]
-position = Vector2(152, 152)
+position = Vector2(-96, 224)
+
+[node name="GoldCoin" parent="Chunk1" instance=ExtResource("8_ey2k3")]
+position = Vector2(-47.999996, 328)
+scale = Vector2(11, 11)
+
+[node name="Supa" parent="Chunk1" instance=ExtResource("9_gu4v5")]
+position = Vector2(-136, 160)
+shop_data = ExtResource("10_rxgb1")
 
 [node name="Chunk2" type="Node2D" parent="."]
 position = Vector2(640, 0)
@@ -109,7 +170,7 @@ tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAABAAsAAAAHAAcAAAACAAsAAAAHAAc
 tile_set = SubResource("TileSet_rvcct")
 
 [node name="LevelHallway" parent="." instance=ExtResource("5_1i6p3")]
-position = Vector2(512, 160)
+position = Vector2(688, -88)
 target_level_path = "uid://bpcwn34ynec7u"
 
 [node name="CollisionShape2D" parent="LevelHallway" index="0"]
@@ -119,17 +180,24 @@ position = Vector2(120, -8)
 position = Vector2(-16, 0)
 
 [node name="DoorStart" parent="." instance=ExtResource("5_bgktc")]
-position = Vector2(32, 136)
+position = Vector2(40, 120)
 my_id = "start"
 target_door_id = ""
 
 [node name="Label" type="Label" parent="."]
-offset_left = 88.0
+offset_left = -120.0
 offset_top = 56.0
-offset_right = 142.0
+offset_right = -66.0
 offset_bottom = 79.0
 text = "Level 1"
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Malam" type="CanvasModulate" parent="."]
+color = Color(0.3882353, 0.43137255, 0.5686275, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.54901963, 0.61960787, 0.7019608, 1)
 
 [editable path="LevelHallway"]

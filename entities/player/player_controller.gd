@@ -35,6 +35,9 @@ var temp_skill_can_charge: bool = false
 var temp_skill_max_charge: float = 0.0
 var temp_skill_multiplier: float = 1.0
 
+var current_mana: int = 0
+signal mana_changed(current, max)
+
 @onready var health_component: HealthComponent = $HealthComponent
 
 #Visual
@@ -61,12 +64,20 @@ func _ready() -> void:
 		return
 	
 	if stats:
+		current_mana = stats.max_mana
+		if GlobalUI:
+			GlobalUI.update_mana_ui(current_mana, stats.max_mana)
 		# Baris ini mengubah kapasitas gelas (Max HP)
 		health_component.max_health = stats.max_health
 		
 		# --- BARIS YANG HILANG (FIX) ---
 		# Baris ini mengisi airnya sampai penuh sesuai kapasitas baru!
 		health_component.current_health = stats.max_health 
+	
+	var basic_hitbox = visuals.get_node_or_null("Hitbox") 
+	if basic_hitbox:
+		# Setiap kali hitbox ini kena musuh -> Panggil fungsi regen
+		basic_hitbox.hit_connected.connect(_on_basic_attack_hit)
 	
 	if GlobalUI:
 		GlobalUI.show_ui()
@@ -153,23 +164,62 @@ func apply_dash_data(speed: float, duration: float):
 # --- SKILL SYSTEM HOOK ---
 # Di dalam player_controller.gd
 
+func _on_basic_attack_hit():
+	# Tambah 1 point setiap hit
+	gain_mana(1)
+
+func gain_mana(amount: int):
+	current_mana += amount
+	# Jangan melebihi kapasitas
+	if current_mana > stats.max_mana:
+		current_mana = stats.max_mana
+	
+	# Update UI
+	if GlobalUI:
+		GlobalUI.update_mana_ui(current_mana, stats.max_mana)
+
+# Di player_controller.gd, update fungsi use_skill
+
 func use_skill(index: int):
 	# 1. Cek State Aktif
-	# Kita tidak mau skill keluar saat sedang Attack, Hurt, atau Mati
+	# Cegah penggunaan skill jika sedang menyerang, mati, atau sedang casting skill lain
 	var current_state = limbo_hsm.get_active_state()
-	
-	# Daftar state yang "Haram" diganggu skill (Blocking States)
-	if current_state.name == "Attack" or current_state.name == "Dead":
-		# Opsi A: Abaikan total (Cooldown aman)
+	if current_state.name == "Attack" or current_state.name == "Dead" or current_state.name == "Cast":
 		return 
-		
-		# Opsi B (Advanced): Kalau mau sistem "Antrian" (Input Buffer),
-		# simpan index skill ini di variabel 'queued_skill_index' 
-		# dan panggil nanti saat state Attack selesai.
-	
-	# 2. Eksekusi Skill (Hanya jika lolos cek di atas)
+
+	# 2. Validasi Index Skill
 	if index < equipped_skills.size() and equipped_skills[index] != null:
-		equipped_skills[index].execute(self, stats)
+		var skill = equipped_skills[index]
+		
+		# --- GERBANG 1: CEK COOLDOWN ---
+		if not skill.is_ready():
+			print("Skill sedang Cooldown!")
+			return
+		
+		# --- GERBANG 2: CEK MANA ---
+		if current_mana >= skill.mana_cost:
+			# A. Bayar Mana
+			current_mana -= skill.mana_cost
+			if GlobalUI: GlobalUI.update_mana_ui(current_mana, stats.max_mana)
+			
+			# B. EKSEKUSI SKILL DULUAN (Supaya animasi jalan)
+			# Simpan referensi skill yang aktif
+			temp_active_skill = skill 
+			skill.execute(self, stats) 
+			
+			# C. BARU MULAI COOLDOWN (Agar tidak bisa di-spam di frame berikutnya)
+			skill.start_cooldown()
+			
+		else:
+			print("Mana tidak cukup!")
+			_show_no_mana_feedback()
+
+func _show_no_mana_feedback():
+	# Contoh: Sprite kedip biru atau bunyi 'tetot'
+	var tween = create_tween()
+	tween.tween_property(visuals, "modulate", Color.CYAN, 0.1)
+	tween.tween_property(visuals, "modulate", Color.WHITE, 0.1)
+
 # --- LIMBO AI SETUP ---
 func _initialize_hsm():
 	# 1. Load Script dan buat Instance-nya (.new)

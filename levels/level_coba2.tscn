@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=4 uid="uid://bpcwn34ynec7u"]
+[gd_scene load_steps=13 format=4 uid="uid://bpcwn34ynec7u"]
 
-[ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="2_q8lhj"]
 [ext_resource type="Texture2D" uid="uid://ckuga6gmgbos3" path="res://assets/art/ASSETS.png" id="3_mj35m"]
-[ext_resource type="PackedScene" uid="uid://1naqlr4rc03u" path="res://entities/hazards/abyss.tscn" id="4_cg6gb"]
+[ext_resource type="PackedScene" uid="uid://chdm6eg6g6w85" path="res://_core/level_system/BossCutsceneManager.tscn" id="4_q8lhj"]
 [ext_resource type="PackedScene" uid="uid://bucmo40l26mit" path="res://entities/interactables/level_door.tscn" id="4_ur6mb"]
+[ext_resource type="PackedScene" uid="uid://cmlttwei2umen" path="res://entities/enemies/bosses/boss_puppet.tscn" id="5_mj35m"]
 [ext_resource type="PackedScene" uid="uid://b0h4g1iu3c0tj" path="res://entities/interactables/level_hallway.tscn" id="5_q8lhj"]
+[ext_resource type="PackedScene" uid="uid://dfdsyxrgrhccw" path="res://entities/enemies/bosses/slimeboss/slime_boss.tscn" id="6_cg6gb"]
+[ext_resource type="PackedScene" uid="uid://bcdeiw6keotyd" path="res://entities/enemies/bosses/boss_gate.tscn" id="6_mj35m"]
+[ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/chest/treasure_chest.tscn" id="8_54hgc"]
+[ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/chest/chest_1a.tres" id="9_xkl5i"]
+[ext_resource type="Resource" uid="uid://d2f0a4tce0r0q" path="res://items/resources/potion_item.tres" id="10_xkl5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4d8a"]
 texture = ExtResource("3_mj35m")
@@ -66,36 +71,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_g4d8a")
 
-[node name="LevelCoba" type="Node2D"]
-
-[node name="Chunk1" type="Node2D" parent="."]
-script = ExtResource("2_q8lhj")
-size = Vector2(640, 360)
-activation_margin = 250.0
-start_active = true
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Chunk1"]
-tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAABAAsAAAAHAAcAAAACAAsAAAAHAAcAAAADAAsAAAAHAAcAAAAEAAsAAAAHAAcAAAAFAAsAAAAHAAcAAAAGAAsAAAAHAAcAAAAHAAsAAAAHAAcAAAAIAAsAAAAHAAcAAAAJAAsAAAAHAAcAAAAKAAsAAAAHAAcAAAALAAsAAAAHAAcAAAAMAAsAAAAHAAcAAAANAAsAAAAHAAcAAAAOAAsAAAAHAAcAAAAPAAsAAAAHAAcAAAAQAAsAAAAHAAcAAAARAAsAAAAHAAcAAAARAAoAAAAHAAcAAAASAAoAAAAHAAcAAAATAAoAAAAHAAcAAAAUAAoAAAAHAAcAAAAVAAoAAAAHAAcAAAAWAAoAAAAHAAcAAAAZAAoAAAAHAAcAAAAaAAoAAAAHAAcAAAAbAAoAAAAHAAcAAAAcAAoAAAAHAAcAAAAdAAoAAAAHAAcAAAAeAAoAAAAHAAcAAAAfAAoAAAAHAAcAAAAgAAoAAAAHAAcAAAAhAAoAAAAHAAcAAAAiAAoAAAAHAAcAAAAjAAoAAAAHAAcAAAAkAAoAAAAHAAcAAAAlAAoAAAAHAAcAAAAmAAoAAAAHAAcAAAAnAAoAAAAHAAcAAAAAAAAAAAAIAAgAAAAAAAEAAAAIAAgAAAAAAAIAAAAIAAgAAAAAAAMAAAAIAAgAAAAAAAQAAAAIAAgAAAAAAAUAAAAIAAgAAAAAAAYAAAAIAAgAAAAAAAcAAAAIAAgAAAAAAAgAAAAIAAgAAAAAAAkAAAAIAAgAAAAAAAoAAAAIAAgAAAA=")
-tile_set = SubResource("TileSet_rvcct")
-
-[node name="Abyss" parent="Chunk1" instance=ExtResource("4_cg6gb")]
-position = Vector2(368, 184)
-
-[node name="LevelDoor" parent="Chunk1" instance=ExtResource("4_ur6mb")]
-position = Vector2(104, 136)
-my_id = "door_b"
-target_level_path = "uid://47pf3u75h2b2"
-target_door_id = "door_a"
-
-[node name="Chunk2" type="Node2D" parent="."]
-position = Vector2(640, 0)
-script = ExtResource("2_q8lhj")
-size = Vector2(640, 360)
-activation_margin = 250.0
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Chunk2"]
-tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAABAAsAAAAHAAcAAAACAAsAAAAHAAcAAAADAAsAAAAHAAcAAAAEAAsAAAAHAAcAAAAFAAsAAAAHAAcAAAAGAAsAAAAHAAcAAAAHAAsAAAAHAAcAAAAIAAsAAAAHAAcAAAAJAAsAAAAHAAcAAAAKAAsAAAAHAAcAAAALAAsAAAAHAAcAAAAMAAsAAAAHAAcAAAANAAsAAAAHAAcAAAAOAAsAAAAHAAcAAAAPAAsAAAAHAAcAAAAQAAsAAAAHAAcAAAARAAsAAAAHAAcAAAARAAoAAAAHAAcAAAASAAoAAAAHAAcAAAATAAoAAAAHAAcAAAAUAAoAAAAHAAcAAAAVAAoAAAAHAAcAAAAWAAoAAAAHAAcAAAAZAAoAAAAHAAcAAAAaAAoAAAAHAAcAAAAbAAoAAAAHAAcAAAAcAAoAAAAHAAcAAAAdAAoAAAAHAAcAAAAeAAoAAAAHAAcAAAAfAAoAAAAHAAcAAAAgAAoAAAAHAAcAAAAhAAoAAAAHAAcAAAAiAAoAAAAHAAcAAAAjAAoAAAAHAAcAAAAkAAoAAAAHAAcAAAAlAAoAAAAHAAcAAAAmAAoAAAAHAAcAAAAnAAoAAAAHAAcAAAA=")
-tile_set = SubResource("TileSet_rvcct")
+[node name="LevelCoba2" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
 offset_left = 152.0
@@ -113,4 +89,34 @@ target_hallway_id = "hallway_a"
 [node name="SpawnPoint" parent="LevelHallway" index="1"]
 position = Vector2(32, 0)
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAsAAAAHAAcAAAABAAsAAAAHAAcAAAACAAsAAAAHAAcAAAADAAsAAAAHAAcAAAAEAAsAAAAHAAcAAAAFAAsAAAAHAAcAAAAGAAsAAAAHAAcAAAAHAAsAAAAHAAcAAAAIAAsAAAAHAAcAAAAJAAsAAAAHAAcAAAAKAAsAAAAHAAcAAAALAAsAAAAHAAcAAAAMAAsAAAAHAAcAAAANAAsAAAAHAAcAAAAOAAsAAAAHAAcAAAAPAAsAAAAHAAcAAAAQAAsAAAAHAAcAAAARAAsAAAAHAAcAAAAAAAAAAAAIAAgAAAAAAAEAAAAIAAgAAAAAAAIAAAAIAAgAAAAAAAMAAAAIAAgAAAAAAAQAAAAIAAgAAAAAAAUAAAAIAAgAAAAAAAYAAAAIAAgAAAAAAAcAAAAIAAgAAAAAAAgAAAAIAAgAAAAAAAkAAAAIAAgAAAAAAAoAAAAIAAgAAAASAAsAAAAHAAcAAAATAAsAAAAHAAcAAAAUAAsAAAAHAAcAAAAVAAsAAAAHAAcAAAAWAAsAAAAHAAcAAAAXAAsAAAAHAAcAAAAYAAsAAAAHAAcAAAAZAAsAAAAHAAcAAAAaAAsAAAAHAAcAAAAbAAsAAAAHAAcAAAAcAAsAAAAHAAcAAAAdAAsAAAAHAAcAAAAeAAsAAAAHAAcAAAAfAAsAAAAHAAcAAAAgAAsAAAAHAAcAAAAhAAsAAAAHAAcAAAAiAAsAAAAHAAcAAAAjAAsAAAAHAAcAAAAkAAsAAAAHAAcAAAAlAAsAAAAHAAcAAAAmAAsAAAAHAAcAAAAnAAsAAAAHAAcAAAAoAAsAAAAHAAcAAAApAAsAAAAHAAcAAAAqAAsAAAAHAAcAAAArAAsAAAAHAAcAAAAsAAsAAAAHAAcAAAAtAAsAAAAHAAcAAAAuAAsAAAAHAAcAAAAvAAsAAAAHAAcAAAAxAAsAAAAHAAcAAAAyAAsAAAAHAAcAAAAzAAsAAAAHAAcAAAA0AAsAAAAHAAcAAAA1AAsAAAAHAAcAAAA2AAsAAAAHAAcAAAA3AAsAAAAHAAcAAAA4AAsAAAAHAAcAAAA5AAsAAAAHAAcAAAA6AAsAAAAHAAcAAAA7AAsAAAAHAAcAAAA8AAsAAAAHAAcAAAA8AAoAAAAIAAgAAAA8AAkAAAAIAAgAAAA8AAgAAAAIAAgAAAA8AAcAAAAIAAgAAAA8AAYAAAAIAAgAAAA9AAYAAAAIAAgAAAA9AAUAAAAIAAgAAAA9AAQAAAAIAAgAAAA9AAMAAAAIAAgAAAA9AAIAAAAIAAgAAAA8AAUAAAAIAAgAAAA8AAQAAAAIAAgAAAA8AAMAAAAIAAgAAAA8AAIAAAAIAAgAAAA8AAEAAAAIAAgAAAA8AAAAAAAIAAgAAAA8AP//AAAIAAgAAAA8AP7/AAAIAAgAAAA8AP3/AAAIAAgAAAA8APz/AAAIAAgAAAA8APv/AAAIAAgAAAA5AAoAAAAIAAgAAAA5AAkAAAAIAAgAAAA5AAgAAAAIAAgAAAA5AAcAAAAIAAgAAAA5AAYAAAAIAAgAAAA5AAUAAAAIAAgAAAA5AAQAAAAIAAgAAAA5AAMAAAAIAAgAAAA5AAIAAAAIAAgAAAA5AAEAAAAIAAgAAAA5AAAAAAAIAAgAAAA5AP//AAAIAAgAAAA5AP7/AAAIAAgAAAA5AP3/AAAIAAgAAAA5APz/AAAIAAgAAAA5APv/AAAIAAgAAAA3AAoAAAAIAAgAAAA3AAkAAAAIAAgAAAA3AAgAAAAIAAgAAAA3AAcAAAAIAAgAAAA3AAYAAAAIAAgAAAA3AAUAAAAIAAgAAAA3AAQAAAAIAAgAAAA3AAMAAAAIAAgAAAA3AAIAAAAIAAgAAAA3AAEAAAAIAAgAAAA3AAAAAAAIAAgAAAA3AP//AAAIAAgAAAA3AP7/AAAIAAgAAAA3AP3/AAAIAAgAAAA3APz/AAAIAAgAAAA3APv/AAAIAAgAAAAwAAsAAAAHAAcAAAA4APv/AAAIAAgAAAA6APv/AAAIAAgAAAA7APv/AAAIAAgAAAA7APz/AAAIAAgAAAA6APz/AAAIAAgAAAA4APz/AAAIAAgAAAA4AP3/AAAIAAgAAAA6AP3/AAAIAAgAAAA7AP3/AAAIAAgAAAA7AP7/AAAIAAgAAAA6AP7/AAAIAAgAAAA4AP7/AAAIAAgAAAA4AP//AAAIAAgAAAA4AAAAAAAIAAgAAAA6AAAAAAAIAAgAAAA6AP//AAAIAAgAAAA7AP//AAAIAAgAAAA7AAAAAAAIAAgAAAA7AAEAAAAIAAgAAAA6AAEAAAAIAAgAAAA4AAEAAAAIAAgAAAA4AAIAAAAIAAgAAAA6AAIAAAAIAAgAAAA7AAIAAAAIAAgAAAA6AAMAAAAIAAgAAAA4AAMAAAAIAAgAAAA4AAQAAAAIAAgAAAA6AAQAAAAIAAgAAAA7AAMAAAAIAAgAAAA7AAQAAAAIAAgAAAA4AAUAAAAIAAgAAAA4AAYAAAAIAAgAAAA6AAUAAAAIAAgAAAA7AAUAAAAIAAgAAAA7AAYAAAAIAAgAAAA6AAYAAAAIAAgAAAA6AAcAAAAIAAgAAAA7AAcAAAAIAAgAAAA7AAgAAAAIAAgAAAA6AAgAAAAIAAgAAAA4AAcAAAAIAAgAAAA4AAgAAAAIAAgAAAA4AAkAAAAIAAgAAAA6AAkAAAAIAAgAAAA7AAkAAAAIAAgAAAA7AAoAAAAIAAgAAAA6AAoAAAAIAAgAAAA4AAoAAAAIAAgAAAA=")
+tile_set = SubResource("TileSet_rvcct")
+
+[node name="LevelDoor" parent="." instance=ExtResource("4_ur6mb")]
+position = Vector2(104, 136)
+my_id = "door_b"
+target_level_path = "uid://47pf3u75h2b2"
+target_door_id = "door_a"
+
+[node name="BossCutsceneManager" parent="." node_paths=PackedStringArray("entry_gate", "arena_center") instance=ExtResource("4_q8lhj")]
+position = Vector2(312, -144)
+boss_visual_scene = ExtResource("5_mj35m")
+boss_name_display = "Slem"
+entry_gate = NodePath("../BossGate")
+arena_center = NodePath("ArenaCenterPos")
+boss_combat_scene = ExtResource("6_cg6gb")
+
+[node name="CollisionShape2D" parent="BossCutsceneManager/TriggerArea" index="0"]
+position = Vector2(48, 152)
+
+[node name="BossGate" parent="." instance=ExtResource("6_mj35m")]
+
+[node name="TreasureChest" parent="." instance=ExtResource("8_54hgc")]
+position = Vector2(152, 168)
+loot_data = ExtResource("9_xkl5i")
+is_locked = true
+key_item_required = ExtResource("10_xkl5i")
+
 [editable path="LevelHallway"]
+[editable path="BossCutsceneManager"]

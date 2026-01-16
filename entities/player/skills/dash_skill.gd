@@ -10,10 +10,6 @@ extends BaseSkill
 var _current_cooldown: float = 0.0
 
 func execute(user: CharacterBody2D, stats: PlayerStats) -> void:
-	# Cek apakah sedang cooldown?
-	if _current_cooldown > 0:
-		return # Masih cooldown, batalkan skill
-
 	# --- LOGIKA "PENYUNTIKAN" DATA ---
 	# Kita kirim data dari Resource ini ke Player Controller
 	# Agar nanti State Dash tahu seberapa cepat dia harus bergerak
@@ -26,8 +22,3 @@ func execute(user: CharacterBody2D, stats: PlayerStats) -> void:
 		
 		# Mulai cooldown
 		_current_cooldown = cooldown_time
-
-# Fungsi khusus agar cooldown berjalan (dipanggil dari player nanti)
-func tick_cooldown(delta: float):
-	if _current_cooldown > 0:
-		_current_cooldown -= delta

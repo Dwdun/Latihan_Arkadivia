@@ -16,6 +16,14 @@ func _enter() -> void:
 	# 2. Ambil Hitbox
 	skill_hitbox = player.get_node("Visuals/SkillHitbox") as HitboxComponent
 	
+	if skill_hitbox:
+		# Set damage awal (penting untuk instant skill)
+		skill_hitbox.damage = player.temp_skill_damage
+		# Reset agar musuh bisa dipukul lagi di cast ini
+		skill_hitbox.reset_hitbox()
+		# Pastikan monitoring nyala
+		skill_hitbox.set_deferred("monitoring", true)
+	
 	# 3. Mainkan Animasi
 	if player.animation_player.has_animation(player.temp_skill_anim):
 		player.animation_player.play(player.temp_skill_anim)
@@ -84,15 +92,41 @@ func _on_animation_finished(anim_name: String):
 	if anim_name == player.temp_skill_anim:
 		# Reset modulasi warna jaga-jaga
 		player.visuals.modulate = Color.WHITE
-		player.trigger_skill_cooldown()
+		#player.trigger_skill_cooldown()
 		get_root().dispatch("state_ended")
 
 func _exit() -> void:
-	# Pastikan cooldown tetap jalan walau skill di-cancel paksa (kena hit/dash)
-	# Kalau tidak, nanti bisa spam skill kalau di-cancel.
-	if player.temp_active_skill:
-		player.trigger_skill_cooldown()
+	# 1. Pastikan cooldown tetap jalan (Existing)
+	#if player.temp_active_skill:
+		#player.trigger_skill_cooldown()
 
+	# 2. Putuskan koneksi sinyal (Existing)
 	if player.animation_player.animation_finished.is_connected(_on_animation_finished):
 		player.animation_player.animation_finished.disconnect(_on_animation_finished)
+	
+	# 3. FIX: UNPAUSE ANIMATION
+	# Jika player kena hit saat sedang charging (animasi pause), kita harus resume dulu
+	# agar AnimationPlayer tidak nyangkut statenya di state berikutnya.
+	if player.animation_player.current_animation == player.temp_skill_anim:
+		if not player.animation_player.is_playing():
+			player.animation_player.play() 
+	
+	# 4. FIX: MATIKAN HITBOX PAKSA
+	# Jangan andalkan animasi untuk mematikan hitbox saat interupsi (kena hit)
+	if skill_hitbox:
+		skill_hitbox.set_deferred("monitoring", false)
+	
+	# 5. FIX: SEMBUNYIKAN EFEK VISUAL
+	# Cari node efek visual (selain sprite utama) dan sembunyikan
+	# Sesuaikan "EffectSprite" dengan nama node efek skill di scene player Anda
+	var effect_sprite = player.visuals.get_node_or_null("EffectSprite")
+	if effect_sprite:
+		effect_sprite.visible = false
+	
+	# Atau cara general: Sembunyikan semua Sprite selain Sprite Utama
+	for child in player.visuals.get_children():
+		if child is Sprite2D and child != player.sprite:
+			child.visible = false
+
+	# 6. Reset Warna (Existing)
 	player.visuals.modulate = Color.WHITE

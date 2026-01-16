@@ -1,9 +1,17 @@
-extends Area2D
+extends CharacterBody2D
 
 var item_data: ItemData
 var amount: int = 1
+
+var is_grounded: bool = false
 var is_collected: bool = false
 var player_target: CharacterBody2D = null
+
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var bounce_force: float = -300.0 # Kekuatan mental ke atas saat spawn
+
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var detection_area: Area2D = $DetectionArea
 
 func setup(data: ItemData, qty: int):
 	item_data = data
@@ -26,15 +34,12 @@ func setup(data: ItemData, qty: int):
 			$Sprite2D.scale = Vector2(1, 1)
 
 func _ready() -> void:
-	# Efek muncul (Lontar ke atas sedikit)
-	var tween = create_tween()
-	var random_x = randf_range(-50, 50)
-	tween.tween_property(self, "position", position + Vector2(random_x, -50), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "position", position + Vector2(random_x, 0), 0.5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	# 1. SETUP AWAL: Lontarkan ke atas acak
+	velocity.y = bounce_force
+	velocity.x = randf_range(-100, 100) # Mental sedikit ke kiri/kanans
 	
+	detection_area.body_entered.connect(_on_magnet_range_entered)
 	# Sambungkan sinyal jika player mendekat
-	body_entered.connect(_on_body_entered)
-
 func _on_body_entered(body):
 	if body.is_in_group("player") and not is_collected:
 		player_target = body
@@ -46,24 +51,54 @@ func _on_body_entered(body):
 func _process(delta: float) -> void:
 	# EFEK MAGNET (Tarik ke Player)
 	if is_collected and player_target:
+		# Matikan collision agar tembus tembok saat ditarik
+		collision_mask = 0 
+		
 		var dir = (player_target.global_position - global_position).normalized()
 		var dist = global_position.distance_to(player_target.global_position)
 		
-		# Semakin dekat semakin cepat
+		# Akselerasi makin dekat makin cepat
 		var speed = 800.0 if dist > 50 else 1500.0
-		position += dir * speed * delta
+		velocity = dir * speed
 		
-		# Jika sudah sangat dekat -> Masuk Inventory
+		move_and_slide()
+		
+		# Logic ambil item
 		if dist < 20:
 			_collect_item()
+		return # Stop logika di bawah
+
+	# --- FASE 2: JATUH (GRAVITASI) ---
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		# Gesekan udara horizontal (biar gak meluncur terus kaya es)
+		velocity.x = move_toward(velocity.x, 0, 200 * delta) 
+		
+		move_and_slide()
+	
+	# --- FASE 3: MENDARAT & FLOATING ---
+	else:
+		if not is_grounded:
+			is_grounded = true
+			velocity = Vector2.ZERO # Stop gerak
+			_start_floating_anim()
+
+func _start_floating_anim():
+	# Kita animasikan SPRITE-nya saja, bukan badannya (badannya tetap di lantai)
+	var tween = create_tween().set_loops()
+	# Naik 5 pixel, lalu turun
+	tween.tween_property(sprite, "position:y", -5.0, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(sprite, "position:y", 0.0, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _on_magnet_range_entered(body):
+	if body.is_in_group("player") and not is_collected:
+		player_target = body
+		is_collected = true
+		# Matikan tween floating agar tidak konflik
+		sprite.position.y = 0 
+		detection_area.set_deferred("monitoring", false)
 
 func _collect_item():
-	# Masukkan ke Global Inventory
 	if InventoryManager.add_item(item_data, amount):
-		# Efek Suara (Opsional)
-		# AudioManager.play_sfx("pickup")
-		
-		# Efek Visual (Floating Text atau Partikel) - Opsional
-		print("Dapat Item: " + item_data.name)
-		
-		queue_free() # Hapus dari dunia
+		# Efek partikel/suara bisa ditaruh disini
+		queue_free()

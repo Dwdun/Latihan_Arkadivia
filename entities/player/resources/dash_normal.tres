@@ -6,4 +6,5 @@
 script = ExtResource("1_0kbau")
 dash_speed = 400.0
 cooldown_time = 0.5
+mana_cost = 0
 metadata/_custom_type_script = "uid://d23lt4pl3oy8l"

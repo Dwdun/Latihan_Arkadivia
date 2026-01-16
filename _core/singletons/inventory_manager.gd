@@ -105,3 +105,42 @@ func use_item(item: ItemData):
 		
 		# (Opsional) Play Sound Effect lewat GameManager/AudioManager
 		# GameManager.play_sfx("drink_potion")
+
+func try_buy_item(listing: ShopListing) -> bool:
+	# 1. Cek Cukup Gold?
+	if gold < listing.price_gold:
+		print("Gagal Beli: Gold tidak cukup.")
+		return false
+	
+	# 2. Cek Cukup Item Barter?
+	for req in listing.required_items:
+		var item_needed = req.get("item")
+		var amount_needed = req.get("amount", 1)
+		
+		# Gunakan fungsi has_item yang sudah ada (tapi perlu sedikit modifikasi agar return int,
+		# atau kita manual loop di sini untuk safety).
+		if not _has_enough_material(item_needed, amount_needed):
+			print("Gagal Beli: Bahan " + item_needed.name + " kurang.")
+			return false
+	
+	# 3. KESIMPULAN: Mampu Beli! Lakukan Transaksi.
+	
+	# A. Potong Gold
+	if listing.price_gold > 0:
+		spend_gold(listing.price_gold)
+	
+	# B. Potong Item Barter
+	for req in listing.required_items:
+		remove_item(req["item"], req["amount"])
+	
+	# C. Berikan Barang
+	add_item(listing.item_to_sell, listing.quantity_sell)
+	print("Berhasil membeli: " + listing.item_to_sell.name)
+	return true
+
+# Helper internal untuk cek stok item spesifik
+func _has_enough_material(item: ItemData, amount: int) -> bool:
+	for slot in inventory:
+		if slot["item"] == item:
+			return slot["quantity"] >= amount
+	return false

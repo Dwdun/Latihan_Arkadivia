@@ -1,0 +1,107 @@
+[gd_resource type="BehaviorTree" load_steps=32 format=3 uid="uid://cyu2ehvmgqwpc"]
+
+[ext_resource type="Script" uid="uid://b85b8oaxeimmr" path="res://ai/tasks/action_perform_attack.gd" id="1_25r5w"]
+[ext_resource type="Script" uid="uid://4lamsy8os67y" path="res://ai/tasks/action_chase.gd" id="2_5anl0"]
+[ext_resource type="Script" uid="uid://b8s237twlipwd" path="res://ai/tasks/condition_can_attack.gd" id="3_lhbn4"]
+[ext_resource type="Script" uid="uid://bg4nqf8an7aqf" path="res://ai/tasks/action_boss_jump.gd" id="3_p6q1c"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_2akp8"]
+
+[sub_resource type="BTCondition" id="BTCondition_3ik7k"]
+script = ExtResource("3_lhbn4")
+attack_index = 1
+
+[sub_resource type="BTAction" id="BTAction_p6q1c"]
+script = ExtResource("1_25r5w")
+attack_index = 1
+
+[sub_resource type="BTWait" id="BTWait_lhbn4"]
+duration = 0.5
+
+[sub_resource type="BTSequence" id="BTSequence_yd3gj"]
+custom_name = "Melee"
+children = [SubResource("BTCondition_3ik7k"), SubResource("BTAction_p6q1c"), SubResource("BTWait_lhbn4")]
+
+[sub_resource type="BBVariant" id="BBVariant_lhbn4"]
+saved_value = null
+resource_name = "<null>"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_yd3gj"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_lhbn4")
+
+[sub_resource type="BTAction" id="BTAction_oe83g"]
+script = ExtResource("3_p6q1c")
+jump_height = 100.0
+
+[sub_resource type="BTProbability" id="BTProbability_sx1ft"]
+run_chance = 0.7
+children = [SubResource("BTAction_oe83g")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_ng1hh"]
+duration = 6.0
+children = [SubResource("BTProbability_sx1ft")]
+
+[sub_resource type="BTWait" id="BTWait_y8m2w"]
+duration = 0.5
+
+[sub_resource type="BTSequence" id="BTSequence_8koqh"]
+custom_name = "Jump"
+children = [SubResource("BTCheckVar_yd3gj"), SubResource("BTCooldown_ng1hh"), SubResource("BTWait_y8m2w")]
+
+[sub_resource type="BTCondition" id="BTCondition_oe83g"]
+script = ExtResource("3_lhbn4")
+attack_index = 2
+
+[sub_resource type="BTAction" id="BTAction_sx1ft"]
+script = ExtResource("1_25r5w")
+attack_index = 2
+
+[sub_resource type="BTProbability" id="BTProbability_3ik7k"]
+run_chance = 0.6
+children = [SubResource("BTAction_sx1ft")]
+
+[sub_resource type="BTWait" id="BTWait_ng1hh"]
+duration = 0.8
+
+[sub_resource type="BTSequence" id="BTSequence_y8m2w"]
+custom_name = "Charge"
+children = [SubResource("BTCondition_oe83g"), SubResource("BTProbability_3ik7k"), SubResource("BTWait_ng1hh")]
+
+[sub_resource type="BTCondition" id="BTCondition_8koqh"]
+script = ExtResource("3_lhbn4")
+
+[sub_resource type="BTAction" id="BTAction_jtxcl"]
+script = ExtResource("1_25r5w")
+
+[sub_resource type="BTWait" id="BTWait_shejk"]
+
+[sub_resource type="BTSequence" id="BTSequence_ggofh"]
+custom_name = "Shoot"
+children = [SubResource("BTCondition_8koqh"), SubResource("BTAction_jtxcl"), SubResource("BTWait_shejk")]
+
+[sub_resource type="BBVariant" id="BBVariant_ax55q"]
+saved_value = null
+resource_name = "<null>"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_p7ern"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_ax55q")
+
+[sub_resource type="BTAction" id="BTAction_0asb6"]
+script = ExtResource("2_5anl0")
+
+[sub_resource type="BTSequence" id="BTSequence_o8dl8"]
+custom_name = "Chase"
+children = [SubResource("BTCheckVar_p7ern"), SubResource("BTAction_0asb6")]
+
+[sub_resource type="BTWait" id="BTWait_1644m"]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_lb1ci"]
+children = [SubResource("BTSequence_yd3gj"), SubResource("BTSequence_8koqh"), SubResource("BTSequence_y8m2w"), SubResource("BTSequence_ggofh"), SubResource("BTSequence_o8dl8"), SubResource("BTWait_1644m")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_2akp8")
+root_task = SubResource("BTDynamicSelector_lb1ci")

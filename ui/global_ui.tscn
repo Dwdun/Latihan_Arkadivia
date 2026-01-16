@@ -1,19 +1,92 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkmi1ro8cmdfk"]
+[gd_scene load_steps=4 format=3 uid="uid://bkmi1ro8cmdfk"]
 
 [ext_resource type="PackedScene" uid="uid://ilebuxobul7e" path="res://_core/inventory/inventory_ui.tscn" id="1_a31wk"]
 [ext_resource type="Script" uid="uid://bu5l8uivi1cq7" path="res://ui/global_ui.gd" id="1_d8w1j"]
+[ext_resource type="PackedScene" uid="uid://cdobcjy4u216r" path="res://systems/shop/ShopUI.tscn" id="3_44nw7"]
 
 [node name="GlobalUI" type="CanvasLayer"]
 process_mode = 3
 layer = 10
 script = ExtResource("1_d8w1j")
 
-[node name="InventoryUI" parent="." instance=ExtResource("1_a31wk")]
+[node name="CinematicLayer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="ColorRect" parent="CinematicLayer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BottomBar" type="ColorRect" parent="CinematicLayer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="BossNameLabel" type="Label" parent="CinematicLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Boss"
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InventoryUI" parent="HUD" instance=ExtResource("1_a31wk")]
+layout_mode = 1
 focus_mode = 2
 
-[node name="HPLabel" type="Label" parent="."]
+[node name="HPLabel" type="Label" parent="HUD"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 70.0
 offset_bottom = 31.0
 text = "100/100"
+
+[node name="GoldLabel" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 56.0
+offset_bottom = 95.0
+text = "Gold"
+
+[node name="ManaLabel" type="Label" parent="HUD"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 51.0
+offset_bottom = 63.0
+text = "12/12"
+
+[node name="ShopUI" parent="HUD" instance=ExtResource("3_44nw7")]
+layout_mode = 1

@@ -23,6 +23,10 @@ GlobalUI="*res://ui/global_ui.tscn"
 SceneManager="*res://_core/level_system/scene_manager.tscn"
 EventBus="*res://_core/event_bus.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 move_left={
@@ -78,4 +82,5 @@ move_down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

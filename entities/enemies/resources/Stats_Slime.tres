@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_kq8i8")
-max_health = 10
+max_health = 20
 attacks = Array[Resource]([ExtResource("1_tyav2")])
 loot_table = Array[Dictionary]([{
 "amount": 1,

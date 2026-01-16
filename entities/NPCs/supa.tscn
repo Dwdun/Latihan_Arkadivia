@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://deh6p1b8d7g2v"]
+
+[ext_resource type="Script" uid="uid://c5l6dk1c655j1" path="res://entities/NPCs/supa.gd" id="1_s4kaw"]
+[ext_resource type="Texture2D" uid="uid://b71fffyh6km3w" path="res://assets/art/characters/supa/supa_idle.png" id="2_31q0r"]
+[ext_resource type="Texture2D" uid="uid://6c187eso2ft" path="res://assets/art/characters/supa/supa_after_sell.png" id="2_p2ubh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2ubh"]
+size = Vector2(16, 26.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1t14"]
+font_size = 8
+
+[sub_resource type="Animation" id="Animation_p2ubh"]
+resource_name = "Idle"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_31q0r")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_f1t14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rok4c"]
+resource_name = "After"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_p2ubh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sc3r"]
+_data = {
+&"After": SubResource("Animation_rok4c"),
+&"Idle": SubResource("Animation_p2ubh"),
+&"RESET": SubResource("Animation_f1t14")
+}
+
+[node name="Supa" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_s4kaw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p2ubh")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.75)
+shape = SubResource("RectangleShape2D_p2ubh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -20.0
+text = "Interact"
+label_settings = SubResource("LabelSettings_f1t14")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8sc3r")
+}
+speed_scale = 0.6
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]

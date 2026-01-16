@@ -215,11 +215,11 @@ debug_color = Color(0.88235295, 0.5254902, 0, 0.41960785)
 script = ExtResource("3_fr4fo")
 metadata/_custom_type_script = "uid://d0w2qqms5v0id"
 
+[node name="VisionComponent" type="Node2D" parent="."]
+position = Vector2(0, 8)
+script = ExtResource("8_66ryp")
+vision_range = 250.0
+
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_op42u")
 blackboard_plan = SubResource("BlackboardPlan_4i7ip")
-
-[node name="VisionComponent" type="Node2D" parent="."]
-position = Vector2(2, 11)
-script = ExtResource("8_66ryp")
-vision_range = 250.0

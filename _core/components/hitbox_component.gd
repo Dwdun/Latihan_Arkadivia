@@ -4,6 +4,8 @@ extends Area2D
 @export var damage: int = 10 
 @export var knockback_force: float = 300.0
 
+signal hit_connected
+
 @export_group("Juice")
 @export var hit_stop_duration: float = 0.15 
 @export var screen_shake_amount: float = 2.0 
@@ -19,9 +21,9 @@ func _physics_process(delta: float) -> void:
 		return
 	# Cek semua area yang sedang tumpang tindih (Overlapping) saat ini
 	var overlapping_areas = get_overlapping_areas()
-	
+
 	for area in overlapping_areas:
-		if area is HurtboxComponent:
+		if area.has_method("take_damage"): 
 			_attempt_hit(area)
 
 func _attempt_hit(area: HurtboxComponent):
@@ -37,6 +39,7 @@ func _attempt_hit(area: HurtboxComponent):
 	# 3. Logika PENTING:
 	# Kita hanya memasukkan ke hit_list JIKA serangan SUKSES (Tembus I-Frame)
 	if attack_success:
+		hit_connected.emit()
 		hit_list.append(area)
 		_apply_hit_feel()
 	

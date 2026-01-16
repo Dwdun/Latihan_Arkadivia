@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://w6tqrjaw2j58"]
+
+[ext_resource type="Script" uid="uid://b4vbu6mjcqovh" path="res://_core/resources/item_data.gd" id="1_tvdf0"]
+
+[sub_resource type="Gradient" id="Gradient_tvdf0"]
+offsets = PackedFloat32Array(0, 0.6304348, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.6304348, 0.6304348, 0.6304348, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uddgo"]
+gradient = SubResource("Gradient_tvdf0")
+fill_from = Vector2(0.089108914, 0.74752474)
+
+[resource]
+script = ExtResource("1_tvdf0")
+name = "Mana"
+icon = SubResource("GradientTexture2D_uddgo")
+type = 2
+can_sell = false
+metadata/_custom_type_script = "uid://b4vbu6mjcqovh"

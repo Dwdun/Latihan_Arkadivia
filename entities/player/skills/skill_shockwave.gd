@@ -7,14 +7,7 @@ extends BaseSkill
 
 var _current_cooldown: float = 0.0
 
-# 1. override fungsi start_cooldown
-func start_cooldown():
-	_current_cooldown = cooldown
-
 func execute(user: CharacterBody2D, stats: PlayerStats) -> void:
-	if _current_cooldown > 0:
-		return
-
 	if user.has_method("prepare_skill_attack"):
 		# Kirim data skill, TERMASUK referensi 'self' (skill ini sendiri)
 		# Kita perlu update prepare_skill_attack sedikit nanti, 
@@ -29,7 +22,3 @@ func execute(user: CharacterBody2D, stats: PlayerStats) -> void:
 		# --- HAPUS BARIS INI ---
 		# _current_cooldown = cooldown 
 		# Biarkan cooldown dipicu manual oleh CastState
-
-func tick_cooldown(delta: float):
-	if _current_cooldown > 0:
-		_current_cooldown -= delta
