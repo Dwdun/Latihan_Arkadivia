@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1rqy642h1kfp"
-path="res://.godot/imported/Menu Button Click.png-936afefdbc59701460717261f46ebbf8.ctex"
+uid="uid://bf7uc6wwu0qt7"
+path="res://.godot/imported/gold-coin.png-35f17bf1b26648b59a7de1d75ceb7351.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/start display/Main Menu Button (start, ...)/Menu Button Click.png"
-dest_files=["res://.godot/imported/Menu Button Click.png-936afefdbc59701460717261f46ebbf8.ctex"]
+source_file="res://assets/art/environment/environment animation/gold-coin.png"
+dest_files=["res://.godot/imported/gold-coin.png-35f17bf1b26648b59a7de1d75ceb7351.ctex"]
 
 [params]
 
