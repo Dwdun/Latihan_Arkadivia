@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmlh6utehee0u"]
 
-[ext_resource type="Script" uid="uid://da50g2vbc072o" path="res://entities/interactables/New folder/treasure_chest.gd" id="1_qipc0"]
+[ext_resource type="Script" uid="uid://da50g2vbc072o" path="res://entities/interactables/chests/treasure_chest.gd" id="1_qipc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brqnh"]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ShopData" load_steps=4 format=3 uid="uid://0yeo5q8qluvr"]
+
+[ext_resource type="Script" uid="uid://yoxiwxvynhxx" path="res://_core/resources/shop_listing.gd" id="1_bs7ag"]
+[ext_resource type="Resource" uid="uid://c7krx6aiimsah" path="res://items/resources/potion_list_chest_2a.tres" id="2_qam5x"]
+[ext_resource type="Script" uid="uid://sqmlcgpdp1di" path="res://_core/resources/shop_data.gd" id="2_uid7i"]
+
+[resource]
+script = ExtResource("2_uid7i")
+shop_name = "Supa Shop"
+listings = Array[ExtResource("1_bs7ag")]([ExtResource("2_qam5x")])
+metadata/_custom_type_script = "uid://sqmlcgpdp1di"

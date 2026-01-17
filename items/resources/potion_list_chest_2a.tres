@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopListing" load_steps=3 format=3 uid="uid://c7krx6aiimsah"]
+
+[ext_resource type="Resource" uid="uid://d2f0a4tce0r0q" path="res://items/resources/potion_item.tres" id="1_571dk"]
+[ext_resource type="Script" uid="uid://yoxiwxvynhxx" path="res://_core/resources/shop_listing.gd" id="2_e33qp"]
+
+[resource]
+script = ExtResource("2_e33qp")
+item_to_sell = ExtResource("1_571dk")
+initial_stock = 3
+metadata/_custom_type_script = "uid://yoxiwxvynhxx"
