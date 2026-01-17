@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://bogdx2r16k2b5"]
+
+[ext_resource type="PackedScene" uid="uid://et8m75sllnd2" path="res://_core/pause_menu.tscn" id="1_4h26u"]
+[ext_resource type="Script" uid="uid://ctv2oudx0ljaw" path="res://levels/dummy_player.gd" id="2_oyida"]
+[ext_resource type="Texture2D" uid="uid://g0epmwwijxxi" path="res://assets/art/characters/slime.png" id="3_blfn6"]
+[ext_resource type="Script" uid="uid://djau2nq5orhmt" path="res://levels/next_stage.gd" id="4_k4n8e"]
+[ext_resource type="PackedScene" uid="uid://mef6pjgutt84" path="res://_core/next_stage.tscn" id="4_oyida"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1bc2"]
+size = Vector2(36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix5rt"]
+atlas = ExtResource("3_blfn6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34i22"]
+atlas = ExtResource("3_blfn6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox4vm"]
+atlas = ExtResource("3_blfn6")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te315"]
+atlas = ExtResource("3_blfn6")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjyak"]
+atlas = ExtResource("3_blfn6")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix5rt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix5rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34i22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox4vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te315")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjyak")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ix5rt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cfvn"]
+size = Vector2(62, 54)
+
+[node name="DummyLevel" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_4h26u")]
+
+[node name="DummyPlayer" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(-438, 130)
+script = ExtResource("2_oyida")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyPlayer"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_g1bc2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DummyPlayer"]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_ix5rt")
+frame_progress = 0.56087506
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_ix5rt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -543.0
+offset_top = 29.0
+offset_right = -495.0
+offset_bottom = 52.0
+text = "START"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -166.0
+offset_right = -12.0
+offset_bottom = -143.0
+text = "LEVEL 1"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 400.0
+offset_top = 29.0
+offset_right = 448.0
+offset_bottom = 52.0
+text = "END"
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_k4n8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(433, 148)
+shape = SubResource("RectangleShape2D_7cfvn")
+
+[node name="NextStage" type="CanvasLayer" parent="Area2D"]
+
+[node name="NextStage" parent="Area2D/NextStage" instance=ExtResource("4_oyida")]
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

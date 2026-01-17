@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 BackgroundMusic="*res://_core/background_music.tscn"
+Global="*res://_core/global.gd"
+SavingSystem="*res://_core/saving_system.gd"
+SettingsManager="*res://_core/settings_manager.gd"
 
 [editor]
 
@@ -27,6 +30,10 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[global_group]
+
+player="player group"
 
 [input]
 

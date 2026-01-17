@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0w4ue16xrgyr"
+path="res://.godot/imported/Celtic-Medieval-Music-Chivalry-Adrian-von-Ziegler.mp3-c78e1f67cb028128e00298bb4321b7a6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/bgm/Game Music/Celtic-Medieval-Music-Chivalry-Adrian-von-Ziegler.mp3"
+dest_files=["res://.godot/imported/Celtic-Medieval-Music-Chivalry-Adrian-von-Ziegler.mp3-c78e1f67cb028128e00298bb4321b7a6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

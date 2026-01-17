@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://f6n2iihfri7t"
+path="res://.godot/imported/Pop Sound Effects (Copyright Free) - Creator Assets.wav-9a71f743047e014c8030804430b3b8a6.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/slime/dies/Pop Sound Effects (Copyright Free) - Creator Assets.wav"
+dest_files=["res://.godot/imported/Pop Sound Effects (Copyright Free) - Creator Assets.wav-9a71f743047e014c8030804430b3b8a6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

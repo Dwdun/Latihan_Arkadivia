@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ogx1o1u0fey7"]
 
-[ext_resource type="AudioStream" uid="uid://3yrtqymm2t8d" path="res://assets/audio/background.mp3" id="1_bu2oh"]
+[ext_resource type="AudioStream" uid="uid://g31gybsyl645" path="res://assets/audio/bgm/Game Music/Celtic-Medieval-Fantasy-Music-Lenzing-Adrian-von-Ziegler.mp3" id="1_bu2oh"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 process_mode = 3

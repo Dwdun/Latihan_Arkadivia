@@ -1,19 +1,19 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.S
-	
+	SettingsManager.load_settings()
+	SavingSystem.load_game()
+	print(Global.data)
+	print(Global.settings)
 
 func _on_new_game_pressed() -> void: # Load new game
-	get_tree().change_scene_to_file("res://levels/dummy_level.tscn")
-	# get_tree().change_scene_to_file()
+	get_tree().change_scene_to_file("res://levels/dummy_level_1.tscn")
 
 
 func _on_load_pressed() -> void: # Load saved game
-	get_tree().change_scene_to_file("res://_core/load_menu.tscn")
-	pass # Replace with function body.
+	var saved_game = "res://levels/dummy_level_" + str(int(Global.data["stage"])) + ".tscn"
+	get_tree().change_scene_to_file(saved_game)
+	print(saved_game)
 
 
 func _on_settings_pressed() -> void: # Go to settings
@@ -31,8 +31,16 @@ func _on_credit_pressed() -> void: # Load credit
 func _on_mute_master_pressed() -> void: # Mute master volume
 	var bus_index := AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_mute(bus_index, not AudioServer.is_bus_mute(bus_index))
+	print(AudioServer.is_bus_mute(bus_index))
+	Global.settings["master_is_muted"] = AudioServer.is_bus_mute(bus_index)
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
 
 
 func _on_mute_music_pressed() -> void: # Mute music
 	var bus_index := AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_mute(bus_index, not AudioServer.is_bus_mute(bus_index))
+	Global.settings["music_volume"] = 0
+	Global.settings["music_is_muted"] = AudioServer.is_bus_mute(bus_index)
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()

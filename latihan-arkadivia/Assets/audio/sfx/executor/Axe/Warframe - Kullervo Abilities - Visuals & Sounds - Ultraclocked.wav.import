@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cn484ado7q7p4"
+path="res://.godot/imported/Warframe - Kullervo Abilities - Visuals & Sounds - Ultraclocked.wav-6c7f5e88904100df1676117c8b597e2a.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/executor/Axe/Warframe - Kullervo Abilities - Visuals & Sounds - Ultraclocked.wav"
+dest_files=["res://.godot/imported/Warframe - Kullervo Abilities - Visuals & Sounds - Ultraclocked.wav-6c7f5e88904100df1676117c8b597e2a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
