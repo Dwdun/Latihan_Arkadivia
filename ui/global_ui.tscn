@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkmi1ro8cmdfk"]
+[gd_scene load_steps=6 format=3 uid="uid://bkmi1ro8cmdfk"]
 
 [ext_resource type="PackedScene" uid="uid://ilebuxobul7e" path="res://_core/inventory/inventory_ui.tscn" id="1_a31wk"]
 [ext_resource type="Script" uid="uid://bu5l8uivi1cq7" path="res://ui/global_ui.gd" id="1_d8w1j"]
+[ext_resource type="Texture2D" uid="uid://202hm53sqq4b" path="res://assets/art/ui/main (game) display/Healthh Bar/Health Bar.png" id="2_xeol2"]
 [ext_resource type="PackedScene" uid="uid://cdobcjy4u216r" path="res://systems/shop/ShopUI.tscn" id="3_44nw7"]
+[ext_resource type="Texture2D" uid="uid://cvxiix57oppg8" path="res://assets/art/ui/main (game) display/Healthh Bar/Empty Health bar.png" id="3_w5rkm"]
 
 [node name="GlobalUI" type="CanvasLayer"]
 process_mode = 3
 layer = 10
 script = ExtResource("1_d8w1j")
+heart_full_texture = ExtResource("2_xeol2")
+heart_empty_texture = ExtResource("3_w5rkm")
 
 [node name="CinematicLayer" type="Control" parent="."]
 layout_mode = 3
@@ -64,6 +68,7 @@ layout_mode = 1
 focus_mode = 2
 
 [node name="HPLabel" type="Label" parent="HUD"]
+visible = false
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -73,20 +78,26 @@ text = "100/100"
 
 [node name="GoldLabel" type="Label" parent="HUD"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 72.0
-offset_right = 56.0
-offset_bottom = 95.0
+offset_left = 14.0
+offset_top = 211.0
+offset_right = 54.0
+offset_bottom = 234.0
 text = "Gold"
 
 [node name="ManaLabel" type="Label" parent="HUD"]
 modulate = Color(0, 1, 1, 1)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 40.0
-offset_right = 51.0
-offset_bottom = 63.0
+offset_left = 14.0
+offset_top = 180.0
+offset_right = 57.0
+offset_bottom = 203.0
 text = "12/12"
+
+[node name="HeartContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 2
 
 [node name="ShopUI" parent="HUD" instance=ExtResource("3_44nw7")]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://eo7rm7h31ttk"]
+[gd_scene load_steps=23 format=4 uid="uid://eo7rm7h31ttk"]
 
 [ext_resource type="Script" uid="uid://b3s4ssmnlpj2p" path="res://levels/level_controller.gd" id="1_vsewx"]
 [ext_resource type="Texture2D" uid="uid://cdpbnhhmu4wrg" path="res://assets/art/environment/background/forest/Backgroundl-Forest-Paralax-bg.png" id="2_ukvgx"]
@@ -13,10 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://6s2lvoo4twy3" path="res://items/GoldCoin.tscn" id="13_fewke"]
 [ext_resource type="PackedScene" uid="uid://deh6p1b8d7g2v" path="res://entities/NPCs/supa.tscn" id="14_t0xrc"]
 [ext_resource type="Resource" uid="uid://cwn6cigtfyyq1" path="res://systems/shop/resources/shop_place_1.tres" id="15_oy36u"]
+[ext_resource type="Resource" uid="uid://0yeo5q8qluvr" path="res://entities/interactables/chests/chest_2a.tres" id="15_ukvgx"]
 [ext_resource type="PackedScene" uid="uid://bucmo40l26mit" path="res://entities/interactables/level_door.tscn" id="16_lxmy5"]
 [ext_resource type="PackedScene" uid="uid://b0h4g1iu3c0tj" path="res://entities/interactables/level_hallway.tscn" id="17_bfx16"]
-[ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/New folder/treasure_chest.tscn" id="18_12lj7"]
-[ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/New folder/chest_1a.tres" id="19_5roos"]
+[ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/chests/treasure_chest.tscn" id="18_12lj7"]
+[ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/chests/chest_1a.tres" id="19_5roos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_narha"]
 texture = ExtResource("8_h2o4d")
@@ -237,7 +238,7 @@ texture = ExtResource("5_edn1p")
 
 [node name="Chunk1" type="Node2D" parent="."]
 script = ExtResource("7_fuo3l")
-size = Vector2(695, 360)
+size = Vector2(694, 360)
 activation_margin = 249.59
 start_active = true
 
@@ -251,7 +252,11 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAIAAEAAAAAAAEAAQAIAAEAAAAAAAIAAQAIAAE
 tile_set = SubResource("TileSet_rvcct")
 
 [node name="Abyss" parent="Chunk1" instance=ExtResource("9_dha5i")]
-position = Vector2(488, 224)
+position = Vector2(508, 222)
+scale = Vector2(2, 2)
+
+[node name="Abyss2" parent="Chunk1" instance=ExtResource("9_dha5i")]
+position = Vector2(59, 217)
 scale = Vector2(2, 2)
 
 [node name="Spikes" parent="Chunk1" instance=ExtResource("10_n2ovx")]
@@ -269,8 +274,15 @@ position = Vector2(-47.999996, 328)
 scale = Vector2(11, 11)
 
 [node name="Supa" parent="Chunk1" instance=ExtResource("14_t0xrc")]
-position = Vector2(-136, 160)
+position = Vector2(478, 124)
 shop_data = ExtResource("15_oy36u")
+
+[node name="GoldCoin2" parent="Chunk1" instance=ExtResource("13_fewke")]
+position = Vector2(300.00003, 69)
+
+[node name="TreasureChest" parent="Chunk1" instance=ExtResource("18_12lj7")]
+position = Vector2(341, 70)
+loot_data = ExtResource("15_ukvgx")
 
 [node name="Chunk2" type="Node2D" parent="."]
 position = Vector2(695, 0)
@@ -331,7 +343,7 @@ position = Vector2(120, -8)
 position = Vector2(-16, 0)
 
 [node name="DoorStart" parent="." instance=ExtResource("16_lxmy5")]
-position = Vector2(47, 78)
+position = Vector2(197, 55)
 my_id = "start"
 target_door_id = ""
 

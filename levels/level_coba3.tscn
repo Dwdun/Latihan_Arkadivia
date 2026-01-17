@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b0h4g1iu3c0tj" path="res://entities/interactables/level_hallway.tscn" id="5_q8lhj"]
 [ext_resource type="PackedScene" uid="uid://dfdsyxrgrhccw" path="res://entities/enemies/bosses/slimeboss/slime_boss.tscn" id="6_cg6gb"]
 [ext_resource type="PackedScene" uid="uid://bcdeiw6keotyd" path="res://entities/enemies/bosses/boss_gate.tscn" id="6_mj35m"]
-[ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/chest/treasure_chest.tscn" id="8_54hgc"]
-[ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/chest/chest_1a.tres" id="9_xkl5i"]
+[ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/chests/treasure_chest.tscn" id="8_54hgc"]
+[ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/chests/chest_1a.tres" id="9_xkl5i"]
 [ext_resource type="Resource" uid="uid://d2f0a4tce0r0q" path="res://items/resources/potion_item.tres" id="10_xkl5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4d8a"]
@@ -106,6 +106,9 @@ boss_name_display = "Slem"
 entry_gate = NodePath("../BossGate")
 arena_center = NodePath("ArenaCenterPos")
 boss_combat_scene = ExtResource("6_cg6gb")
+
+[node name="TriggerArea" parent="BossCutsceneManager" index="0"]
+position = Vector2(-14, 3)
 
 [node name="CollisionShape2D" parent="BossCutsceneManager/TriggerArea" index="0"]
 position = Vector2(48, 152)

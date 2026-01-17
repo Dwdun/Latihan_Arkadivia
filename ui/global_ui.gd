@@ -4,7 +4,13 @@ extends CanvasLayer
 @onready var hp_label: Label = $HUD/HPLabel
 @onready var mana_label: Label = $HUD/ManaLabel
 @onready var gold_label: Label = $HUD/GoldLabel
+@onready var heart_container: HBoxContainer = $HUD/HeartContainer
 @onready var hud_control: Control = $HUD
+
+@export var heart_size: Vector2 = Vector2(32, 32)
+@export var heart_full_texture: Texture2D
+@export var heart_empty_texture: Texture2D
+
 
 @onready var cinematic_layer = $CinematicLayer
 @onready var top_bar = $CinematicLayer/TopBar
@@ -26,9 +32,46 @@ func _ready() -> void:
 	if boss_title: boss_title.modulate.a = 0
 
 func update_hp_ui(current: int, max_hp: int):
-	if hp_label:
-		# Format teks: "HP: 50 / 100"
-		hp_label.text = "HP: %s / %s" % [str(current), str(max_hp)]
+	# 1. Validasi Container
+	if not heart_container: return
+	
+	# 2. Cek apakah jumlah slot hati sesuai Max HP?
+	# Jika Max HP berubah (misal dapat item penambah nyawa), kita tata ulang.
+	if heart_container.get_child_count() != max_hp:
+		_rebuild_hearts(max_hp)
+	
+	# 3. Update Status Visual (Penuh/Kosong)
+	# Loop semua hati yang ada di container
+	for i in range(heart_container.get_child_count()):
+		var heart_icon = heart_container.get_child(i)
+		
+		# Logika: Jika index (i) lebih kecil dari darah saat ini, berarti Penuh.
+		# Contoh: HP 3. Index 0, 1, 2 = Penuh. Index 3 dst = Kosong.
+		if i < current:
+			heart_icon.texture = heart_full_texture
+		else:
+			heart_icon.texture = heart_empty_texture
+
+# Fungsi Helper untuk membangun ulang wadah hati
+func _rebuild_hearts(amount: int):
+	# Hapus semua anak lama
+	for child in heart_container.get_children():
+		child.queue_free()
+	
+	# Buat TextureRect baru sebanyak Max HP
+	for i in range(amount):
+		var icon = TextureRect.new()
+		# Set texture default (kosong dulu gpp, nanti di-update)
+		icon.texture = heart_empty_texture 
+		# Mode stretch agar ukuran konsisten (Opsional, keep aspect centered bagus)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE 
+		
+		# 2. Paksa ukuran sesuai keinginan kita (variable export)
+		icon.custom_minimum_size = heart_size 
+		
+		# 3. Jaga aspek rasio agar hati tidak gepeng
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		heart_container.add_child(icon)
 
 func toggle_cinematic_bars(active: bool, title: String = ""):
 	print("Toggle Cinematic Bars dipanggil! Active = ", active)
