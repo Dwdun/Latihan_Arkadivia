@@ -57,6 +57,12 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var input_axis: float = 0.0
 
 func _ready() -> void:
+	$Camera2D.limit_bottom = GameManager.camera_bottom
+	$Camera2D.limit_top = GameManager.camera_top
+	$Camera2D.limit_left = GameManager.camera_left
+	$Camera2D.limit_right = GameManager.camera_right
+	$Camera2D.zoom.x = GameManager.camera_zoom
+	$Camera2D.zoom.y = GameManager.camera_zoom
 	# Validasi safety
 	if not stats:
 		push_error("STATS BELUM DIPASANG! Pasang resource PlayerStats di Inspector.")

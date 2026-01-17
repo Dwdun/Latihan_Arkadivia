@@ -11,6 +11,12 @@ var current_character_scene: PackedScene
 
 var is_cutscene: bool = false
 
+var camera_left: int
+var camera_right: int
+var camera_top: int
+var camera_bottom: int
+var camera_zoom: int
+
 func _ready() -> void:
 	# Cheat isi tasPastikan path benar
 	if item_test:

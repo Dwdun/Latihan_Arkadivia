@@ -431,7 +431,7 @@ libraries = {
 speed_scale = 0.7
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(4, 4)
 limit_left = 16
 limit_top = 0
 limit_bottom = 256
@@ -500,4 +500,5 @@ iframe_duration = 1.0
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 texture = SubResource("GradientTexture2D_pcn5s")
