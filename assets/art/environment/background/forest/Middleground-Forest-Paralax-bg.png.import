@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckltxjvdk0qm3"
-path="res://.godot/imported/Button Idle.png-cd22951f718c9c3885deb31d7abd7655.ctex"
+uid="uid://3atsti1w1yek"
+path="res://.godot/imported/Middleground-Forest-Paralax-bg.png-342de7c624fe16693ee48202954df08f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/menu setting display/Quit and Volume Button/Button Idle.png"
-dest_files=["res://.godot/imported/Button Idle.png-cd22951f718c9c3885deb31d7abd7655.ctex"]
+source_file="res://assets/art/environment/background/forest/Middleground-Forest-Paralax-bg.png"
+dest_files=["res://.godot/imported/Middleground-Forest-Paralax-bg.png-342de7c624fe16693ee48202954df08f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0iiydbv4tjns"
-path="res://.godot/imported/Tulisan High Score.png-2db3c7641a6f92428a7693fe7b98a726.ctex"
+uid="uid://cdpbnhhmu4wrg"
+path="res://.godot/imported/Backgroundl-Forest-Paralax-bg.png-b0166bbe44be34241ecef1d7dd2295ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/gameover display/Tulisan High Score.png"
-dest_files=["res://.godot/imported/Tulisan High Score.png-2db3c7641a6f92428a7693fe7b98a726.ctex"]
+source_file="res://assets/art/environment/background/forest/Backgroundl-Forest-Paralax-bg.png"
+dest_files=["res://.godot/imported/Backgroundl-Forest-Paralax-bg.png-b0166bbe44be34241ecef1d7dd2295ca.ctex"]
 
 [params]
 
