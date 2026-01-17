@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://eo7rm7h31ttk"]
+[gd_scene load_steps=23 format=4 uid="uid://eo7rm7h31ttk"]
 
 [ext_resource type="Script" uid="uid://b3s4ssmnlpj2p" path="res://levels/level_controller.gd" id="1_vsewx"]
-[ext_resource type="Texture2D" uid="uid://jw8ndpl1n1uo" path="res://assets/art/environment/background/meadow/bg_layer1_skyes.png" id="2_edn1p"]
-[ext_resource type="Texture2D" uid="uid://cg01qeiurfna1" path="res://assets/art/environment/background/meadow/bg_layer2_mountain.png" id="3_rjsn0"]
+[ext_resource type="Texture2D" uid="uid://cdpbnhhmu4wrg" path="res://assets/art/environment/background/forest/Backgroundl-Forest-Paralax-bg.png" id="2_ukvgx"]
+[ext_resource type="Texture2D" uid="uid://3atsti1w1yek" path="res://assets/art/environment/background/forest/Middleground-Forest-Paralax-bg.png" id="3_vsewx"]
 [ext_resource type="Script" uid="uid://he32cs2w6eij" path="res://ui/parallax_2d_3.gd" id="4_h0qoh"]
-[ext_resource type="Texture2D" uid="uid://bss6fisf126l7" path="res://assets/art/environment/background/meadow/bg_layer3_cloud.png" id="5_bvu3f"]
-[ext_resource type="Texture2D" uid="uid://3bu7ksgkagky" path="res://assets/art/environment/background/meadow/bg_layer4_castle.png" id="6_g3e74"]
+[ext_resource type="Texture2D" uid="uid://cwwpyn52h3d02" path="res://assets/art/environment/background/forest/Foreground-Forest-Paralax-bg.png" id="5_edn1p"]
 [ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="7_fuo3l"]
 [ext_resource type="Texture2D" uid="uid://corpf4jbk87qe" path="res://assets/art/environment/tile map/tile_map_master.png" id="8_h2o4d"]
 [ext_resource type="PackedScene" uid="uid://1naqlr4rc03u" path="res://entities/hazards/abyss.tscn" id="9_dha5i"]
@@ -215,7 +214,7 @@ repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D"]
 position = Vector2(320, -2)
-texture = ExtResource("2_edn1p")
+texture = ExtResource("2_ukvgx")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Node2D"]
 scroll_scale = Vector2(0.3, 1)
@@ -225,7 +224,7 @@ repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2"]
 position = Vector2(320, -2)
-texture = ExtResource("3_rjsn0")
+texture = ExtResource("3_vsewx")
 
 [node name="Parallax2D3" type="Parallax2D" parent="Node2D"]
 scroll_scale = Vector2(0.6, 1)
@@ -236,16 +235,7 @@ script = ExtResource("4_h0qoh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3"]
 position = Vector2(320, -2)
-texture = ExtResource("5_bvu3f")
-
-[node name="Parallax2D4" type="Parallax2D" parent="Node2D"]
-scroll_offset = Vector2(0, -64)
-repeat_size = Vector2(320, 0)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4"]
-position = Vector2(320, -2)
-texture = ExtResource("6_g3e74")
+texture = ExtResource("5_edn1p")
 
 [node name="Chunk1" type="Node2D" parent="."]
 script = ExtResource("7_fuo3l")
