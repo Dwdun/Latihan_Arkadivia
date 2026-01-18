@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @export var stats: EnemyStats
 
+var audio = preload("res://assets/audio/sfx/dekorasi/Breaking Glass , Smashing Window , Breaking Mirror Sound Effect - Robert's AV Productions.wav")
+
 var pickup_scene = preload("res://entities/player/pickup_item.tscn")
 
 func _ready() -> void:
@@ -12,6 +14,7 @@ func _ready() -> void:
 
 func _on_damaged(amount: int, source_pos: Vector2, knockback_force: float):
 	animation_player.play("Die")
+	GlobalAudio.play_music_range(audio, 11.8, 12)
 	if stats and stats.loot_table.size() > 0:
 		drop_loot()
 

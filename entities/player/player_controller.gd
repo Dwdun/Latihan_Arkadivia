@@ -256,15 +256,27 @@ func prepare_skill_attack(dmg: int, anim: String, charging: bool = false, charge
 	temp_skill_multiplier = mult
 
 func _on_died():
-	if not is_physics_processing(): return
+	if is_dead_flag: return
 	
-	print("PLAYER MATI! Requesting Respawn...")
-	
-	set_physics_process(false)
+	is_dead_flag = true
+	print("PLAYER MATI! Memulai sekuens kematian...")
+
+	if limbo_hsm:
+		limbo_hsm.set_active(false) 
+
+	set_physics_process(false) 
 	set_process(false)
-	$CollisionShape2D.set_deferred("disabled", true)
+	
+	velocity = Vector2.ZERO
+
+	if animation_player.has_animation("Die"):
+		animation_player.play("Die")
+		await animation_player.animation_finished
+	else:
+		push_warning("Animasi 'Death' tidak ditemukan!")
 
 	GameManager.respawn_player()
+
 func perform_jump():
 	velocity.y = stats.jump_force
 	jump_count += 1

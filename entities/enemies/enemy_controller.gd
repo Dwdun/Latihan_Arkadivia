@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var bt_player: BTPlayer = $BTPlayer
 @onready var vision_component: VisionComponent = $VisionComponent
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+
 var pickup_scene = preload("res://entities/player/pickup_item.tscn")
 
 @onready var body_hitbox: HitboxComponent = $Visuals/BodyHitbox

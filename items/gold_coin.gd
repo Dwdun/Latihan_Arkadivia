@@ -4,6 +4,8 @@ extends Area2D
 @export var unique_id: String = ""
 @onready var sprite = $Sprite2D
 
+var audio = preload("res://assets/audio/sfx/dekorasi/Top 5 coin sound effects - Dora the Explorer on content aware scale.wav")
+
 func _ready():
 	if unique_id == "":
 		unique_id = str(get_tree().current_scene.scene_file_path) + "/" + str(get_path())
@@ -17,6 +19,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body):
 	print("Sesuatu masuk: ", body.name)
 	if body.is_in_group("player"):
+		GlobalAudio.play_music_range(audio, 3.8, 4.5)
 		_collect_coin()
 
 func _collect_coin():

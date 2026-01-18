@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3unbvo0fi14s"]
+[gd_scene load_steps=23 format=3 uid="uid://d3unbvo0fi14s"]
 
 [ext_resource type="Script" uid="uid://b0n0qavaqewag" path="res://entities/enemies/enemy_controller.gd" id="1_an2em"]
 [ext_resource type="Texture2D" uid="uid://bcx2m8ch44rfp" path="res://assets/art/slime_sheet.png" id="2_fr4fo"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://ckrpe3l817hqa" path="res://_core/components/hitbox_component.gd" id="3_63wa6"]
 [ext_resource type="Script" uid="uid://d0w2qqms5v0id" path="res://_core/components/health_component.gd" id="3_fr4fo"]
 [ext_resource type="Script" uid="uid://djnmmhs2mo4nn" path="res://_core/components/hurtbox_component.gd" id="4_op42u"]
+[ext_resource type="AudioStream" uid="uid://bp0rotvupydh6" path="res://assets/audio/sfx/Slime/Idle, loncat, dan terkena hit/Minecraft Slime Sound Effects! - All Slime SFX For Editing! - MaxGamer7.wav" id="6_2rtxu"]
+[ext_resource type="AudioStream" uid="uid://b5halmhxf35n7" path="res://assets/audio/sfx/Slime/Idle, loncat, dan terkena hit/Simple Slime Sound Design 🦠👽 - Anthony Audio.wav" id="6_u8q26"]
 [ext_resource type="BehaviorTree" uid="uid://omgcsl1gboid" path="res://ai/trees/BT_Slime.tres" id="7_op42u"]
 [ext_resource type="Script" uid="uid://cavwg6j1jut3s" path="res://_core/components/vision_component.gd" id="8_66ryp"]
 
@@ -45,6 +47,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 5.37,
+"stream": ExtResource("6_2rtxu")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_2rtxu"]
 resource_name = "Die"
@@ -79,6 +96,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [12, 13, 14]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 1.7,
+"start_offset": 1.2,
+"stream": ExtResource("6_u8q26")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_63wa6"]
 resource_name = "Idle"
@@ -142,6 +174,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [4, 5, 6, 7]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 7.7890115,
+"start_offset": 4.0,
+"stream": ExtResource("6_u8q26")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fr4fo"]
 _data = {
@@ -223,3 +270,5 @@ vision_range = 250.0
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_op42u")
 blackboard_plan = SubResource("BlackboardPlan_4i7ip")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

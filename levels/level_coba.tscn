@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://47pf3u75h2b2"]
+[gd_scene load_steps=27 format=4 uid="uid://47pf3u75h2b2"]
 
 [ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="1_3dpru"]
 [ext_resource type="Script" uid="uid://b3s4ssmnlpj2p" path="res://levels/level_controller.gd" id="1_narha"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://1cjco3jqitfq" path="res://entities/enemies/common/pot.tscn" id="16_uohjh"]
 [ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/chests/treasure_chest.tscn" id="17_3jlxi"]
 [ext_resource type="PackedScene" uid="uid://snj47ilshwn5" path="res://_core/level_system/checkpoint.tscn" id="17_3jwlo"]
+[ext_resource type="PackedScene" uid="uid://dp1mygfgm048b" path="res://entities/hazards/birb.tscn" id="18_7eb5v"]
 [ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/chests/chest_1a.tres" id="18_narha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_narha"]
@@ -308,6 +309,12 @@ scale = Vector2(11, 11)
 [node name="Checkpoint" parent="Chunk2" instance=ExtResource("17_3jwlo")]
 position = Vector2(533, 94)
 
+[node name="Birb" parent="Chunk2" instance=ExtResource("18_7eb5v")]
+position = Vector2(500, 65)
+
+[node name="B" parent="Chunk2/Birb" index="2"]
+position = Vector2(-32, 32)
+
 [node name="Chunk3" type="Node2D" parent="."]
 position = Vector2(1280, 0)
 script = ExtResource("1_3dpru")
@@ -365,4 +372,5 @@ color = Color(0.54901963, 0.61960787, 0.7019608, 1)
 position = Vector2(93, 247)
 loot_data = ExtResource("18_narha")
 
+[editable path="Chunk2/Birb"]
 [editable path="LevelHallway"]

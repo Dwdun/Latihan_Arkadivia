@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c82m52a8wxse8"]
+
+[ext_resource type="Script" uid="uid://b2rqehm4r6i38" path="res://_core/singletons/global_audio.gd" id="1_i7tek"]
+
+[node name="GlobalAudio" type="AudioStreamPlayer"]
+script = ExtResource("1_i7tek")
+
+[node name="StopTimer" type="Timer" parent="."]

@@ -12,10 +12,9 @@ func _on_body_entered(body):
 
 func activate_checkpoint():
 	is_active = true
-
 	var level_path = get_tree().current_scene.scene_file_path
+	
 	GameManager.register_checkpoint(spawn_point.global_position, level_path)
+	SavingSystem.save_game()
 	
-	var tween = create_tween()
-	
-	print("Checkpoint Activated!")
+	print("Checkpoint Activated & Game Saved!")

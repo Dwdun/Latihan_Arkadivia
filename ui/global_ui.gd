@@ -22,8 +22,7 @@ func _ready() -> void:
 	hide_ui()
 	# --- DENGAR SINYAL GOLD ---
 	InventoryManager.gold_updated.connect(update_gold_ui)
-	
-	if hud_control: hud_control.visible = true
+
 	
 	# Update tampilan awal (0 Gold)
 	update_gold_ui(InventoryManager.gold)
@@ -97,12 +96,26 @@ func toggle_cinematic_bars(active: bool, title: String = ""):
 		tween.parallel().tween_property(boss_title, "modulate:a", 0.0, 0.5)
 
 func show_ui():
+	# Nyalakan kembali HUD
 	if hud_control:
 		hud_control.visible = true
+	# Nyalakan kembali akses Sinematik (tapi bar tetap 0 dulu)
+	if cinematic_layer:
+		cinematic_layer.visible = true
 
 func hide_ui():
+	# 1. Sembunyikan HUD (Darah, Mana, Gold)
 	if hud_control:
 		hud_control.visible = false
+	
+	# 2. Sembunyikan Layer Sinematik (PENTING: Agar tidak BLANK hitam)
+	if cinematic_layer:
+		cinematic_layer.visible = false
+	
+	# 3. Pastikan Shop & Inventory tertutup
+	if shop_ui: shop_ui.visible = false
+	var inv_ui = hud_control.get_node_or_null("InventoryUI")
+	if inv_ui: inv_ui.visible = false
 
 
 func update_gold_ui(amount: int):

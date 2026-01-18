@@ -13,6 +13,7 @@ var last_checkpoint_level: String = ""
 var collected_items_state: Dictionary = {}
 
 var current_character_scene: PackedScene
+var current_character_name: String = ""
 
 var is_cutscene: bool = false
 
@@ -37,6 +38,7 @@ func hit_stop(time_scale: float, duration: float):
 	Engine.time_scale = 1.0 
 
 func select_character(type: String):
+	current_character_name = type
 	match type:
 		"enchanter": current_character_scene = enchanter
 		"executioner": current_character_scene = executioner
@@ -89,3 +91,60 @@ func register_checkpoint(pos: Vector2, level_path: String):
 	last_checkpoint_level = level_path
 	print("Checkpoint Saved at: ", pos)
 	
+func rescue_player_from_fall(player_node: Node2D):
+	# 1. Ambil Path Level yang SEDANG AKTIF secara langsung (Real-time)
+	var active_scene_path = ""
+	if get_tree().current_scene:
+		active_scene_path = get_tree().current_scene.scene_file_path
+	
+	print("Rescue Check: Checkpoint Level [", last_checkpoint_level, "] vs Active Level [", active_scene_path, "]")
+	
+	# 2. Tentukan Posisi Target
+	var target_pos = Vector2.ZERO
+	
+	# Bandingkan dengan active_scene_path, BUKAN current_level_path
+	if last_checkpoint_pos != Vector2.INF and last_checkpoint_level == active_scene_path:
+		target_pos = last_checkpoint_pos
+		print(" -> Menggunakan CHECKPOINT di: ", target_pos)
+	else:
+		# Fallback ke Pintu Start
+		var doors = get_tree().get_nodes_in_group("doors")
+		for door in doors:
+			if door.has_method("get_id") and door.get_id() == "start":
+				target_pos = door.get_spawn_position()
+				print(" -> Checkpoint tidak valid/beda level. Menggunakan PINTU START.")
+				break
+	
+	# 3. Teleportasi
+	if target_pos != Vector2.ZERO:
+		player_node.global_position = target_pos
+		
+		# Reset Velocity & State
+		if player_node.get("velocity"):
+			player_node.velocity = Vector2.ZERO
+		
+		# Reset Kamera agar langsung snap (tidak pusing)
+		if player_node.has_node("Camera2D"):
+			player_node.get_node("Camera2D").reset_smoothing()
+			
+		# (Opsional) Efek visual spawn ulang (misal kedip)
+		if player_node.has_method("_start_iframe_blink"):
+			player_node._start_iframe_blink()
+	else:
+		push_error("GameManager: TIDAK ADA TEMPAT RESPAWN! Cek apakah Checkpoint aktif atau ada pintu ID 'start'.")
+	
+	# Tambahkan di bagian bawah script
+
+func reset_game_data():
+	# Reset Checkpoint
+	last_checkpoint_pos = Vector2.INF
+	last_checkpoint_level = ""
+	
+	# Reset Item yang diambil (Koin muncul lagi)
+	collected_items_state.clear()
+	
+	# Reset Inventory (Jika InventoryManager punya fungsi reset)
+	InventoryManager.gold = 0
+	# InventoryManager.clear_inventory() 
+	
+	print("Data Game Direset (New Game Mode)")

@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d283xrenunqfi"]
+
+[ext_resource type="FontFile" uid="uid://cy5rk8e8vyk5m" path="res://assets/fonts/CiGamedevRegular-ovq3z.ttf" id="1_ov7sn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow34m"]
+
+[resource]
+default_font = ExtResource("1_ov7sn")
+default_font_size = 24
+Button/fonts/font = ExtResource("1_ov7sn")
+Button/styles/normal = SubResource("StyleBoxFlat_ow34m")
