@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cry37am4u1ow1"
+path="res://.godot/imported/Water Splash Sound Effects - Sound Effect Showcase.wav.wav-2a26201822087094fcc337cfbd606e35.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Before set Henshin/Water Splash Sound Effects - Sound Effect Showcase.wav.wav"
+dest_files=["res://.godot/imported/Water Splash Sound Effects - Sound Effect Showcase.wav.wav-2a26201822087094fcc337cfbd606e35.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
