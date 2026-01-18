@@ -296,7 +296,7 @@ position = Vector2(498, 133)
 position = Vector2(616, 150)
 
 [node name="GoldCoin" parent="Chunk1" instance=ExtResource("13_fewke")]
-position = Vector2(119, 134)
+position = Vector2(121.00001, 134)
 scale = Vector2(11, 11)
 
 [node name="GoldCoin2" parent="Chunk1" instance=ExtResource("13_fewke")]
