@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://47pf3u75h2b2"]
+[gd_scene load_steps=26 format=4 uid="uid://47pf3u75h2b2"]
 
 [ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="1_3dpru"]
 [ext_resource type="Script" uid="uid://b3s4ssmnlpj2p" path="res://levels/level_controller.gd" id="1_narha"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://3bu7ksgkagky" path="res://assets/art/environment/background/meadow/bg_layer4_castle.png" id="15_mrkr4"]
 [ext_resource type="PackedScene" uid="uid://1cjco3jqitfq" path="res://entities/enemies/common/pot.tscn" id="16_uohjh"]
 [ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/chests/treasure_chest.tscn" id="17_3jlxi"]
+[ext_resource type="PackedScene" uid="uid://snj47ilshwn5" path="res://_core/level_system/checkpoint.tscn" id="17_3jwlo"]
 [ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/chests/chest_1a.tres" id="18_narha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_narha"]
@@ -303,6 +304,9 @@ scale = Vector2(2, 2)
 [node name="GoldCoin" parent="Chunk2" instance=ExtResource("8_ey2k3")]
 position = Vector2(297.99994, 82.000015)
 scale = Vector2(11, 11)
+
+[node name="Checkpoint" parent="Chunk2" instance=ExtResource("17_3jwlo")]
+position = Vector2(533, 94)
 
 [node name="Chunk3" type="Node2D" parent="."]
 position = Vector2(1280, 0)

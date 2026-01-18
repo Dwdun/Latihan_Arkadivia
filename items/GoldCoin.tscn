@@ -1,11 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://6s2lvoo4twy3"]
+[gd_scene load_steps=7 format=3 uid="uid://6s2lvoo4twy3"]
 
 [ext_resource type="Script" uid="uid://bfkmfo6oluwpw" path="res://items/gold_coin.gd" id="1_naaba"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sbik8"]
+[ext_resource type="Texture2D" uid="uid://bf7uc6wwu0qt7" path="res://assets/art/environment/environment animation/gold-coin.png" id="2_8tpwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbik8"]
 size = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_qja1o"]
+resource_name = "Idle"
+length = 2.4
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.90000004, 1.2, 1.5, 1.8000001, 2.1000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_c55pd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygmym"]
+_data = {
+&"Idle": SubResource("Animation_qja1o"),
+&"RESET": SubResource("Animation_c55pd")
+}
 
 [node name="GoldCoin" type="Area2D"]
 scale = Vector2(10, 10)
@@ -14,9 +52,17 @@ collision_mask = 2
 script = ExtResource("1_naaba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_sbik8")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_8tpwj")
+hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sbik8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ygmym")
+}
+speed_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

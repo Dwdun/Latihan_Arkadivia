@@ -298,21 +298,33 @@ position = Vector2(616, 150)
 [node name="GoldCoin" parent="Chunk1" instance=ExtResource("13_fewke")]
 position = Vector2(121.00001, 134)
 scale = Vector2(11, 11)
+amount = null
+unique_id = null
 
 [node name="GoldCoin2" parent="Chunk1" instance=ExtResource("13_fewke")]
 position = Vector2(312, 70)
+amount = null
+unique_id = null
 
 [node name="GoldCoin3" parent="Chunk1" instance=ExtResource("13_fewke")]
 position = Vector2(327, 70.00001)
+amount = null
+unique_id = null
 
 [node name="GoldCoin4" parent="Chunk1" instance=ExtResource("13_fewke")]
 position = Vector2(344.00003, 70.00001)
+amount = null
+unique_id = null
 
 [node name="GoldCoin5" parent="Chunk1" instance=ExtResource("13_fewke")]
 position = Vector2(361.00003, 70.00001)
+amount = null
+unique_id = null
 
 [node name="GoldCoin6" parent="Chunk1" instance=ExtResource("13_fewke")]
 position = Vector2(378.00003, 70.00001)
+amount = null
+unique_id = null
 
 [node name="Supa" parent="Chunk1" instance=ExtResource("14_t0xrc")]
 position = Vector2(164, 264)
@@ -340,48 +352,78 @@ tile_set = SubResource("TileSet_rvcct")
 
 [node name="GoldCoin" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(56, 117.99999)
+amount = null
+unique_id = null
 
 [node name="GoldCoin2" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(120, 54.000004)
+amount = null
+unique_id = null
 
 [node name="GoldCoin3" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(76, 25.000002)
+amount = null
+unique_id = null
 
 [node name="GoldCoin4" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(201, 104.99999)
+amount = null
+unique_id = null
 
 [node name="GoldCoin6" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(293.00006, 27.00002)
+amount = null
+unique_id = null
 
 [node name="GoldCoin7" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(360.00012, 118)
+amount = null
+unique_id = null
 
 [node name="GoldCoin8" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(408.00012, 118.00001)
+amount = null
+unique_id = null
 
 [node name="GoldCoin9" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(456.00012, 118.00001)
+amount = null
+unique_id = null
 
 [node name="GoldCoin10" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(376.00012, 67.000015)
+amount = null
+unique_id = null
 
 [node name="GoldCoin11" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(468.00012, 52.000015)
+amount = null
+unique_id = null
 
 [node name="GoldCoin12" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(618.0001, 53.00002)
+amount = null
+unique_id = null
 
 [node name="GoldCoin13" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(701.0001, 53.00002)
+amount = null
+unique_id = null
 
 [node name="GoldCoin14" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(698.0001, 118.000015)
+amount = null
+unique_id = null
 
 [node name="GoldCoin15" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(711.0001, 118.000015)
+amount = null
+unique_id = null
 
 [node name="GoldCoin5" parent="Chunk2" instance=ExtResource("13_fewke")]
 position = Vector2(180, 31)
+amount = null
+unique_id = null
 
 [node name="EnemySlime" parent="Chunk2" instance=ExtResource("12_v2g8w")]
 position = Vector2(269, 53)
@@ -410,12 +452,18 @@ position = Vector2(227, 85)
 
 [node name="GoldCoin" parent="Chunk3" instance=ExtResource("13_fewke")]
 position = Vector2(56, 117.99999)
+amount = null
+unique_id = null
 
 [node name="GoldCoin2" parent="Chunk3" instance=ExtResource("13_fewke")]
 position = Vector2(119, 100.99999)
+amount = null
+unique_id = null
 
 [node name="GoldCoin3" parent="Chunk3" instance=ExtResource("13_fewke")]
 position = Vector2(312, 117.99999)
+amount = null
+unique_id = null
 
 [node name="Chunk4" type="Node2D" parent="."]
 position = Vector2(1910, 0)
@@ -435,42 +483,68 @@ tile_set = SubResource("TileSet_rvcct")
 
 [node name="GoldCoin4" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(72, 23.000008)
+amount = null
+unique_id = null
 
 [node name="GoldCoin6" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(136, 71)
+amount = null
+unique_id = null
 
 [node name="GoldCoin7" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(136, 23.00001)
+amount = null
+unique_id = null
 
 [node name="GoldCoin8" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(186, 102.99999)
+amount = null
+unique_id = null
 
 [node name="GoldCoin9" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(243, 150)
+amount = null
+unique_id = null
 
 [node name="GoldCoin10" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(280, 8.000011)
+amount = null
+unique_id = null
 
 [node name="GoldCoin11" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(344, 149.99997)
+amount = null
+unique_id = null
 
 [node name="GoldCoin12" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(344, 134.99997)
+amount = null
+unique_id = null
 
 [node name="GoldCoin13" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(344, 119.99997)
+amount = null
+unique_id = null
 
 [node name="GoldCoin14" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(391, 119.99998)
+amount = null
+unique_id = null
 
 [node name="GoldCoin15" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(391, 134.99998)
+amount = null
+unique_id = null
 
 [node name="GoldCoin16" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(391, 149.99998)
+amount = null
+unique_id = null
 
 [node name="GoldCoin5" parent="Chunk4" instance=ExtResource("13_fewke")]
 position = Vector2(28, 74)
+amount = null
+unique_id = null
 
 [node name="EnemySlime2" parent="Chunk4" instance=ExtResource("12_v2g8w")]
 position = Vector2(65, 148)

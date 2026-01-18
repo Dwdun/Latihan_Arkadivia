@@ -1,44 +1,36 @@
 extends Area2D
 
 @export var amount: int = 1
+@export var unique_id: String = ""
 @onready var sprite = $Sprite2D
 
-# Setup animasi naik-turun (Tweening)
-var start_y: float
+func _ready():
+	if unique_id == "":
+		unique_id = str(get_tree().current_scene.scene_file_path) + "/" + str(get_path())
 
-func _ready() -> void:
-	start_y = position.y
-	
-	# Sambungkan sinyal tabrakan
-	body_entered.connect(_on_body_entered)
-	
-	# Animasi Floating (Naik turun cantik)
-	_start_floating_anim()
+	if GameManager.is_item_collected(unique_id):
+		queue_free()
 
-func _start_floating_anim():
-	var tween = create_tween().set_loops()
-	# Naik 5 pixel dalam 1 detik, lalu turun lagi
-	tween.tween_property(self, "position:y", start_y - 5, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self, "position:y", start_y + 5, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+func _process(delta: float) -> void:
+	$AnimationPlayer.play("Idle")
 
 func _on_body_entered(body):
+	print("Sesuatu masuk: ", body.name)
 	if body.is_in_group("player"):
 		_collect_coin()
 
 func _collect_coin():
-	# 1. Tambah Gold ke Global
 	InventoryManager.add_gold(amount)
-	
-	# 2. Efek Suara (Opsional, jika ada AudioManager)
-	# AudioManager.play_sfx("coin_pickup")
-	
-	# 3. Efek Visual (Langsung hilang atau animasi)
-	# Kita matikan deteksi agar tidak ambil 2x
+
+	GameManager.register_collected_item(unique_id)
+
 	set_deferred("monitoring", false)
 	
-	# Bikin efek 'Puff' atau langsung hapus
-	# Agar simple: Tween transparansi lalu hapus
 	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.2) # Fade out
-	tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.2) # Membesar sedikit
-	tween.tween_callback(queue_free)
+
+	tween.set_parallel(true)
+	
+	tween.tween_property(self, "modulate:a", 0.0, 0.2)
+	tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.2)
+	
+	tween.chain().tween_callback(queue_free)
