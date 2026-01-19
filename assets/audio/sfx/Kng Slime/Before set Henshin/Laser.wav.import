@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://be3bfc2wtbbv0"
+path="res://.godot/imported/Laser.wav-37fa5dff43d7f4ad96306244f14f9428.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Before set Henshin/Laser.wav"
+dest_files=["res://.godot/imported/Laser.wav-37fa5dff43d7f4ad96306244f14f9428.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

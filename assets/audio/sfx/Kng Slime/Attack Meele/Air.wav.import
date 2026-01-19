@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvmygfvs36brb"
+path="res://.godot/imported/Air.wav-04c67ce406e6df87b2e8ca899d2bdb6c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Attack Meele/Air.wav"
+dest_files=["res://.godot/imported/Air.wav-04c67ce406e6df87b2e8ca899d2bdb6c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d4fcctsa50c5f"
+path="res://.godot/imported/Evo.wav-c8a0d209e64c854b7cbaf1acf52baa7c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Kng Slime/Before set Henshin/Evo.wav"
+dest_files=["res://.godot/imported/Evo.wav-c8a0d209e64c854b7cbaf1acf52baa7c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
