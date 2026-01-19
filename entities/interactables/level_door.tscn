@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bucmo40l26mit"]
+
+[ext_resource type="Script" uid="uid://btbxm7ywykw13" path="res://entities/interactables/level_door.gd" id="1_taosu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0onyo"]
+size = Vector2(34, 50)
+
+[node name="LevelDoor" type="Area2D" groups=["doors"]]
+collision_layer = 129
+collision_mask = 2
+script = ExtResource("1_taosu")
+target_door_id = "door_b"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(8, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 15)
+shape = SubResource("RectangleShape2D_0onyo")
+debug_color = Color(0.43137255, 0.14509805, 0, 0.41960785)
+
+[node name="Label" type="Label" parent="."]
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -9.0
+text = "E"
+
+[node name="Pintu" type="Label" parent="."]
+offset_left = -16.0
+offset_right = 25.0
+offset_bottom = 23.0
+text = "Pintu"

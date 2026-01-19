@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdobcjy4u216r"]
+
+[ext_resource type="Script" uid="uid://dobtr030qpsh1" path="res://systems/shop/shop_ui.gd" id="1_staka"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d80et"]
+
+[node name="ShopUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_staka")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 960.0
+offset_bottom = 576.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Toko"
+label_settings = SubResource("LabelSettings_d80et")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_top = -32.0
+offset_right = 59.0
+offset_bottom = -1.0
+text = "Keluar"

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc31ahqus48n5"]
+
+[ext_resource type="Script" uid="uid://b752g4bxmujdu" path="res://systems/shop/shop_slot.gd" id="1_wfe76"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7fcl"]
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfe76"]
+font_size = 14
+
+[node name="ShopSlot" type="Button"]
+offset_right = 256.0
+offset_bottom = 48.0
+script = ExtResource("1_wfe76")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 48.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="LabelName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Nama Barang"
+label_settings = SubResource("LabelSettings_n7fcl")
+
+[node name="LabelCost" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Harga"
+label_settings = SubResource("LabelSettings_wfe76")
+
+[node name="LabelStock" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Stock"

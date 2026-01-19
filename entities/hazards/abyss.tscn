@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1naqlr4rc03u"]
+
+[ext_resource type="Script" uid="uid://ph4hxudfmv7t" path="res://_core/components/kill_zone.gd" id="1_mak2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oknaw"]
+size = Vector2(50, 554)
+
+[node name="Abyss" type="Area2D"]
+collision_layer = 64
+collision_mask = 36
+script = ExtResource("1_mak2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 267)
+shape = SubResource("RectangleShape2D_oknaw")

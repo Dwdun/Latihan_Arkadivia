@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=5 format=3 uid="uid://bsp8jkdjksymu"]
+
+[ext_resource type="Script" uid="uid://bniobw5uyc22y" path="res://entities/enemies/resources/enemy_stats.gd" id="1_852fo"]
+[ext_resource type="Resource" uid="uid://b88v76ddkpii8" path="res://entities/enemies/resources/attacks/boss/boss_shoot.tres" id="1_uq6il"]
+[ext_resource type="Resource" uid="uid://c6e5jf7e68j1i" path="res://entities/enemies/resources/attacks/boss/boss_laser.tres" id="2_ry0hp"]
+[ext_resource type="Resource" uid="uid://d4m1jbxsg2ulf" path="res://entities/enemies/resources/attacks/boss/boss_charge.tres" id="3_hvluo"]
+
+[resource]
+script = ExtResource("1_852fo")
+max_health = 190
+attacks = Array[Resource]([ExtResource("1_uq6il"), ExtResource("2_ry0hp"), ExtResource("3_hvluo")])
+metadata/_custom_type_script = "uid://bniobw5uyc22y"

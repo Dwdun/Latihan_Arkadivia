@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dasb6d1pcjxn7"]
+
+[ext_resource type="Script" uid="uid://djnmmhs2mo4nn" path="res://_core/components/hurtbox_component.gd" id="1_wsipq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr3pv"]
+size = Vector2(26, 48)
+
+[node name="Samsak" type="Area2D"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_wsipq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_rr3pv")
+debug_color = Color(0.51705337, 0.00029119104, 0.5474064, 0.41960785)

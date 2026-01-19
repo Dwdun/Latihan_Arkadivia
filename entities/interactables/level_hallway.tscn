@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0h4g1iu3c0tj"]
+
+[ext_resource type="Script" uid="uid://cyfrsercqtepn" path="res://entities/interactables/level_hallway.gd" id="1_kwd2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iacc"]
+size = Vector2(0.75, 16)
+
+[node name="LevelHallway" type="Area2D"]
+collision_layer = 129
+collision_mask = 2
+script = ExtResource("1_kwd2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.375, -8)
+shape = SubResource("RectangleShape2D_0iacc")
+debug_color = Color(0.97952443, 0, 0.39119965, 0.41960785)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]

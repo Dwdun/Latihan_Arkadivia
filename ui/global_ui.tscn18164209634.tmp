@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkmi1ro8cmdfk"]
+
+[ext_resource type="PackedScene" uid="uid://ilebuxobul7e" path="res://_core/inventory/inventory_ui.tscn" id="1_a31wk"]
+
+[node name="GlobalUI" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+
+[node name="InventoryUI" parent="." instance=ExtResource("1_a31wk")]
+focus_mode = 2

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyAttackDef" load_steps=2 format=3 uid="uid://b88v76ddkpii8"]
+
+[ext_resource type="Script" uid="uid://btf8joa4a7kvm" path="res://entities/enemies/resources/attacks/enemy_attack_def.gd" id="1_ksayo"]
+
+[resource]
+script = ExtResource("1_ksayo")
+attack_name = "Shoot"
+damage = 50
+animation_name = "Shoot"
+min_range = 100.0
+max_range = 600.0
+metadata/_custom_type_script = "uid://btf8joa4a7kvm"

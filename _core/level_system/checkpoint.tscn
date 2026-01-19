@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://snj47ilshwn5"]
+
+[ext_resource type="Script" uid="uid://dtasvcumu0o42" path="res://_core/level_system/checkpoint.gd" id="1_el700"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_el700"]
+b = Vector2(0, 75)
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_el700")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -73)
+shape = SubResource("SegmentShape2D_el700")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]

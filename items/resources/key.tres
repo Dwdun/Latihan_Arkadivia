@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=2 format=3 uid="uid://dftok8jlvv3en"]
+
+[ext_resource type="Script" uid="uid://b4vbu6mjcqovh" path="res://_core/resources/item_data.gd" id="1_poay2"]
+
+[resource]
+script = ExtResource("1_poay2")
+name = "Kunich"
+type = 2
+can_sell = false
+metadata/_custom_type_script = "uid://b4vbu6mjcqovh"

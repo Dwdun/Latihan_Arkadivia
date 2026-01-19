@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyAttackDef" load_steps=2 format=3 uid="uid://c6e5jf7e68j1i"]
+
+[ext_resource type="Script" uid="uid://btf8joa4a7kvm" path="res://entities/enemies/resources/attacks/enemy_attack_def.gd" id="1_m3ana"]
+
+[resource]
+script = ExtResource("1_m3ana")
+attack_name = "Laser"
+cooldown = 2.0
+animation_name = "Melee"
+max_range = 70.0
+metadata/_custom_type_script = "uid://btf8joa4a7kvm"

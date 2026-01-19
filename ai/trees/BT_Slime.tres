@@ -1,0 +1,45 @@
+[gd_resource type="BehaviorTree" load_steps=16 format=3 uid="uid://omgcsl1gboid"]
+
+[ext_resource type="Script" uid="uid://b8s237twlipwd" path="res://ai/tasks/condition_can_attack.gd" id="1_47vb2"]
+[ext_resource type="Script" uid="uid://b85b8oaxeimmr" path="res://ai/tasks/action_perform_attack.gd" id="2_dj3yq"]
+[ext_resource type="Script" uid="uid://4lamsy8os67y" path="res://ai/tasks/action_chase.gd" id="3_4xiw8"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_qxkwm"]
+
+[sub_resource type="BTCondition" id="BTCondition_47vb2"]
+script = ExtResource("1_47vb2")
+
+[sub_resource type="BTAction" id="BTAction_dj3yq"]
+script = ExtResource("2_dj3yq")
+
+[sub_resource type="BTWait" id="BTWait_4xiw8"]
+
+[sub_resource type="BTSequence" id="BTSequence_ou1ly"]
+children = [SubResource("BTCondition_47vb2"), SubResource("BTAction_dj3yq"), SubResource("BTWait_4xiw8")]
+
+[sub_resource type="BBVariant" id="BBVariant_fwfd1"]
+saved_value = null
+resource_name = "<null>"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_m8dcv"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_fwfd1")
+
+[sub_resource type="BTAction" id="BTAction_y653i"]
+script = ExtResource("3_4xiw8")
+
+[sub_resource type="BTSequence" id="BTSequence_15a6s"]
+children = [SubResource("BTCheckVar_m8dcv"), SubResource("BTAction_y653i")]
+
+[sub_resource type="BTWait" id="BTWait_rtknw"]
+
+[sub_resource type="BTSequence" id="BTSequence_g4yd1"]
+children = [SubResource("BTWait_rtknw")]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_47vb2"]
+children = [SubResource("BTSequence_ou1ly"), SubResource("BTSequence_15a6s"), SubResource("BTSequence_g4yd1")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_qxkwm")
+root_task = SubResource("BTDynamicSelector_47vb2")
