@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dp1mygfgm048b"]
 
 [ext_resource type="Texture2D" uid="uid://bytc2bn5mwqgt" path="res://assets/art/characters/dragon/dragonfly.png" id="1_40lv4"]
-[ext_resource type="Script" uid="uid://vg206a1fiml" path="res://entities/hazards/birb.gd" id="1_j1efq"]
+[ext_resource type="Script" uid="uid://cfop5i81raofn" path="res://entities/hazards/birb.gd" id="1_j1efq"]
 [ext_resource type="Script" uid="uid://ckrpe3l817hqa" path="res://_core/components/hitbox_component.gd" id="3_4vjcd"]
 
 [sub_resource type="Animation" id="Animation_4vjcd"]
@@ -48,6 +48,7 @@ size = Vector2(16, 12)
 
 [node name="Birb" type="Node2D"]
 script = ExtResource("1_j1efq")
+wait_time = 1.0
 
 [node name="A" type="Marker2D" parent="."]
 
