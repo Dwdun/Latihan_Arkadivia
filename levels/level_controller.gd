@@ -1,8 +1,13 @@
 extends Node2D
 
+@export var bottom:int
+@export var top:int
+@export var right:int
+@export var left:int
+
 func _ready() -> void:
-	GameManager.camera_bottom = 177
-	GameManager.camera_left = 16
-	GameManager.camera_top = 0
-	GameManager.camera_right = 1632
+	GameManager.camera_bottom = bottom
+	GameManager.camera_left = left
+	GameManager.camera_top = top
+	GameManager.camera_right = right
 	GameManager.camera_zoom = 4
