@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var hp_label: Label = $HUD/HPLabel
 @onready var mana_label: Label = $HUD/ManaLabel
 @onready var gold_label: Label = $HUD/GoldLabel
+@onready var skill_ui = $HUD/SkillUI
 @onready var heart_container: HBoxContainer = $HUD/HeartContainer
 @onready var hud_control: Control = $HUD
 
@@ -129,3 +130,20 @@ func update_mana_ui(current: int, max_mana: int):
 
 func open_shop_ui(npc_ref):
 	shop_ui.open_shop(npc_ref)
+
+func register_player(player: PlayerController):
+	# 1. Ambil Skill Utama (Biasanya index 1, karena index 0 itu Dash)
+	# Pastikan player punya skill di slot itu
+	if player.equipped_skills.size() > 1:
+		var main_skill = player.equipped_skills[1]
+		if main_skill and skill_ui:
+			skill_ui.setup_skill(main_skill)
+	
+	# 2. Dengar sinyal saat player pakai skill
+	if not player.skill_used.is_connected(_on_player_skill_used):
+		player.skill_used.connect(_on_player_skill_used)
+
+func _on_player_skill_used(index: int, cooldown: float):
+	# Hanya respon jika yang dipakai adalah Skill 1 (Skill Serangan)
+	if index == 1 and skill_ui:
+		skill_ui.play_cooldown_animation(cooldown)

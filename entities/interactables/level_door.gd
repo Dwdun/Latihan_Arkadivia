@@ -1,18 +1,16 @@
 class_name LevelDoor
 extends Area2D
-
-# --- SETTING PINTU ---
 @export_group("Door Identity")
-@export var my_id: String = "door_a" # ID pintu INI (misal: "gerbang_desa")
+@export var my_id: String = "door_a" 
 
 @export_group("Destination")
-@export_file("*.tscn") var target_level_path: String # Level tujuan
-@export var target_door_id: String = "door_a" # ID pintu TUJUAN di level sana
+@export_file("*.tscn") var target_level_path: String
+@export var target_door_id: String = "start"
 
-# --- INTERNAL ---
+const NEXT_STAGE_SCENE = preload("res://_core/next_stage.tscn") 
+
 var player_in_range: bool = false
-@onready var spawn_point: Marker2D = $SpawnPoint
-@onready var label: Label = $Label # Jika ada label instruksi
+@onready var label: Label = $Label
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -20,7 +18,7 @@ func _ready() -> void:
 	if label: label.visible = false
 
 func _process(_delta: float) -> void:
-	if player_in_range and Input.is_action_just_pressed("interact"): # Pastikan input map "interact" ada (misal tombol W/E)
+	if player_in_range and Input.is_action_just_pressed("interact"):
 		_enter_door()
 
 func _enter_door():
@@ -28,17 +26,23 @@ func _enter_door():
 		push_error("Door: Level tujuan belum diisi!")
 		return
 	
-	# Panggil Global Manager
-	SceneManager.change_scene(target_level_path, target_door_id)
+	print("Level Selesai! Membuka menu Next Stage...")
+	
+	var victory_menu = NEXT_STAGE_SCENE.instantiate()
+	
+	if GlobalUI:
+		GlobalUI.add_child(victory_menu)
+	else:
+		get_tree().current_scene.add_child(victory_menu)
 
-# --- FUNGSI API (Dipanggil SceneManager) ---
+	victory_menu.setup_victory(target_level_path, target_door_id)
+
 func get_id() -> String:
 	return my_id
 
 func get_spawn_position() -> Vector2:
-	return spawn_point.global_position
+	return $SpawnPoint.global_position
 
-# --- DETEKSI PLAYER ---
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("player"):
 		player_in_range = true

@@ -6,6 +6,7 @@
 script = ExtResource("1_dsdfm")
 move_speed = 100.0
 jump_force = -436.0
+gravity_scale = 0.8
 max_health = 10
 wall_jump_force = Vector2(100, -500)
 metadata/_custom_type_script = "uid://blnibljyye7vk"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillShockwave" load_steps=3 format=3 uid="uid://bvd174wlogpid"]
+
+[ext_resource type="Script" uid="uid://d13at6s1lb1qm" path="res://entities/player/skills/skill_shockwave.gd" id="1_iwodf"]
+[ext_resource type="Texture2D" uid="uid://b614cnx208qnc" path="res://assets/art/ui/main (game) display/executor_cooldown.png" id="1_w77ql"]
+
+[resource]
+script = ExtResource("1_iwodf")
+animation_name = "Skill1"
+cooldown = 5.0
+icon = ExtResource("1_w77ql")
+can_charge = true
+metadata/_custom_type_script = "uid://d13at6s1lb1qm"

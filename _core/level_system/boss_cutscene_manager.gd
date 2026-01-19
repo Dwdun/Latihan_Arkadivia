@@ -3,6 +3,7 @@ extends Node2D
 @export var boss_visual_scene: PackedScene 
 @export var boss_name_display: String = "THE DARK KNIGHT"
 @export var entry_gate: Node2D
+@export var exit_gate: Node2D
 @export var arena_center: Marker2D
 @export var boss_combat_scene: PackedScene
 
@@ -45,6 +46,9 @@ func anim_setup_camera():
 	$Camera2D.enabled = true
 	$Camera2D.make_current() # Ambil alih layar
 	
+		
+	if exit_gate and exit_gate.has_method("close_gate"):
+		exit_gate.close_gate()
 		
 	if entry_gate and entry_gate.has_method("close_gate"):
 		entry_gate.close_gate()

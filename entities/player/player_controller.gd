@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var limbo_hsm: LimboHSM = $LimboHSM
 
 var temp_active_skill: BaseSkill = null
+var temp_skill_index: int = -1
 
 var temp_dash_speed: float = 0.0
 var temp_dash_duration: float = 0.0
@@ -26,6 +27,7 @@ var temp_skill_multiplier: float = 1.0
 
 var current_mana: int = 0
 signal mana_changed(current, max)
+signal skill_used(skill_index: int, cooldown_duration: float)
 
 @onready var health_component: HealthComponent = $HealthComponent
 
@@ -52,6 +54,10 @@ func _ready() -> void:
 		push_error("STATS BELUM DIPASANG! Pasang resource PlayerStats di Inspector.")
 		set_physics_process(false)
 		return
+	
+	if GlobalUI:
+		GlobalUI.show_ui()
+		GlobalUI.register_player(self)
 	
 	if stats:
 		current_mana = stats.max_mana
@@ -145,9 +151,8 @@ func use_skill(index: int):
 			current_mana -= skill.mana_cost
 			if GlobalUI: GlobalUI.update_mana_ui(current_mana, stats.max_mana)
 			temp_active_skill = skill 
+			temp_skill_index = index
 			skill.execute(self, stats) 
-			skill.start_cooldown()
-			
 		else:
 			print("Mana tidak cukup!")
 			_show_no_mana_feedback()
@@ -347,9 +352,17 @@ func _start_iframe_blink():
 	)
 
 func trigger_skill_cooldown():
-	if temp_active_skill and temp_active_skill.has_method("start_cooldown"):
+	if temp_active_skill:
+		# 1. Mulai timer internal skill
 		temp_active_skill.start_cooldown()
+		
+		# 2. Kirim sinyal ke UI (menggunakan index yang disimpan tadi)
+		if temp_skill_index != -1:
+			skill_used.emit(temp_skill_index, temp_active_skill.cooldown)
+		
+		# 3. Bersihkan data sementara
 		temp_active_skill = null
+		temp_skill_index = -1
 
 func _on_health_changed(current_val: int, max_val: int):
 	if GlobalUI.has_method("update_hp_ui"):

@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://c166n27o7i0fj" path="res://entities/player/resources/executioner_stas.tres" id="2_84q31"]
 [ext_resource type="Script" uid="uid://diuomc6oap7nf" path="res://entities/player/skills/base_skill.gd" id="3_01eya"]
 [ext_resource type="Resource" uid="uid://doj6htuur0nna" path="res://entities/player/resources/dash_normal.tres" id="4_hfn82"]
-[ext_resource type="Resource" uid="uid://chx0x8ci54wjy" path="res://entities/player/resources/skill_shockwave.tres" id="5_rbetp"]
+[ext_resource type="Resource" uid="uid://bvd174wlogpid" path="res://entities/player/resources/skill_ground.tres" id="5_sa72v"]
 [ext_resource type="AudioStream" uid="uid://vytc0jow5gx0" path="res://assets/audio/sfx/Executor/Axe/Axe Swing Sound Effect - Sound Effects LK.wav" id="6_hfn82"]
 [ext_resource type="Script" uid="uid://br45cvuoo0pct" path="res://entities/player/camera_shaker.gd" id="6_pcn5s"]
 [ext_resource type="Script" uid="uid://ckrpe3l817hqa" path="res://_core/components/hitbox_component.gd" id="7_h8ywq"]
@@ -687,7 +687,7 @@ collision_layer = 2
 collision_mask = 129
 script = ExtResource("1_84q31")
 stats = ExtResource("2_84q31")
-equipped_skills = Array[ExtResource("3_01eya")]([ExtResource("4_hfn82"), ExtResource("5_rbetp")])
+equipped_skills = Array[ExtResource("3_01eya")]([ExtResource("4_hfn82"), ExtResource("5_sa72v")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
@@ -749,6 +749,7 @@ hframes = 6
 position = Vector2(0, -17)
 texture = ExtResource("13_0n1ni")
 offset = Vector2(7, 0)
+hframes = 5
 
 [node name="Hurtbox" type="Area2D" parent="Visuals" node_paths=PackedStringArray("health_component")]
 collision_layer = 4

@@ -341,7 +341,7 @@ position = Vector2(198, -59)
 loot_data = ExtResource("15_ukvgx")
 
 [node name="Start" parent="Chunk1" instance=ExtResource("16_lxmy5")]
-position = Vector2(41, 119)
+position = Vector2(2216, 56)
 my_id = "start"
 target_door_id = ""
 
@@ -629,7 +629,7 @@ position = Vector2(65, 148)
 position = Vector2(220, 150)
 
 [node name="leveldoor" parent="Chunk4" instance=ExtResource("16_lxmy5")]
-position = Vector2(-1789, 103)
+position = Vector2(374, 55)
 my_id = "door_2"
 target_level_path = "uid://bpcwn34ynec7u"
 target_door_id = "start"

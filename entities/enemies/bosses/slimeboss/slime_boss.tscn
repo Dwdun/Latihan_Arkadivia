@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dhhf027eh3cfl" path="res://assets/art/characters/boss slime/boss slime_attack_range.png" id="6_rge2d"]
 [ext_resource type="Script" uid="uid://djnmmhs2mo4nn" path="res://_core/components/hurtbox_component.gd" id="7_gkayc"]
 [ext_resource type="Texture2D" uid="uid://rkle3sv6ubd" path="res://assets/art/characters/boss slime/boss slime_walk.png" id="7_kruk6"]
-[ext_resource type="Texture2D" uid="uid://nqwwwadq73o2" path="res://assets/art/vfx/boss slime/vfx_boss slime_meele.png" id="7_qo5db"]
+[ext_resource type="Texture2D" uid="uid://nqwwwadq73o2" path="res://assets/art/vfx/boss_slime/vfx_boss slime_meele.png" id="7_qo5db"]
 [ext_resource type="Texture2D" uid="uid://dqievw685k3c1" path="res://assets/art/characters/boss slime/boss slime_kena_hit_atau_sekarat.png" id="8_gkayc"]
 [ext_resource type="Texture2D" uid="uid://xhldsqn2lnpx" path="res://assets/art/characters/boss slime/boss slime_die_bodi_hancur.png" id="9_qo5db"]
 [ext_resource type="Texture2D" uid="uid://bsr2hmkelf0wp" path="res://assets/art/characters/boss slime/boss slime_after_die.png" id="10_ar80i"]
@@ -571,3 +571,5 @@ max_health = 200
 position = Vector2(0, -8)
 script = ExtResource("15_gkayc")
 vision_range = 1000.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -96,37 +96,29 @@ func _on_animation_finished(anim_name: String):
 		get_root().dispatch("state_ended")
 
 func _exit() -> void:
-	# 1. Pastikan cooldown tetap jalan (Existing)
-	#if player.temp_active_skill:
-		#player.trigger_skill_cooldown()
+	# 1. TRIGGER COOLDOWN DISINI (SOLUSI UTAMA)
+	# Saat kita keluar dari Cast State (entah karena sukses serang atau kena pukul),
+	# cooldown baru dimulai.
+	player.trigger_skill_cooldown()
 
-	# 2. Putuskan koneksi sinyal (Existing)
+	# 2. Putuskan koneksi sinyal
 	if player.animation_player.animation_finished.is_connected(_on_animation_finished):
 		player.animation_player.animation_finished.disconnect(_on_animation_finished)
 	
-	# 3. FIX: UNPAUSE ANIMATION
-	# Jika player kena hit saat sedang charging (animasi pause), kita harus resume dulu
-	# agar AnimationPlayer tidak nyangkut statenya di state berikutnya.
+	# 3. Resume Animation (jika ter-pause saat charging dan kena hit)
 	if player.animation_player.current_animation == player.temp_skill_anim:
 		if not player.animation_player.is_playing():
 			player.animation_player.play() 
 	
-	# 4. FIX: MATIKAN HITBOX PAKSA
-	# Jangan andalkan animasi untuk mematikan hitbox saat interupsi (kena hit)
+	# 4. Matikan Hitbox
 	if skill_hitbox:
 		skill_hitbox.set_deferred("monitoring", false)
 	
-	# 5. FIX: SEMBUNYIKAN EFEK VISUAL
-	# Cari node efek visual (selain sprite utama) dan sembunyikan
-	# Sesuaikan "EffectSprite" dengan nama node efek skill di scene player Anda
-	var effect_sprite = player.visuals.get_node_or_null("EffectSprite")
-	if effect_sprite:
-		effect_sprite.visible = false
-	
-	# Atau cara general: Sembunyikan semua Sprite selain Sprite Utama
+	# 5. Sembunyikan Efek Visual
+	# (Sesuaikan logika child visibility Anda disini)
 	for child in player.visuals.get_children():
 		if child is Sprite2D and child != player.sprite:
 			child.visible = false
 
-	# 6. Reset Warna (Existing)
+	# 6. Reset Warna
 	player.visuals.modulate = Color.WHITE
