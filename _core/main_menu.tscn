@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://5er1catr3my6"]
 
 [ext_resource type="Script" uid="uid://d1lfsxcphf17j" path="res://_core/main_menu.gd" id="1_ngqpp"]
+[ext_resource type="Texture2D" uid="uid://ddkji68to6f1" path="res://assets/art/environment/background/meadow/background.png" id="2_dx4o5"]
 [ext_resource type="Theme" uid="uid://d283xrenunqfi" path="res://styles/default.tres" id="2_pjt2p"]
 [ext_resource type="Texture2D" uid="uid://dwye6h7ea048q" path="res://assets/art/ui/pause display/Button_3.png" id="3_lwj2s"]
 [ext_resource type="Texture2D" uid="uid://brc875te2nc4k" path="res://assets/art/ui/start display/Button_4.png" id="4_citka"]
@@ -8,9 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://nw0t8gp44gil" path="res://assets/art/ui/start display/mute_master.png" id="5_dx4o5"]
 [ext_resource type="Texture2D" uid="uid://bonotx4k2t00q" path="res://assets/art/ui/start display/Slain_the_slime.png" id="6_dx4o5"]
 [ext_resource type="Texture2D" uid="uid://s7i8id37uu27" path="res://assets/art/ui/start display/mute_music.png" id="6_rpqbk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ykhv"]
-bg_color = Color(0.31623676, 0.28726143, 0.2549789, 1)
 
 [sub_resource type="GDScript" id="GDScript_m72vp"]
 
@@ -23,16 +21,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ngqpp")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="BackGround" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0ykhv")
+texture = ExtResource("2_dx4o5")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="BackGround"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,10 +42,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Container" type="Control" parent="Panel/MarginContainer"]
+[node name="Container" type="Control" parent="BackGround/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MarginContainer/Container"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,7 +63,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="NewGameButton" type="TextureButton" parent="Panel/MarginContainer/Container/VBoxContainer"]
+[node name="NewGameButton" type="TextureButton" parent="BackGround/MarginContainer/Container/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_pjt2p")
@@ -73,7 +71,7 @@ theme_type_variation = &"FlatButton"
 texture_normal = ExtResource("3_lwj2s")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Container/VBoxContainer/NewGameButton"]
+[node name="Label" type="Label" parent="BackGround/MarginContainer/Container/VBoxContainer/NewGameButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,7 +87,7 @@ grow_vertical = 2
 theme = ExtResource("2_pjt2p")
 text = "New Game"
 
-[node name="ResumeButton" type="TextureButton" parent="Panel/MarginContainer/Container/VBoxContainer"]
+[node name="ResumeButton" type="TextureButton" parent="BackGround/MarginContainer/Container/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_pjt2p")
@@ -97,7 +95,7 @@ theme_type_variation = &"FlatButton"
 texture_normal = ExtResource("3_lwj2s")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Container/VBoxContainer/ResumeButton"]
+[node name="Label" type="Label" parent="BackGround/MarginContainer/Container/VBoxContainer/ResumeButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,14 +111,14 @@ grow_vertical = 2
 theme = ExtResource("2_pjt2p")
 text = "Resume"
 
-[node name="SettingsButton" type="TextureButton" parent="Panel/MarginContainer/Container/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="BackGround/MarginContainer/Container/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_pjt2p")
 texture_normal = ExtResource("3_lwj2s")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Container/VBoxContainer/SettingsButton"]
+[node name="Label" type="Label" parent="BackGround/MarginContainer/Container/VBoxContainer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -136,14 +134,14 @@ grow_vertical = 2
 theme = ExtResource("2_pjt2p")
 text = "Settings"
 
-[node name="QuitButton" type="TextureButton" parent="Panel/MarginContainer/Container/VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="BackGround/MarginContainer/Container/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_pjt2p")
 texture_normal = ExtResource("3_lwj2s")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Container/VBoxContainer/QuitButton"]
+[node name="Label" type="Label" parent="BackGround/MarginContainer/Container/VBoxContainer/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -159,7 +157,7 @@ grow_vertical = 2
 theme = ExtResource("2_pjt2p")
 text = "Quit Game"
 
-[node name="CreditButton" type="TextureButton" parent="Panel/MarginContainer/Container"]
+[node name="CreditButton" type="TextureButton" parent="BackGround/MarginContainer/Container"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -171,7 +169,7 @@ theme = ExtResource("2_pjt2p")
 texture_normal = ExtResource("4_citka")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Container/CreditButton"]
+[node name="Label" type="Label" parent="BackGround/MarginContainer/Container/CreditButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -187,7 +185,7 @@ grow_vertical = 2
 theme = ExtResource("2_pjt2p")
 text = "Credit"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BackGround/MarginContainer/Container"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -199,20 +197,20 @@ offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="MuteMasterButton" type="TextureButton" parent="Panel/MarginContainer/Container/HBoxContainer"]
+[node name="MuteMasterButton" type="TextureButton" parent="BackGround/MarginContainer/Container/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture_normal = ExtResource("5_dx4o5")
 stretch_mode = 5
 script = SubResource("GDScript_m72vp")
 
-[node name="MuteMusicButton" type="TextureButton" parent="Panel/MarginContainer/Container/HBoxContainer"]
+[node name="MuteMusicButton" type="TextureButton" parent="BackGround/MarginContainer/Container/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture_normal = ExtResource("6_rpqbk")
 stretch_mode = 5
 
-[node name="TitleLabel2" type="TextureRect" parent="Panel/MarginContainer/Container"]
+[node name="TitleLabel2" type="TextureRect" parent="BackGround/MarginContainer/Container"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -226,7 +224,7 @@ expand_mode = 5
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="TitleLabel" type="TextureRect" parent="Panel/MarginContainer/Container"]
+[node name="TitleLabel" type="TextureRect" parent="BackGround/MarginContainer/Container"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -241,11 +239,11 @@ expand_mode = 5
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/NewGameButton" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/ResumeButton" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/SettingsButton" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/Container/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/Container/CreditButton" to="." method="_on_credit_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/Container/HBoxContainer/MuteMasterButton" to="." method="_on_mute_master_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/Container/HBoxContainer/MuteMasterButton" to="." method="_on_mute_master_button_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/Container/HBoxContainer/MuteMusicButton" to="." method="_on_mute_music_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/VBoxContainer/NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/VBoxContainer/ResumeButton" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/VBoxContainer/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/CreditButton" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/HBoxContainer/MuteMasterButton" to="." method="_on_mute_master_button_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/HBoxContainer/MuteMasterButton" to="." method="_on_mute_master_pressed"]
+[connection signal="pressed" from="BackGround/MarginContainer/Container/HBoxContainer/MuteMusicButton" to="." method="_on_mute_music_pressed"]

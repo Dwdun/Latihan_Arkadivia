@@ -1,7 +1,7 @@
 extends Control
 
-@onready var mute_master_btn = $Panel/MarginContainer/Container/HBoxContainer/MuteMasterButton
-@onready var mute_music_btn = $Panel/MarginContainer/Container/HBoxContainer/MuteMusicButton
+@onready var mute_master_btn = $BackGround/MarginContainer/Container/HBoxContainer/MuteMasterButton
+@onready var mute_music_btn = $BackGround/MarginContainer/Container/HBoxContainer/MuteMusicButton
 func _ready() -> void:
 	if GlobalUI:
 		GlobalUI.hide_ui()

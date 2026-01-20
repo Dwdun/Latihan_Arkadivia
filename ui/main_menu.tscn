@@ -19,6 +19,15 @@ grow_vertical = 2
 script = ExtResource("1_t7e0r")
 level_1_path = "uid://47pf3u75h2b2"
 
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ubpvv")
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -180,124 +189,6 @@ offset_left = -22.0
 offset_top = -15.0
 offset_right = 22.0
 offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_arv2f")
-text = "Back"
-
-[node name="Panel" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_ubpvv")
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Container" type="Control" parent="Panel/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/Container"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -327.0
-offset_top = -241.0
-offset_right = 327.0
-offset_bottom = 241.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_p8ri8")
-stretch_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="Panel/MarginContainer/Container"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -526.0
-offset_right = 526.0
-offset_bottom = 137.0
-grow_horizontal = 2
-texture = ExtResource("3_ubpvv")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Container"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -33.0
-offset_top = 57.0
-offset_right = 33.0
-offset_bottom = 87.0
-grow_horizontal = 2
-theme = ExtResource("4_arv2f")
-text = "CREDIT"
-
-[node name="Desc" type="Label" parent="Panel/MarginContainer/Container"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -97.5
-offset_right = 228.0
-offset_bottom = 97.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_arv2f")
-theme_override_font_sizes/font_size = 19
-text = "Faqih - Lead & Art Director
-Bima - Programmer (Gameplay)
-Jo - Programmer (System)
-Salman, fatih - Level designer & environment designer
-Fawwaz - UI/UX Designer"
-
-[node name="TextureButton" type="TextureButton" parent="Panel/MarginContainer/Container"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = 59.0
-offset_right = 62.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("6_lsdqh")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Container/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_arv2f")
