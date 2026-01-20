@@ -1,12 +1,12 @@
 extends Control
 
 @onready var mute_master_btn = $Panel/MarginContainer/Container/HBoxContainer/MuteMasterButton
-
+@onready var mute_music_btn = $Panel/MarginContainer/Container/HBoxContainer/MuteMusicButton
 func _ready() -> void:
 	if GlobalUI:
 		GlobalUI.hide_ui()
 	SettingsManager.load_settings()
-	_update_mute_button_visual()
+	_update_mute_master_button_visual()
 	# HAPUS baris SavingSystem.load_game() disini.
 	# Kita tidak ingin load game otomatis saat menu terbuka,
 	# tapi hanya saat tombol "Load/Resume" ditekan.
@@ -52,7 +52,7 @@ func _on_mute_master_pressed() -> void:
 	Global.settings["master_is_muted"] = AudioServer.is_bus_mute(bus_index)
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
-	_update_mute_button_visual()
+	_update_mute_master_button_visual()
 
 func _on_mute_music_pressed() -> void:
 	var bus_index := AudioServer.get_bus_index("Music")
@@ -61,14 +61,22 @@ func _on_mute_music_pressed() -> void:
 	Global.settings["music_is_muted"] = AudioServer.is_bus_mute(bus_index)
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
+	_update_mute_music_button_visual()
 
-func _update_mute_button_visual():
+func _update_mute_master_button_visual():
 	# Cek apakah master sedang di-mute?
 	var is_muted = Global.settings["master_is_muted"]
 	
 	if is_muted:
-		mute_master_btn.text = "Unmute Sound" 
 		mute_master_btn.modulate = Color.RED # Beri warna merah biar jelas mati
 	else:
-		mute_master_btn.text = "Mute Sound"
 		mute_master_btn.modulate = Color.WHITE
+		
+func _update_mute_music_button_visual():
+	# Cek apakah master sedang di-mute?
+	var is_muted = Global.settings["music_is_muted"]
+	
+	if is_muted:
+		mute_music_btn.modulate = Color.RED # Beri warna merah biar jelas mati
+	else:
+		mute_music_btn.modulate = Color.WHITE
