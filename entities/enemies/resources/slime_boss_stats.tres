@@ -8,5 +8,6 @@
 [resource]
 script = ExtResource("1_852fo")
 max_health = 190
+contact_damage = 1
 attacks = Array[Resource]([ExtResource("1_uq6il"), ExtResource("2_ry0hp"), ExtResource("3_hvluo")])
 metadata/_custom_type_script = "uid://bniobw5uyc22y"

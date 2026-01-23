@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_qemo5")
 attack_name = "Lunge"
+damage = 1
 cooldown = 1.0
 max_range = 70.0
 metadata/_custom_type_script = "uid://djq05n4y44bpx"

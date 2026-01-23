@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d3unbvo0fi14s" path="res://entities/enemies/enemy_slime.tscn" id="7_akjhl"]
 [ext_resource type="PackedScene" uid="uid://1naqlr4rc03u" path="res://entities/hazards/abyss.tscn" id="8_akjhl"]
 [ext_resource type="PackedScene" uid="uid://6s2lvoo4twy3" path="res://items/GoldCoin.tscn" id="8_ey2k3"]
-[ext_resource type="Texture2D" uid="uid://corpf4jbk87qe" path="res://assets/art/environment/tile map/tile_map_master.png" id="8_narha"]
+[ext_resource type="Texture2D" uid="uid://dixurtptkuba7" path="res://assets/art/environment/tile map/tile_map_master.png" id="8_narha"]
 [ext_resource type="PackedScene" uid="uid://deh6p1b8d7g2v" path="res://entities/NPCs/supa.tscn" id="9_gu4v5"]
 [ext_resource type="Resource" uid="uid://cwn6cigtfyyq1" path="res://systems/shop/resources/shop_place_1.tres" id="10_rxgb1"]
 [ext_resource type="Texture2D" uid="uid://jw8ndpl1n1uo" path="res://assets/art/environment/background/meadow/bg_layer1_skyes.png" id="11_rxgb1"]
@@ -394,7 +394,7 @@ position = Vector2(120, -8)
 position = Vector2(-16, 0)
 
 [node name="Start" parent="." instance=ExtResource("5_bgktc")]
-position = Vector2(1504, 106)
+position = Vector2(42, 86)
 my_id = "start"
 target_door_id = ""
 

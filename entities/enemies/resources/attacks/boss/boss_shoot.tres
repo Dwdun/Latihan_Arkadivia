@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_ksayo")
 attack_name = "Shoot"
-damage = 50
+damage = 1
 animation_name = "Shoot"
 min_range = 100.0
 max_range = 600.0

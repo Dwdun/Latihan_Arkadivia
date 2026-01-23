@@ -8,6 +8,7 @@ knockback_force = 500.0
 lunge_speed = 200.0
 lunge_duration = 0.8
 attack_name = "Walk"
+damage = 1
 cooldown = 5.0
 animation_name = "Walk"
 min_range = 150.0
