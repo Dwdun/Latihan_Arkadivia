@@ -2,6 +2,7 @@ extends Node2D
 
 @export var speed: float = 100.0
 @export var wait_time: float = 0.5
+@onready var hitbox: HitboxComponent = $HitboxComponent
 
 # Ambil referensi Marker
 @onready var a = $A
@@ -26,6 +27,8 @@ func _physics_process(delta):
 	$AnimationPlayer.play("Idle")
 	if is_waiting:
 		return
+	if hitbox:
+			hitbox.reset_hitbox()
 
 	global_position = global_position.move_toward(target_position, speed * delta)
 	if global_position.distance_to(target_position) < 1.0:

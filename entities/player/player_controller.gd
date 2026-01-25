@@ -29,11 +29,15 @@ var current_mana: int = 0
 signal mana_changed(current, max)
 signal skill_used(skill_index: int, cooldown_duration: float)
 
+var audio_jump = preload("res://assets/audio/sfx/dash-red-left.mp3")
+var audio_dash = preload("res://assets/audio/sfx/jump-super.mp3")
+
 @onready var health_component: HealthComponent = $HealthComponent
 
 @onready var visuals: Marker2D = $Visuals
 @onready var sprite: Sprite2D = $Visuals/Sprite2D 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sfx_player: AudioStreamPlayer = $SFXPlayer
 
 @onready var camera_shaker: Camera2D = $Camera2D
 var jump_count: int = 0
@@ -107,6 +111,7 @@ func _physics_process(delta: float) -> void:
 			skill.tick_cooldown(delta)
 
 	if Input.is_action_just_pressed("dash"):
+		GlobalAudio.play_music_range(audio_dash, 0.0, 0.93)
 		use_skill(0)
 		
 	if Input.is_action_just_pressed("skill_1"):
@@ -119,7 +124,7 @@ func _physics_process(delta: float) -> void:
 			final_gravity *= 1.5 
 			
 		velocity.y += final_gravity * delta
-		velocity.y = min(velocity.y, 1000.0) 
+		velocity.y = min(velocity.y, 200.0) 
 	move_and_slide()
 
 func apply_dash_data(speed: float, duration: float):
@@ -280,9 +285,11 @@ func _on_died():
 	else:
 		push_warning("Animasi 'Death' tidak ditemukan!")
 
-	GameManager.respawn_player()
+	if GlobalUI:
+		GlobalUI.show_game_over()
 
 func perform_jump():
+	GlobalAudio.play_music_range(audio_jump, 0.0, 0.52)
 	velocity.y = stats.jump_force
 	jump_count += 1
 	jump_buffer_timer = 0 

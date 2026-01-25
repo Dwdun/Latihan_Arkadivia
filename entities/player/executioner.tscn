@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bejuyan8clg4j"]
+[gd_scene load_steps=44 format=3 uid="uid://bejuyan8clg4j"]
 
 [ext_resource type="Script" uid="uid://cqvdx4apx3cy4" path="res://entities/player/player_controller.gd" id="1_84q31"]
 [ext_resource type="Resource" uid="uid://c166n27o7i0fj" path="res://entities/player/resources/executioner_stas.tres" id="2_84q31"]
@@ -16,12 +16,15 @@
 [ext_resource type="AudioStream" uid="uid://dsjk354jrhumr" path="res://assets/audio/sfx/Executor/Axe/Warframe - Oraxia Abilities - Visuals & Sounds - Ultraclocked.wav" id="9_rbetp"]
 [ext_resource type="Texture2D" uid="uid://db4ja2owbe03p" path="res://assets/art/characters/executor/executor_walk.png" id="9_sa72v"]
 [ext_resource type="Texture2D" uid="uid://ocnq2ac7ep00" path="res://assets/art/characters/executor/executor_jump_down.png" id="10_oh3df"]
+[ext_resource type="AudioStream" uid="uid://cgho6ek7wfwk1" path="res://assets/audio/sfx/Executor/Hit and Die/Man Hit Or Drowning With Pain Sound Effect - Free Download & No Copyright - Sound Effects - No Copyright & Free Download.wav" id="11_0ovjg"]
 [ext_resource type="Texture2D" uid="uid://cph78711ih838" path="res://assets/art/characters/executor/executor_idle.png" id="11_joima"]
 [ext_resource type="Script" uid="uid://djnmmhs2mo4nn" path="res://_core/components/hurtbox_component.gd" id="11_mbpys"]
 [ext_resource type="Texture2D" uid="uid://bj2w0q4f8s38v" path="res://assets/art/characters/executor/executor_jump_up.png" id="12_0ovjg"]
 [ext_resource type="Script" uid="uid://d0w2qqms5v0id" path="res://_core/components/health_component.gd" id="12_sa72v"]
 [ext_resource type="Texture2D" uid="uid://bf6vhgtshbbvj" path="res://assets/art/characters/executor/executor_die.png" id="13_0n1ni"]
+[ext_resource type="AudioStream" uid="uid://dpl4tmoqu8iw4" path="res://assets/audio/sfx/Executor/Hit and Die/EXECUTOR SFX HIT AND DIE(1).wav" id="13_joima"]
 [ext_resource type="Texture2D" uid="uid://kkurgmj3optd" path="res://assets/art/characters/executor/executor_skill.png" id="16_3281n"]
+[ext_resource type="AudioStream" uid="uid://dk7fba4bmeqjr" path="res://assets/audio/sfx/Executor/Walking/Walk.wav" id="16_joima"]
 [ext_resource type="Texture2D" uid="uid://ckbic0spot0du" path="res://assets/art/characters/executor/executor_kena_hit_atau_sekarat.png" id="17_sa72v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
@@ -216,6 +219,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 1.8628694,
+"stream": ExtResource("11_0ovjg")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_8fjmc"]
 resource_name = "Fall"
@@ -299,6 +317,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 7.11,
+"start_offset": 0.0,
+"stream": ExtResource("13_joima")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_sglur"]
 resource_name = "Idle"
@@ -341,6 +374,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_fkugw"]
 resource_name = "Jump"
@@ -383,6 +431,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_abrql"]
 length = 0.001
@@ -482,6 +545,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [ExtResource("13_0n1ni")]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Visuals/Sprite2D:hframes")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
 
 [sub_resource type="Animation" id="Animation_bls4j"]
 resource_name = "Run"
@@ -524,6 +599,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [6]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 6.6511817,
+"start_offset": 3.4664195,
+"stream": ExtResource("16_joima")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_bectd"]
 resource_name = "Skill1"
@@ -726,6 +816,7 @@ visible = false
 position = Vector2(40, -17)
 texture = ExtResource("9_84q31")
 hframes = 3
+region_rect = Rect2(80, 0, 0, 32)
 
 [node name="SkillHitbox" type="Area2D" parent="Visuals"]
 collision_layer = 8
@@ -749,7 +840,7 @@ hframes = 6
 position = Vector2(0, -17)
 texture = ExtResource("13_0n1ni")
 offset = Vector2(7, 0)
-hframes = 5
+hframes = 7
 
 [node name="Hurtbox" type="Area2D" parent="Visuals" node_paths=PackedStringArray("health_component")]
 collision_layer = 4
@@ -761,6 +852,8 @@ health_component = NodePath("../../HealthComponent")
 position = Vector2(0, -15.75)
 shape = SubResource("RectangleShape2D_a1qjk")
 debug_color = Color(0.97491735, 0.1603266, 0, 0.41960785)
+
+[node name="SkillContainer" type="Node2D" parent="Visuals"]
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("12_sa72v")

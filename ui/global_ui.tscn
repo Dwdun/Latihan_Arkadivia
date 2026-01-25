@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkmi1ro8cmdfk"]
+[gd_scene load_steps=9 format=3 uid="uid://bkmi1ro8cmdfk"]
 
 [ext_resource type="PackedScene" uid="uid://ilebuxobul7e" path="res://_core/inventory/inventory_ui.tscn" id="1_a31wk"]
 [ext_resource type="Script" uid="uid://bu5l8uivi1cq7" path="res://ui/global_ui.gd" id="1_d8w1j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cvxiix57oppg8" path="res://assets/art/ui/main (game) display/Healthh Bar/Empty Health bar.png" id="3_w5rkm"]
 [ext_resource type="PackedScene" uid="uid://k0k0npeyy3q" path="res://_core/pause_menu.tscn" id="6_w5rkm"]
 [ext_resource type="PackedScene" uid="uid://bt546bpmhvmbf" path="res://ui/skill_ui.tscn" id="7_8tgdr"]
+[ext_resource type="PackedScene" uid="uid://cfg0uqe0x8768" path="res://ui/game_over.tscn" id="8_0ia67"]
 
 [node name="GlobalUI" type="CanvasLayer"]
 process_mode = 3
@@ -113,3 +114,7 @@ offset_left = 967.0
 offset_top = 500.0
 offset_right = -89.0
 offset_bottom = -56.0
+
+[node name="GameOver" parent="HUD" instance=ExtResource("8_0ia67")]
+visible = false
+layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://eo7rm7h31ttk"]
+[gd_scene load_steps=22 format=4 uid="uid://eo7rm7h31ttk"]
 
 [ext_resource type="Script" uid="uid://b3s4ssmnlpj2p" path="res://levels/level_controller.gd" id="1_vsewx"]
 [ext_resource type="Texture2D" uid="uid://cdpbnhhmu4wrg" path="res://assets/art/environment/background/forest/Backgroundl-Forest-Paralax-bg.png" id="2_ukvgx"]
@@ -7,18 +7,15 @@
 [ext_resource type="Script" uid="uid://11v6ngrv0fxs" path="res://_core/level_system/smart_level_chunk.gd" id="7_fuo3l"]
 [ext_resource type="Texture2D" uid="uid://dixurtptkuba7" path="res://assets/art/environment/tile map/tile_map_master.png" id="8_h2o4d"]
 [ext_resource type="PackedScene" uid="uid://1naqlr4rc03u" path="res://entities/hazards/abyss.tscn" id="9_dha5i"]
-[ext_resource type="PackedScene" uid="uid://blk6msajmxq57" path="res://entities/hazards/spikes.tscn" id="10_n2ovx"]
-[ext_resource type="PackedScene" uid="uid://dasb6d1pcjxn7" path="res://dummy/samsak.tscn" id="11_5mra6"]
 [ext_resource type="PackedScene" uid="uid://d3unbvo0fi14s" path="res://entities/enemies/enemy_slime.tscn" id="12_v2g8w"]
 [ext_resource type="PackedScene" uid="uid://6s2lvoo4twy3" path="res://items/GoldCoin.tscn" id="13_fewke"]
 [ext_resource type="PackedScene" uid="uid://deh6p1b8d7g2v" path="res://entities/NPCs/supa.tscn" id="14_t0xrc"]
 [ext_resource type="Resource" uid="uid://cwn6cigtfyyq1" path="res://systems/shop/resources/shop_place_1.tres" id="15_oy36u"]
 [ext_resource type="Resource" uid="uid://0yeo5q8qluvr" path="res://entities/interactables/chests/chest_2a.tres" id="15_ukvgx"]
+[ext_resource type="PackedScene" uid="uid://blk6msajmxq57" path="res://entities/hazards/spikes.tscn" id="15_vau71"]
 [ext_resource type="PackedScene" uid="uid://bucmo40l26mit" path="res://entities/interactables/level_door.tscn" id="16_lxmy5"]
-[ext_resource type="PackedScene" uid="uid://b0h4g1iu3c0tj" path="res://entities/interactables/level_hallway.tscn" id="17_bfx16"]
 [ext_resource type="PackedScene" uid="uid://dp1mygfgm048b" path="res://entities/hazards/birb.tscn" id="17_vsewx"]
 [ext_resource type="PackedScene" uid="uid://cmlh6utehee0u" path="res://entities/interactables/chests/treasure_chest.tscn" id="18_12lj7"]
-[ext_resource type="Resource" uid="uid://cfqgyb5by42q1" path="res://entities/interactables/chests/chest_1a.tres" id="19_5roos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_narha"]
 texture = ExtResource("8_h2o4d")
@@ -226,6 +223,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_uohjh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxhv8"]
+size = Vector2(11.40625, 12.25)
+
 [node name="LevelCoba" type="Node2D"]
 script = ExtResource("1_vsewx")
 bottom = 176
@@ -285,22 +285,6 @@ tile_set = SubResource("TileSet_rvcct")
 position = Vector2(410, 214)
 scale = Vector2(50, 1)
 
-[node name="Spikes" parent="Chunk1" instance=ExtResource("10_n2ovx")]
-position = Vector2(496, -71.999985)
-scale = Vector2(0.2, 0.2)
-
-[node name="Samsak" parent="Chunk1" instance=ExtResource("11_5mra6")]
-position = Vector2(-80, -144)
-
-[node name="EnemySlime" parent="Chunk1" instance=ExtResource("12_v2g8w")]
-position = Vector2(239, 201)
-
-[node name="EnemySlime2" parent="Chunk1" instance=ExtResource("12_v2g8w")]
-position = Vector2(498, 133)
-
-[node name="EnemySlime3" parent="Chunk1" instance=ExtResource("12_v2g8w")]
-position = Vector2(616, 150)
-
 [node name="GoldCoin" parent="Chunk1" instance=ExtResource("13_fewke")]
 position = Vector2(121.00001, 134)
 scale = Vector2(11, 11)
@@ -333,7 +317,7 @@ amount = null
 unique_id = null
 
 [node name="Supa" parent="Chunk1" instance=ExtResource("14_t0xrc")]
-position = Vector2(164, 264)
+position = Vector2(2216, 76)
 shop_data = ExtResource("15_oy36u")
 
 [node name="TreasureChest2" parent="Chunk1" instance=ExtResource("18_12lj7")]
@@ -363,6 +347,12 @@ position = Vector2(26, 2)
 
 [node name="Collision" parent="Chunk1/Birb/HitboxComponent" index="0"]
 position = Vector2(0, -3)
+
+[node name="Spikes" parent="Chunk1" instance=ExtResource("15_vau71")]
+position = Vector2(327, 135)
+
+[node name="CollisionShape2D" parent="Chunk1/Spikes/Hitbox" index="0"]
+position = Vector2(24.5, -110.25)
 
 [node name="Chunk2" type="Node2D" parent="."]
 position = Vector2(695, 0)
@@ -458,6 +448,9 @@ unique_id = null
 [node name="EnemySlime" parent="Chunk2" instance=ExtResource("12_v2g8w")]
 position = Vector2(269, 53)
 
+[node name="EnemySlime3" parent="Chunk2" instance=ExtResource("12_v2g8w")]
+position = Vector2(-253, 128)
+
 [node name="EnemySlime2" parent="Chunk2" instance=ExtResource("12_v2g8w")]
 position = Vector2(771, 151)
 
@@ -494,6 +487,15 @@ position = Vector2(773, 90)
 
 [node name="B" parent="Chunk2/Birb5" index="2"]
 position = Vector2(-143, 0)
+
+[node name="Spikes" parent="Chunk2" instance=ExtResource("15_vau71")]
+position = Vector2(671, 104)
+
+[node name="Spikes2" parent="Chunk2" instance=ExtResource("15_vau71")]
+position = Vector2(691, 81)
+
+[node name="CollisionShape2D" parent="Chunk2/Spikes2/Hitbox" index="0"]
+position = Vector2(44.375, 22)
 
 [node name="Chunk3" type="Node2D" parent="."]
 position = Vector2(1478, 0)
@@ -640,28 +642,31 @@ position = Vector2(216, 23)
 [node name="B" parent="Chunk4/Birb" index="2"]
 position = Vector2(-186, 1)
 
-[node name="LevelHallway" parent="." instance=ExtResource("17_bfx16")]
-position = Vector2(688, -88)
-target_level_path = "uid://bpcwn34ynec7u"
+[node name="Spikes" parent="Chunk4" instance=ExtResource("15_vau71")]
+position = Vector2(185, 38)
 
-[node name="CollisionShape2D" parent="LevelHallway" index="0"]
-position = Vector2(120, -8)
+[node name="CollisionShape2D" parent="Chunk4/Spikes/Hitbox" index="0"]
+position = Vector2(-2, 2)
 
-[node name="SpawnPoint" parent="LevelHallway" index="1"]
-position = Vector2(-16, 0)
+[node name="Spikes2" parent="Chunk4" instance=ExtResource("15_vau71")]
+position = Vector2(279, 55)
 
-[node name="Label" type="Label" parent="."]
-offset_left = -120.0
-offset_top = 56.0
-offset_right = -66.0
-offset_bottom = 79.0
-text = "Level 1"
+[node name="CollisionShape2D" parent="Chunk4/Spikes2/Hitbox" index="0"]
+position = Vector2(0, -0.125)
+
+[node name="Spikes3" parent="Chunk4" instance=ExtResource("15_vau71")]
+position = Vector2(279, 55)
+
+[node name="CollisionShape2D" parent="Chunk4/Spikes3/Hitbox" index="0"]
+position = Vector2(1, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Chunk4/Spikes3/Hitbox" index="1"]
+position = Vector2(0.296875, 31)
+shape = SubResource("RectangleShape2D_sxhv8")
+debug_color = Color(0.9207215, 0.2601914, 0.28222877, 0.41960785)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1409, -24)
-
-[node name="EnemySlime" parent="." instance=ExtResource("12_v2g8w")]
-position = Vector2(-29, 12)
 
 [node name="Malam" type="CanvasModulate" parent="."]
 visible = false
@@ -671,17 +676,17 @@ color = Color(0.3882353, 0.43137255, 0.5686275, 1)
 visible = false
 color = Color(0.54901963, 0.61960787, 0.7019608, 1)
 
-[node name="TreasureChest" parent="." instance=ExtResource("18_12lj7")]
-position = Vector2(93, 247)
-loot_data = ExtResource("19_5roos")
-
 [editable path="Chunk1/Birb"]
+[editable path="Chunk1/Spikes"]
 [editable path="Chunk2/Birb"]
 [editable path="Chunk2/Birb2"]
 [editable path="Chunk2/Birb3"]
 [editable path="Chunk2/Birb4"]
 [editable path="Chunk2/Birb5"]
+[editable path="Chunk2/Spikes2"]
 [editable path="Chunk3/Birb"]
 [editable path="Chunk3/Birb2"]
 [editable path="Chunk4/Birb"]
-[editable path="LevelHallway"]
+[editable path="Chunk4/Spikes"]
+[editable path="Chunk4/Spikes2"]
+[editable path="Chunk4/Spikes3"]

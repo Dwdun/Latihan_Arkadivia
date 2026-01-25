@@ -12,8 +12,8 @@ func _enter() -> void:
 		
 		# Mainkan animasi "Jump" atau "Hurt" (Pilih salah satu)
 		# Animasi Jump biasanya lebih mulus untuk transisi udara
-		if player.animation_player.has_animation("Jump"):
-			player.animation_player.play("Jump")
+		if player.animation_player.has_animation("Hurt"):
+			player.animation_player.play("Hurt")
 	
 	timer = duration
 func _update(delta: float) -> void:

@@ -265,7 +265,7 @@ metadata/_custom_type_script = "uid://d0w2qqms5v0id"
 [node name="VisionComponent" type="Node2D" parent="."]
 position = Vector2(0, 8)
 script = ExtResource("8_66ryp")
-vision_range = 250.0
+vision_range = 100.0
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("7_op42u")

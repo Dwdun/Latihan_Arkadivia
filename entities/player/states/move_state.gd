@@ -1,5 +1,7 @@
 extends PlayerState
 
+var run_audio = preload("res://assets/audio/sfx/Executor/Walking/Walk.wav")
+
 func _enter() -> void:
 	super()
 	player.animation_player.play("Run")

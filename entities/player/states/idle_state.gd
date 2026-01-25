@@ -2,6 +2,7 @@ extends PlayerState
 
 func _enter() -> void:
 	super() # Panggil setup dasar
+	
 	player.animation_player.play("Idle") # Pastikan nama "Idle" sesuai dengan yang Anda buat
 
 func _update(delta: float) -> void:

@@ -50,6 +50,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * stats.gravity_scale * delta
+	if position.y > 176:
+		_on_died()
 
 	for k in attack_cooldowns.keys():
 		if attack_cooldowns[k] > 0: attack_cooldowns[k] -= delta

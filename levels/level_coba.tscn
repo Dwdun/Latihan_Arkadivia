@@ -295,6 +295,18 @@ tile_set = SubResource("TileSet_rvcct")
 position = Vector2(757, 196)
 scale = Vector2(2, 2)
 
+[node name="Abyss3" parent="Chunk1" instance=ExtResource("8_akjhl")]
+position = Vector2(870, 193)
+scale = Vector2(2, 2)
+
+[node name="Abyss4" parent="Chunk1" instance=ExtResource("8_akjhl")]
+position = Vector2(701, 196)
+scale = Vector2(2, 2)
+
+[node name="Abyss5" parent="Chunk1" instance=ExtResource("8_akjhl")]
+position = Vector2(226, 195)
+scale = Vector2(2, 2)
+
 [node name="Spikes" parent="Chunk1" instance=ExtResource("5_h3wk1")]
 position = Vector2(496, -71.999985)
 scale = Vector2(0.2, 0.2)
@@ -307,7 +319,7 @@ position = Vector2(-47.999996, 328)
 scale = Vector2(11, 11)
 
 [node name="Supa" parent="Chunk1" instance=ExtResource("9_gu4v5")]
-position = Vector2(-136, 160)
+position = Vector2(365, 121)
 shop_data = ExtResource("10_rxgb1")
 
 [node name="GoldCoin2" parent="Chunk1" instance=ExtResource("8_ey2k3")]

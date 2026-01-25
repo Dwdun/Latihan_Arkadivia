@@ -28,16 +28,6 @@ func _find_player():
 		player = players[0]
 		# (Opsional) Print agar kita tahu kapan slime 'sadar'
 		# print("VisionComponent: Player ditemukan!")
-
-func _draw():
-	if Engine.is_editor_hint() or OS.is_debug_build():
-		if is_instance_valid(player):
-			var color = Color.RED
-			if can_see_player():
-				color = Color.GREEN
-			
-			draw_circle(Vector2.ZERO, 5.0, color) 
-			draw_line(Vector2.ZERO, to_local(player.global_position + Vector2(0, -30.0)), color, 1.0)
 			
 func can_see_player() -> bool:
 	if not is_instance_valid(player):

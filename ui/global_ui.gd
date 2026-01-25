@@ -18,6 +18,8 @@ extends CanvasLayer
 @onready var bottom_bar = $CinematicLayer/BottomBar
 @onready var boss_title = $CinematicLayer/BossNameLabel
 
+@onready var game_over_ui = $HUD/GameOver
+
 func _ready() -> void:
 	# Default: Sembunyi saat game baru dinyalakan (Booting)
 	hide_ui()
@@ -52,24 +54,23 @@ func update_hp_ui(current: int, max_hp: int):
 		else:
 			heart_icon.texture = heart_empty_texture
 
-# Fungsi Helper untuk membangun ulang wadah hati
 func _rebuild_hearts(amount: int):
 	# Hapus semua anak lama
 	for child in heart_container.get_children():
+		# --- PERBAIKAN DI SINI ---
+		# Lepaskan child dari tree SEGERA agar tidak terhitung lagi oleh get_child_count()
+		heart_container.remove_child(child) 
+		# Lalu hapus dari memori
 		child.queue_free()
 	
 	# Buat TextureRect baru sebanyak Max HP
 	for i in range(amount):
 		var icon = TextureRect.new()
-		# Set texture default (kosong dulu gpp, nanti di-update)
 		icon.texture = heart_empty_texture 
-		# Mode stretch agar ukuran konsisten (Opsional, keep aspect centered bagus)
 		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE 
 		
-		# 2. Paksa ukuran sesuai keinginan kita (variable export)
 		icon.custom_minimum_size = heart_size 
 		
-		# 3. Jaga aspek rasio agar hati tidak gepeng
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		heart_container.add_child(icon)
 
@@ -147,3 +148,9 @@ func _on_player_skill_used(index: int, cooldown: float):
 	# Hanya respon jika yang dipakai adalah Skill 1 (Skill Serangan)
 	if index == 1 and skill_ui:
 		skill_ui.play_cooldown_animation(cooldown)
+
+func show_game_over():
+	if game_over_ui:
+		game_over_ui.lose()
+		if hud_control:
+			pass
